@@ -1,0 +1,12 @@
+{
+  "accepted_rows": 30000,
+  "evidence_scope": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "postgresql_curated_rows": null,
+  "postgresql_idempotency_verified": false,
+  "python_counts_reconcile": true,
+  "python_feature_rows": 30000,
+  "rejected_rows": 0,
+  "source_rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "sql_export_rows": null
+}

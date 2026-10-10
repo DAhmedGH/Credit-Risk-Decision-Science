@@ -1,0 +1,17 @@
+*
+!Dockerfile
+!requirements.lock
+!pyproject.toml
+!README.md
+!src/
+!src/**
+!tests/
+!tests/**
+!scripts/
+!scripts/**
+**/__pycache__
+!sql/
+!sql/**
+!configs/
+!configs/**
+!requirements-phase*.in

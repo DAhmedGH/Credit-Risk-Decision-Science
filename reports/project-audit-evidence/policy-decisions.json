@@ -1,0 +1,10 @@
+{
+  "policy_scenario_rows": 88,
+  "decisions_verified": 396000,
+  "id_order_and_masks_exact": true,
+  "counts_benchmark_utility_accepted_rates_exact": true,
+  "predicted_utility_max_discrepancy": 0,
+  "source_final_labels_read": false,
+  "saved_outcomes_only": true,
+  "thresholds_reselected": false
+}

@@ -1,0 +1,189 @@
+{
+  "checks": [
+    {
+      "command": ".venv/bin/ruff check . --no-cache",
+      "exit_code": 0,
+      "name": "ruff",
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+      "exit_code": 0,
+      "name": "pytest",
+      "output": "....................s.................................                   [100%]\n53 passed, 4 skipped in 1.94s\n"
+    },
+    {
+      "command": ".venv/bin/python -m compileall -q src tests scripts",
+      "exit_code": 0,
+      "name": "compile",
+      "output": ""
+    },
+    {
+      "command": "bash -n scripts/bootstrap_phase2.sh",
+      "exit_code": 0,
+      "name": "shell_syntax",
+      "output": ""
+    },
+    {
+      "command": ".venv/bin/python -m credit_risk baseline-inputs --config configs/phase2.toml",
+      "exit_code": 0,
+      "name": "real_inputs",
+      "output": "{\n  \"development_rows\": 18000,\n  \"fold_rows\": {\n    \"0\": 3600,\n    \"1\": 3600,\n    \"2\": 3600,\n    \"3\": 3600,\n    \"4\": 3600\n  },\n  \"frozen_inputs_verified\": true,\n  \"heldout_outcomes_interpreted\": false,\n  \"input_hashes\": {\n    \"artifacts/feature_contract_v1_1.json\": \"4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae\",\n    \"artifacts/phase1_export_manifest.json\": \"6157949db2e77b548d7de831f196b5d6506bd9c8e28dc3bd6290401f2be0e81a\",\n    \"artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json\": \"840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537\",\n    \"artifacts/split_manifest.csv\": \"775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c\",\n    \"data/processed/financial_features_v1.csv\": \"4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e\",\n    \"data/processed/labels.csv\": \"ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f\",\n    \"data/raw/default of credit card clients.xls\": \"30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933\"\n  },\n  \"predictive_fit\": false,\n  \"scope\": \"development only\"\n}\n"
+    },
+    {
+      "command": ".venv/bin/python -m credit_risk baselines --config configs/phase2.toml",
+      "exit_code": 1,
+      "name": "actual_baselines",
+      "output": "baselines stopped: Phase 2 dependencies unavailable/incompatible: numpy: expected 2.2.6, found missing; pandas: expected 2.3.3, found missing; scipy: expected 1.15.3, found missing; scikit-learn: expected 1.7.2, found missing; joblib: expected 1.5.2, found missing; threadpoolctl: expected 3.6.0, found missing; mlflow-skinny: expected 3.3.2, found missing. See docs/reproduction-phase2.md\n"
+    },
+    {
+      "command": ".venv/bin/python scripts/phase2_smoke.py",
+      "exit_code": 1,
+      "name": "synthetic_smoke",
+      "output": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Danieal/Desktop/Credit Risk Project/scripts/phase2_smoke.py\", line 53, in <module>\n    main()\n  File \"/mnt/c/Users/Danieal/Desktop/Credit Risk Project/scripts/phase2_smoke.py\", line 11, in main\n    check_dependencies()\n  File \"/mnt/c/Users/Danieal/Desktop/Credit Risk Project/src/credit_risk/phase2.py\", line 58, in check_dependencies\n    raise ModuleNotFoundError(\"Phase 2 dependencies unavailable/incompatible: \" +\nModuleNotFoundError: Phase 2 dependencies unavailable/incompatible: numpy: expected 2.2.6, found missing; pandas: expected 2.3.3, found missing; scipy: expected 1.15.3, found missing; scikit-learn: expected 1.7.2, found missing; joblib: expected 1.5.2, found missing; threadpoolctl: expected 3.6.0, found missing; mlflow-skinny: expected 3.3.2, found missing. See docs/reproduction-phase2.md\n"
+    }
+  ],
+  "dependency_install_attempt": {
+    "command": "UV_CACHE_DIR=/tmp/credit-risk-uv-cache .tools/bin/uv pip install --python .venv/bin/python --dry-run -r requirements-phase2.in",
+    "exit_code": 2,
+    "output": "Failed to fetch https://pypi.org/simple/numpy/ after 3 retries; DNS Temporary failure in name resolution; environment unchanged."
+  },
+  "environment_code_and_planned_configuration": {
+    "champion_frozen": false,
+    "code_file_hashes": {
+      "configs/base.toml": "eca7469bd6529a34d01e0bbafa7e45e75251c75a04f0caa13e0ce263c6dd000e",
+      "configs/phase2.toml": "50a18b5049548fa5978d81fe89c92b1f11737d4c19fe48bd344b2e760dd6047a",
+      "pyproject.toml": "e84d7314557e1978a7fbbad352154e33707bcacd5399b537672d297dc1f40e6d",
+      "requirements-phase2.in": "ddab61f54fe22931ec5d12596f6aa898a1591c7c17e10da3441c7272788938d4",
+      "requirements.lock": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+      "scripts/bootstrap.sh": "7643971db3856efe18fe22838cfcc78e960ae0dab9f757eddf51be9afbd8ca3d",
+      "scripts/bootstrap_phase2.sh": "67e2c4acdc0352dbb7570c82774b1f20aef82fff7381d5dd67da6d5a682eb41d",
+      "scripts/dev_db.py": "5caa6e3db559e4740382ac357baaaef7cb6eee526cfa664aa7b4a72319b286ba",
+      "scripts/environment_smoke.py": "9f2f9ccdd2ceeaf8594bb89f8a001b299523fd98a9d3f4b3fd70a30f495e6811",
+      "scripts/inspect_supplied_workbook.py": "10d6fdf7153e3df5bae6dce2e332271f1b90b80ebd6183ddf6563ad3f789a77e",
+      "scripts/inspection_phase1.py": "3daf539e1b2d222071fe072cc263a3f6bacf73d7df5492459c5544c2cd1dc4b0",
+      "scripts/phase2_smoke.py": "bc748681c40dc2c5f0e67999ba2de33fbf05e3f2926fa53ad79915c7f960d046",
+      "scripts/reproduce_inspection.py": "4e5c440e6403b29dcbe3502b74be408df8be2949069fca3229cc11fff4cda159",
+      "src/credit_risk/__init__.py": "0da8cb351254f547dccd9775087b29979c1b1f6e29004161b30259c7ba34f4ac",
+      "src/credit_risk/__main__.py": "b4e411936c44992369c70394b6665d60c2d14f1abffb7d3f9c388014267a83f5",
+      "src/credit_risk/artifacts.py": "7d58b6b33d4762007dd907e64ad98afea4ce7bdbc15d891659808c7c27043448",
+      "src/credit_risk/config.py": "08accc1d953f1b4f1d23f4ad87ab3f582a04ee42fd5357caaea19e3c6bd25c8a",
+      "src/credit_risk/data/__init__.py": "136d03403e26e8e1667b437e5797aa301ac0d4b148fef0a3ac9bd46326a30045",
+      "src/credit_risk/data/database.py": "7a6c13cd3e1503f5c4ea52851e11ed785d61d1c1414b4a7245bb4257bfc5e1b0",
+      "src/credit_risk/data/schema.py": "dfec652be690f83cce99cd98a82088a7f32ce95cc0c1aba90c0d20bcdeda4036",
+      "src/credit_risk/data/workbook.py": "4ad34736acc0ac11ff7a534455bbde746d50e34ba8c387035d810e308ea956a9",
+      "src/credit_risk/features/__init__.py": "ee5c13848908bfdaa6ce6a5fd8c3aec181391381a0701fca4ef58910822e35e9",
+      "src/credit_risk/models/__init__.py": "e372ba592afd06fd63eb373026723d8552a8f3095622dac95bf2f18102c8b9c6",
+      "src/credit_risk/models/evaluation.py": "284d2842b306e7b24b3d862f06e8e751f7f302d9bba98e5b3cc08cae854c2a17",
+      "src/credit_risk/models/inputs.py": "f50927c901fff8ac04fa3335ea36778ba7007a8cd39525ea5036b52b20d089a8",
+      "src/credit_risk/models/pipelines.py": "f91e33701154e5986ad1652e6661354c7cff0bc7bf809a0850c643eaeedc7d00",
+      "src/credit_risk/phase1.py": "a6a89936682f0036c3482d8feacd37dde6e0d12b776ebfc7c740f6f3d7cc0d4b",
+      "src/credit_risk/phase2.py": "347da148a5652c7c9c70e2d87a7967a8eea7cc4fb83abe463a1903b32d7ce120",
+      "src/credit_risk/splits/__init__.py": "ad317ddddba94aec6b2d322624df75d6e647cb8cd7885f72e9a04c48a8970bb3",
+      "src/credit_risk/splits/allocation.py": "dbd45102c54ca408dd7ea3ad0266e8cd92c06efe73b512652cba5730cbdfe11a"
+    },
+    "code_tree_sha256": "2ba31ef95d88a21da35bf4f232ca32d17ac7ed2ad0d13b8d3570d3696ebe95cc",
+    "config": {
+      "base_config": "configs/base.toml",
+      "experiment": "credit-risk-phase2-development-baselines",
+      "export_manifest": "artifacts/phase1_export_manifest.json",
+      "logistic": {
+        "C": 1.0,
+        "max_iter": 2000,
+        "solver": "lbfgs",
+        "tol": 0.0001
+      },
+      "output_dir": "artifacts/models/phase2",
+      "random_forest": {
+        "bootstrap": true,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 200
+      },
+      "reports_dir": "reports/phase2_runs",
+      "seed": 42,
+      "split_receipt": "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json",
+      "threads": 1,
+      "tracking_dir": "mlruns"
+    },
+    "config_sha256": "50a18b5049548fa5978d81fe89c92b1f11737d4c19fe48bd344b2e760dd6047a",
+    "dependencies": {
+      "credit-risk-decision-science": "0.1.0",
+      "iniconfig": "2.0.0",
+      "packaging": "24.1",
+      "pluggy": "1.5.0",
+      "psycopg": "3.2.3",
+      "psycopg-binary": "3.2.3",
+      "pytest": "8.3.3",
+      "ruff": "0.7.1",
+      "setuptools": "75.3.0",
+      "typing_extensions": "4.12.2",
+      "wheel": "0.44.0",
+      "xlrd": "2.0.2"
+    },
+    "dependency_lock_sha256": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+    "fold_std_definition": "sample standard deviation (ddof=1), five folds",
+    "git_commit": null,
+    "git_dirty": null,
+    "input_hashes": {
+      "artifacts/feature_contract_v1_1.json": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+      "artifacts/phase1_export_manifest.json": "6157949db2e77b548d7de831f196b5d6506bd9c8e28dc3bd6290401f2be0e81a",
+      "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json": "840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537",
+      "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+      "data/processed/financial_features_v1.csv": "4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e",
+      "data/processed/labels.csv": "ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f",
+      "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+    },
+    "inspection_at_utc": "2026-10-08T18:10:43.442065+00:00",
+    "planned_total_fits": 45,
+    "planned_variant_count": 9,
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "positive_class": 1,
+    "python": "3.12.11",
+    "scope": "development only",
+    "search_configurations": 0,
+    "seed": 42,
+    "threads": 1
+  },
+  "limitations": [
+    "No modeling packages installed; proposed direct pins and transitive closure not runtime validated",
+    "Three modeling test modules skipped plus existing live SQL test; skips are not passes",
+    "No model metrics, convergence measurements, serialization agreement, actual MLflow run IDs or real-data model results",
+    "Git status fails: not a Git repository; environment-owned .git has read-only permissions",
+    "No PostgreSQL/Docker action, heldout analysis, XGBoost or Phase3 execution"
+  ],
+  "mlflow_run_ids": [],
+  "phase1_bytes_preserved": {
+    "artifacts/feature_contract_v1_1.json": true,
+    "artifacts/split_manifest.csv": true,
+    "data/processed/audit_attributes.csv": true,
+    "data/processed/financial_features_v1.csv": true,
+    "data/processed/labels.csv": true,
+    "data/raw/default of credit card clients.xls": true,
+    "requirements.lock": true
+  },
+  "phase2_exit_gate": "pending runtime execution",
+  "predictive_fits_completed": 0,
+  "prior_iteration": {
+    "pytest": "4 failed, 48 passed, 3 skipped in 6.66s; corrected None-vs-empty heldout fold representation",
+    "ruff": "One unused import found and corrected",
+    "static_parameter_serialization": "Imputer missing_values NaN now represented explicitly in JSON parameter evidence; regression test written, dependency-skipped"
+  },
+  "recorded_at_utc": "2026-10-08 18:09:48 UTC",
+  "review": {
+    "independent": true,
+    "path": "docs/review-phase2.md",
+    "status": "Static/input-contract review complete; no unresolved scientific-integrity code finding; numerical/tracking review pending execution"
+  },
+  "scope": "Phase 2 only",
+  "user_run_phase1_evidence": {
+    "already_recorded_in": "reports/phase1.md; reports/phase1_handoff.json; docs/decision-log.md D008",
+    "counts_reconcile": true,
+    "development_eda_rows": 18000,
+    "ingestion_attempts": "Both no-ops",
+    "live_postgres_tests": "4 passed in 2.37s, user-reported; not rerun",
+    "predictive_training": "None before Phase 2; none completed in this session",
+    "rejected_rows": 0,
+    "source_audit_curated_exported_rows": 30000
+  }
+}

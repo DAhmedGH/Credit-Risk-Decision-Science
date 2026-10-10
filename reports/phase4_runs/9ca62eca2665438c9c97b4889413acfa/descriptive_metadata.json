@@ -1,0 +1,82 @@
+{
+  "logistic": {
+    "output_scale": "default log odds",
+    "positive_class": 1,
+    "intercept": -1.4824881034344046,
+    "numeric_scale": "one development-training standard deviation after median imputation",
+    "category_reference_rule": "first (lowest) fitted category, explicit coefficient difference",
+    "interpretation": "conditional associations in a regularized fitted model; not causal effects",
+    "reference_identity": "0f0e88ef743f82a48d7198b6c35b9f45cab54887a584b760ce00d2776c817e0e"
+  },
+  "slices": {
+    "utilization_bands": {
+      "feature": "latest_utilization_proxy",
+      "fit_partition": "development",
+      "minimum": -0.5519333333333334,
+      "maximum": 6.4553,
+      "quartiles": [
+        0.022051293103448274,
+        0.31697,
+        0.83686125
+      ],
+      "tie_rule": "cutpoint values go to the higher band; duplicate quartiles may yield empty bands",
+      "overflow_rule": "explicit below_development_min/above_development_max; nonfinite missing"
+    },
+    "partition": "policy_validation",
+    "classification_rule": "predicted default iff chosen probability >= 0.5",
+    "recall_definition": "predicted defaults / observed defaults",
+    "false_positive_rate_definition": "predicted defaults / observed nondefaults",
+    "calibration_summary": "mean predicted risk minus observed prevalence (calibration in the large)",
+    "demographic_support": {
+      "minimum_n": 100,
+      "minimum_each_class": 20
+    },
+    "suppressed_fields": "all rates and probability summaries; retain counts",
+    "age_bands": [
+      "under_30",
+      "30_to_39",
+      "40_to_49",
+      "50_plus",
+      "unknown"
+    ],
+    "limitations": "historical descriptive associations; neither fairness nor causal evidence"
+  },
+  "diagnostic_cases": {
+    "correct_default": {
+      "available": true,
+      "client_id": 19983,
+      "default_next_month": 1,
+      "probability": 0.8312279582023621,
+      "predicted_default": 1
+    },
+    "correct_nondefault": {
+      "available": true,
+      "client_id": 27074,
+      "default_next_month": 0,
+      "probability": 0.02509062923491001,
+      "predicted_default": 0
+    },
+    "missed_default": {
+      "available": true,
+      "client_id": 2561,
+      "default_next_month": 1,
+      "probability": 0.028413601219654083,
+      "predicted_default": 0
+    },
+    "false_alarm": {
+      "available": true,
+      "client_id": 28302,
+      "default_next_month": 0,
+      "probability": 0.7931257486343384,
+      "predicted_default": 1
+    }
+  },
+  "case_selection_rule": "0.5 classification; highest p for correct default/false alarm, lowest p for correct nondefault/missed default; ties lowest client_id",
+  "artifacts": [
+    "logistic_numeric_coefficients.csv",
+    "logistic_categorical_contrasts.csv",
+    "behavioral_slices.csv",
+    "demographic_audit.csv",
+    "descriptive_metadata.json"
+  ]
+}

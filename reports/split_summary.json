@@ -1,0 +1,119 @@
+{
+  "allocation_objective": "Greedy normalized squared row/class-count deviations; larger and rarer groups first; seed-derived hash ties; class-carrier feasibility guard",
+  "assignment_sha256": "1b65fae1d8197eb449dd1d5939563ddf5b9aa22bd3eaa06b30ce247cf69db2ed",
+  "development_folds": {
+    "0": {
+      "groups": 3499,
+      "row_deviation": 0.0,
+      "rows": 3600,
+      "target_rows": 3600.0
+    },
+    "1": {
+      "groups": 3503,
+      "row_deviation": 0.0,
+      "rows": 3600,
+      "target_rows": 3600.0
+    },
+    "2": {
+      "groups": 3503,
+      "row_deviation": 0.0,
+      "rows": 3600,
+      "target_rows": 3600.0
+    },
+    "3": {
+      "groups": 3502,
+      "row_deviation": 0.0,
+      "rows": 3600,
+      "target_rows": 3600.0
+    },
+    "4": {
+      "groups": 3501,
+      "row_deviation": 0.0,
+      "rows": 3600,
+      "target_rows": 3600.0
+    }
+  },
+  "duplicate_profile_groups": 134,
+  "feature_contract_sha256": "3e2b6adc14807efe0bda5e80da167acc21d2c8e1a22740fbdf00a75be50d0da7",
+  "fingerprint_version": "financial-profile-v1",
+  "group_count": 29183,
+  "integrity": {
+    "complete_unique_assignment": true,
+    "fingerprint_groups_fold_disjoint": true,
+    "fingerprint_groups_partition_disjoint": true,
+    "folds_only_on_development": true,
+    "nonempty_development_folds": true,
+    "nonempty_partitions": true,
+    "two_classes_in_each_development_fold": true,
+    "two_classes_in_each_partition": true
+  },
+  "label_access": "stratification and two-class structural checks only",
+  "largest_profile_group_rows": 63,
+  "manifest_file_sha256": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+  "partitions": {
+    "calibration": {
+      "actual_fraction": 0.15,
+      "fraction_deviation": 0.0,
+      "groups": 4378,
+      "row_deviation": 0.0,
+      "rows": 4500,
+      "target_fraction": 0.15,
+      "target_rows": 4500.0
+    },
+    "development": {
+      "actual_fraction": 0.6,
+      "fraction_deviation": 0.0,
+      "groups": 17508,
+      "row_deviation": 0.0,
+      "rows": 18000,
+      "target_fraction": 0.6,
+      "target_rows": 18000.0
+    },
+    "final_test": {
+      "actual_fraction": 0.15,
+      "fraction_deviation": 0.0,
+      "groups": 4378,
+      "row_deviation": 0.0,
+      "rows": 4500,
+      "target_fraction": 0.15,
+      "target_rows": 4500.0
+    },
+    "policy_validation": {
+      "actual_fraction": 0.1,
+      "fraction_deviation": 0.0,
+      "groups": 2919,
+      "row_deviation": 0.0,
+      "rows": 3000,
+      "target_fraction": 0.1,
+      "target_rows": 3000.0
+    }
+  },
+  "predictor_columns": [
+    "limit_bal",
+    "pay_status_2005_04",
+    "pay_status_2005_05",
+    "pay_status_2005_06",
+    "pay_status_2005_07",
+    "pay_status_2005_08",
+    "pay_status_2005_09",
+    "bill_amt_2005_04",
+    "bill_amt_2005_05",
+    "bill_amt_2005_06",
+    "bill_amt_2005_07",
+    "bill_amt_2005_08",
+    "bill_amt_2005_09",
+    "pay_amt_2005_04",
+    "pay_amt_2005_05",
+    "pay_amt_2005_06",
+    "pay_amt_2005_07",
+    "pay_amt_2005_08",
+    "pay_amt_2005_09"
+  ],
+  "predictor_schema_sha256": "7cf8ac671f10979ca7f762f9ad7f2213c9d6c2aa0584082c3105e422cbd84d85",
+  "row_count": 30000,
+  "rows_in_duplicate_profile_groups": 951,
+  "seed": 42,
+  "source_reader_evidence": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "split_version": "stratified-group-greedy-v1"
+}

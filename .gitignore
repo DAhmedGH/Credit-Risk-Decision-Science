@@ -1,0 +1,41 @@
+# Immutable source and generated customer-level data
+data/raw/
+data/processed/
+data/quarantine/
+# Project-local tools and Python (never change system Python)
+.venv/
+.tools/
+.cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+# Credentials and local service state
+.env
+.env.*
+!.env.example
+mlruns/
+mlartifacts/
+*.sqlite*
+artifacts/models/
+artifacts/runtime/
+# Per-customer Phase 2 predictions/errors and fold pipelines stay local.
+# Compact aggregate tables and run manifests live under reports/phase2_runs/.
+# Editor and OS state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Reserved environment-owned directories
+.aws/
+
+# Local attachments and generated verification output
+private/
+local/
+publication/
+.venv*/

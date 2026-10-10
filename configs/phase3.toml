@@ -1,0 +1,42 @@
+base_config = "configs/base.toml"
+export_manifest = "artifacts/phase1_export_manifest.json"
+split_receipt = "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json"
+tracking_dir = "mlruns"
+output_dir = "artifacts/models/phase3"
+reports_dir = "reports/phase3_runs"
+experiment = "credit-risk-phase3-development-search"
+profile_receipt = "reports/phase3_profile.json"
+seed = 42
+threads = 1
+search_workers = 1
+ap_tolerance = 0.01
+log_loss_tolerance = 0.001
+
+# Each sampled setting is paired across raw/combined × unweighted/balanced.
+# Total configurations, including these variants: 12 / 12 / 24.
+[settings_per_family]
+logistic = 3
+random_forest = 3
+xgboost = 6
+
+[parameter_spaces.logistic]
+C = [0.01, 0.1, 1.0, 10.0, 100.0]
+
+[parameter_spaces.random_forest]
+n_estimators = [100, 200, 300]
+# TOML has no null; the loader normalizes the literal "None" to None.
+max_depth = [6, 10, "None"]
+min_samples_leaf = [5, 10, 20]
+max_features = ["sqrt", 0.5, 0.8]
+
+[parameter_spaces.xgboost]
+# Provisional until the 30-tree development smoke/profile completes. The final
+# search refuses to run without its profile receipt; changes yield a new plan ID.
+n_estimators = [100, 200, 300]
+max_depth = [2, 3, 4]
+learning_rate = [0.03, 0.07, 0.1]
+subsample = [0.8, 1.0]
+colsample_bytree = [0.8, 1.0]
+min_child_weight = [1, 5, 10]
+reg_alpha = [0.0, 0.1, 1.0]
+reg_lambda = [1.0, 5.0, 10.0]

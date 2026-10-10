@@ -1,0 +1,222 @@
+{
+  "champion_frozen": false,
+  "code_file_hashes": {
+    "configs/base.toml": "eca7469bd6529a34d01e0bbafa7e45e75251c75a04f0caa13e0ce263c6dd000e",
+    "configs/phase2.toml": "50a18b5049548fa5978d81fe89c92b1f11737d4c19fe48bd344b2e760dd6047a",
+    "configs/phase3.toml": "3cd04ffb055372b1178776fc3a6526cff00c6afee052d36b9aee99a7501338dd",
+    "pyproject.toml": "447c699d5fec01ec0c011c983e82670e7810b46a1dd366756b7f8282cd4b1d9e",
+    "requirements-phase2.in": "ddab61f54fe22931ec5d12596f6aa898a1591c7c17e10da3441c7272788938d4",
+    "requirements-phase3.in": "6dbf08478715d797cba700b4afdaa33af877e9d5fbcf7aa7cbd62e336709b467",
+    "requirements.lock": "b8f4f36250c998b0d9850d8d99d6968b6810c244c06aa7c1262bb28d91c00fd5",
+    "scripts/bootstrap.sh": "7643971db3856efe18fe22838cfcc78e960ae0dab9f757eddf51be9afbd8ca3d",
+    "scripts/bootstrap_phase2.sh": "67e2c4acdc0352dbb7570c82774b1f20aef82fff7381d5dd67da6d5a682eb41d",
+    "scripts/bootstrap_phase3.sh": "6f075f899caf5433327164859ac2c9bc6215b4048ccf2d6d206dd55647a8fe09",
+    "scripts/dev_db.py": "5caa6e3db559e4740382ac357baaaef7cb6eee526cfa664aa7b4a72319b286ba",
+    "scripts/environment_smoke.py": "9f2f9ccdd2ceeaf8594bb89f8a001b299523fd98a9d3f4b3fd70a30f495e6811",
+    "scripts/inspect_supplied_workbook.py": "10d6fdf7153e3df5bae6dce2e332271f1b90b80ebd6183ddf6563ad3f789a77e",
+    "scripts/inspection_phase1.py": "3daf539e1b2d222071fe072cc263a3f6bacf73d7df5492459c5544c2cd1dc4b0",
+    "scripts/phase2_smoke.py": "bc748681c40dc2c5f0e67999ba2de33fbf05e3f2926fa53ad79915c7f960d046",
+    "scripts/phase3_smoke.py": "6c21979b831d36d74646f5d258c272ea6c85ee8a2c8e3c60195750002c616b74",
+    "scripts/reproduce_inspection.py": "4e5c440e6403b29dcbe3502b74be408df8be2949069fca3229cc11fff4cda159",
+    "src/credit_risk/__init__.py": "0da8cb351254f547dccd9775087b29979c1b1f6e29004161b30259c7ba34f4ac",
+    "src/credit_risk/__main__.py": "c9a6c9f5b007b1e4321b9fce289abd317ff92fe8cee2eede7a0b2fa2e4f9c735",
+    "src/credit_risk/artifacts.py": "7d58b6b33d4762007dd907e64ad98afea4ce7bdbc15d891659808c7c27043448",
+    "src/credit_risk/config.py": "08accc1d953f1b4f1d23f4ad87ab3f582a04ee42fd5357caaea19e3c6bd25c8a",
+    "src/credit_risk/data/__init__.py": "136d03403e26e8e1667b437e5797aa301ac0d4b148fef0a3ac9bd46326a30045",
+    "src/credit_risk/data/database.py": "7a6c13cd3e1503f5c4ea52851e11ed785d61d1c1414b4a7245bb4257bfc5e1b0",
+    "src/credit_risk/data/schema.py": "dfec652be690f83cce99cd98a82088a7f32ce95cc0c1aba90c0d20bcdeda4036",
+    "src/credit_risk/data/workbook.py": "4ad34736acc0ac11ff7a534455bbde746d50e34ba8c387035d810e308ea956a9",
+    "src/credit_risk/features/__init__.py": "ee5c13848908bfdaa6ce6a5fd8c3aec181391381a0701fca4ef58910822e35e9",
+    "src/credit_risk/models/__init__.py": "e372ba592afd06fd63eb373026723d8552a8f3095622dac95bf2f18102c8b9c6",
+    "src/credit_risk/models/evaluation.py": "48808135eb2ed9f7c06b15ff3edf2728849e844c3884b9895f76de1b0fa09236",
+    "src/credit_risk/models/inputs.py": "f50927c901fff8ac04fa3335ea36778ba7007a8cd39525ea5036b52b20d089a8",
+    "src/credit_risk/models/pipelines.py": "ba67364606589b78b18c00f5a0aee544c567ec66c23d6eb74fd9c40ca6e1fe45",
+    "src/credit_risk/models/search.py": "a47389232a61d23d0dd4cad69d4539cc8d2e726652d916e247210987c3d17e61",
+    "src/credit_risk/phase1.py": "a6a89936682f0036c3482d8feacd37dde6e0d12b776ebfc7c740f6f3d7cc0d4b",
+    "src/credit_risk/phase2.py": "e0dc78d45d3fc33d1e62b1905f2d396cc03bef5e2bdd4ba3640b63f3528d7b30",
+    "src/credit_risk/phase3.py": "f3030925049da7eabb6bd6b80f26c6de116d5ba55ae08b8fdf32d99ac215b1f2",
+    "src/credit_risk/splits/__init__.py": "ad317ddddba94aec6b2d322624df75d6e647cb8cd7885f72e9a04c48a8970bb3",
+    "src/credit_risk/splits/allocation.py": "dbd45102c54ca408dd7ea3ad0266e8cd92c06efe73b512652cba5730cbdfe11a"
+  },
+  "code_tree_sha256": "f10306c4b8e9e9c861571a5be93e14c40add17e9a8745adcfb3325cf62b7138e",
+  "complete_bundle_frozen": false,
+  "config": {
+    "ap_tolerance": 0.01,
+    "base_config": "configs/base.toml",
+    "experiment": "credit-risk-phase3-development-search",
+    "export_manifest": "artifacts/phase1_export_manifest.json",
+    "log_loss_tolerance": 0.001,
+    "output_dir": "artifacts/models/phase3",
+    "parameter_spaces": {
+      "logistic": {
+        "C": [
+          0.01,
+          0.1,
+          1.0,
+          10.0,
+          100.0
+        ]
+      },
+      "random_forest": {
+        "max_depth": [
+          6,
+          10,
+          null
+        ],
+        "max_features": [
+          "sqrt",
+          0.5,
+          0.8
+        ],
+        "min_samples_leaf": [
+          5,
+          10,
+          20
+        ],
+        "n_estimators": [
+          100,
+          200,
+          300
+        ]
+      },
+      "xgboost": {
+        "colsample_bytree": [
+          0.8,
+          1.0
+        ],
+        "learning_rate": [
+          0.03,
+          0.07,
+          0.1
+        ],
+        "max_depth": [
+          2,
+          3,
+          4
+        ],
+        "min_child_weight": [
+          1,
+          5,
+          10
+        ],
+        "n_estimators": [
+          100,
+          200,
+          300
+        ],
+        "reg_alpha": [
+          0.0,
+          0.1,
+          1.0
+        ],
+        "reg_lambda": [
+          1.0,
+          5.0,
+          10.0
+        ],
+        "subsample": [
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "profile_receipt": "reports/phase3_profile.json",
+    "reports_dir": "reports/phase3_runs",
+    "search_workers": 1,
+    "seed": 42,
+    "settings_per_family": {
+      "logistic": 3,
+      "random_forest": 3,
+      "xgboost": 6
+    },
+    "split_receipt": "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json",
+    "threads": 1,
+    "tracking_dir": "mlruns"
+  },
+  "config_sha256": "3cd04ffb055372b1178776fc3a6526cff00c6afee052d36b9aee99a7501338dd",
+  "dependencies": {
+    "GitPython": "3.2.0",
+    "PyYAML": "6.0.3",
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.14.2",
+    "cachetools": "6.2.6",
+    "certifi": "2026.7.22",
+    "cffi": "2.1.1",
+    "charset-normalizer": "3.5.2",
+    "click": "8.5.0",
+    "cloudpickle": "3.1.2",
+    "credit-risk-decision-science": "0.1.0",
+    "cryptography": "50.0.2",
+    "databricks-sdk": "0.149.0",
+    "fastapi": "0.143.0",
+    "gitdb": "4.0.12",
+    "google-auth": "2.61.0",
+    "h11": "0.16.0",
+    "idna": "3.20",
+    "importlib_metadata": "8.9.0",
+    "iniconfig": "2.0.0",
+    "joblib": "1.5.2",
+    "mlflow-skinny": "3.3.2",
+    "numpy": "2.2.6",
+    "opentelemetry-api": "1.45.1",
+    "opentelemetry-sdk": "1.45.1",
+    "opentelemetry-semantic-conventions": "0.66b1",
+    "packaging": "24.1",
+    "pandas": "2.3.3",
+    "pluggy": "1.5.0",
+    "protobuf": "6.33.6",
+    "psycopg": "3.2.3",
+    "psycopg-binary": "3.2.3",
+    "pyasn1": "0.6.4",
+    "pyasn1_modules": "0.4.2",
+    "pycparser": "3.1",
+    "pydantic": "2.11.10",
+    "pydantic_core": "2.33.2",
+    "pytest": "8.3.3",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2026.5",
+    "requests": "2.34.2",
+    "ruff": "0.7.1",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "setuptools": "75.3.0",
+    "six": "1.17.0",
+    "smmap": "5.0.3",
+    "sqlparse": "0.6.0",
+    "starlette": "1.7.0",
+    "threadpoolctl": "3.6.0",
+    "typing-inspection": "0.4.2",
+    "typing_extensions": "4.12.2",
+    "tzdata": "2026.5",
+    "urllib3": "2.8.0",
+    "uvicorn": "0.54.0",
+    "wheel": "0.44.0",
+    "xlrd": "2.0.2",
+    "zipp": "4.1.1"
+  },
+  "dependency_lock_sha256": "b8f4f36250c998b0d9850d8d99d6968b6810c244c06aa7c1262bb28d91c00fd5",
+  "fold_std_definition": "sample standard deviation (ddof=1), five folds",
+  "git_commit": null,
+  "git_dirty": null,
+  "input_hashes": {
+    "artifacts/feature_contract_v1_1.json": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+    "artifacts/phase1_export_manifest.json": "6157949db2e77b548d7de831f196b5d6506bd9c8e28dc3bd6290401f2be0e81a",
+    "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json": "840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537",
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "data/processed/financial_features_v1.csv": "4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e",
+    "data/processed/labels.csv": "ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f",
+    "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "phase": 3,
+  "plan_path": "artifacts/phase3_plans/9927448bbd9535fec4922a39d218ee745b77156e73e42ee071c05f9669d9c88a.json",
+  "plan_sha256": "9927448bbd9535fec4922a39d218ee745b77156e73e42ee071c05f9669d9c88a",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "positive_class": 1,
+  "python": "3.12.11",
+  "runtime_root": "/tmp/credit-risk-phase3-real-03kpjn82",
+  "scope": "development only",
+  "seed": 42,
+  "started_at_utc": "2026-10-08T19:23:32.967237+00:00",
+  "threads": 1
+}

@@ -1,0 +1,14 @@
+{
+  "bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+  "counts_reconcile": true,
+  "database_access": false,
+  "expected_utility": "chosen action; abstention zero",
+  "fitting": false,
+  "input_count": 12,
+  "input_sha256": "540413ab27e6dc3d26dc1ac3da91ad43016ad77a43fb0caef38130275a70e69b",
+  "manifest_sha256": "0cd8c5c63e90ffc159acfa5fb63d10affeda015f885171e3bde9b4c08402e6f1",
+  "policy_id": "empirical",
+  "quarantined_count": 0,
+  "scenario_id": "base",
+  "scored_count": 12
+}

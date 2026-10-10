@@ -1,0 +1,164 @@
+{
+  "baseline": {
+    "affected_files": 287,
+    "diagnostics": 3337,
+    "diagnostics_by_directory": {
+      ".cache": 640,
+      ".tools": 2697
+    },
+    "diagnostics_by_rule": {
+      "E401": 63,
+      "E402": 134,
+      "E701": 491,
+      "E702": 59,
+      "E703": 5,
+      "E712": 1,
+      "E713": 45,
+      "E714": 2,
+      "E721": 15,
+      "E722": 83,
+      "E731": 39,
+      "E741": 61,
+      "E743": 1,
+      "F401": 160,
+      "F403": 72,
+      "F405": 1762,
+      "F541": 11,
+      "F601": 26,
+      "F811": 5,
+      "F821": 205,
+      "F822": 31,
+      "F841": 66
+    },
+    "exact_user_report_reproduction": "ruff check . --no-cache --no-respect-gitignore (before configuration change)",
+    "maintained_code_diagnostics": 0,
+    "normal_check_initially_reported": 0,
+    "safe_fixes": 228,
+    "top_files": [
+      {
+        "diagnostics": 294,
+        "file": ".cache/uv/archive-v0/3TYcNd0jgvlOdZPTJrOf-/xlrd/sheet.py"
+      },
+      {
+        "diagnostics": 191,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/re/_compiler.py"
+      },
+      {
+        "diagnostics": 152,
+        "file": ".cache/uv/archive-v0/3TYcNd0jgvlOdZPTJrOf-/xlrd/book.py"
+      },
+      {
+        "diagnostics": 150,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/re/_parser.py"
+      },
+      {
+        "diagnostics": 112,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/turtle.py"
+      },
+      {
+        "diagnostics": 86,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/turtledemo/penrose.py"
+      },
+      {
+        "diagnostics": 73,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/ast.py"
+      },
+      {
+        "diagnostics": 68,
+        "file": ".cache/uv/archive-v0/3TYcNd0jgvlOdZPTJrOf-/xlrd/formula.py"
+      },
+      {
+        "diagnostics": 59,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/lib2to3/pgen2/tokenize.py"
+      },
+      {
+        "diagnostics": 59,
+        "file": ".tools/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/socket.py"
+      }
+    ],
+    "unsafe_fixes": 94
+  },
+  "frozen_artifacts": {
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "manual_canonical_artifacts": "Existing phase1_run.json inspected, not regenerated or live-verified in this task",
+  "python": "3.12.11",
+  "recorded_at_utc": "2026-10-07T02:23:29.298254+00:00",
+  "resolution": {
+    "automatic_fixes_applied": 0,
+    "extend_exclude": [
+      ".venv",
+      ".tools",
+      ".cache",
+      "data/raw",
+      "data/processed",
+      "data/quarantine",
+      "artifacts/models",
+      "artifacts/runtime",
+      "build",
+      "dist",
+      "*.egg-info"
+    ],
+    "file": "pyproject.toml",
+    "force_exclude": true,
+    "maintained_source_modified": false,
+    "rule_selection_unchanged": [
+      "E4",
+      "E7",
+      "E9",
+      "F"
+    ],
+    "unsafe_fixes_applied": 0
+  },
+  "ruff": "0.7.1",
+  "scientific_effect": "None: configuration only; no label access, model fitting, or split mutation",
+  "scope": "Phase 1 lint correction only",
+  "verification": {
+    ".venv/bin/python -m pytest -q -p no:cacheprovider": {
+      "failed": 0,
+      "passed": 47,
+      "skipped": 1,
+      "skipped_check": "live PostgreSQL integration"
+    },
+    ".venv/bin/ruff check .": "blocked: cannot write existing .ruff_cache (read-only filesystem); no lint conclusion from this attempt",
+    ".venv/bin/ruff check . --no-cache": "passed",
+    ".venv/bin/ruff check . --no-cache --no-respect-gitignore": "passed: zero diagnostics",
+    ".venv/bin/ruff check src scripts tests --no-cache": "passed",
+    "discovered_files": [
+      "pyproject.toml",
+      "scripts/dev_db.py",
+      "scripts/environment_smoke.py",
+      "scripts/inspect_supplied_workbook.py",
+      "scripts/inspection_phase1.py",
+      "scripts/reproduce_inspection.py",
+      "src/credit_risk/__init__.py",
+      "src/credit_risk/__main__.py",
+      "src/credit_risk/artifacts.py",
+      "src/credit_risk/config.py",
+      "src/credit_risk/data/__init__.py",
+      "src/credit_risk/data/database.py",
+      "src/credit_risk/data/schema.py",
+      "src/credit_risk/data/workbook.py",
+      "src/credit_risk/features/__init__.py",
+      "src/credit_risk/phase1.py",
+      "src/credit_risk/splits/__init__.py",
+      "src/credit_risk/splits/allocation.py",
+      "tests/fixtures/__init__.py",
+      "tests/fixtures/records.py",
+      "tests/test_data.py",
+      "tests/test_database.py",
+      "tests/test_features.py",
+      "tests/test_phase1.py",
+      "tests/test_splits.py"
+    ],
+    "full_phase1_gate_re_adjudicated": false,
+    "git_free_temporary_probe": {
+      "installed_generated_locations_excluded": 11,
+      "maintained_locations_reporting_F821": 5
+    },
+    "live_database_rerun": false,
+    "maintained_python_files_discovered": 24,
+    "maintained_python_files_missing": 0
+  }
+}

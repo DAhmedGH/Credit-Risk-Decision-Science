@@ -1,0 +1,24 @@
+{
+  "run_id": "49c7344ca89440e9a458fa2849d9122d",
+  "artifact_hashes_verified": 101,
+  "variants": [
+    "dummy__raw__none",
+    "logistic__engineered__balanced",
+    "logistic__engineered__none",
+    "logistic__raw__balanced",
+    "logistic__raw__none",
+    "random_forest__engineered__balanced",
+    "random_forest__engineered__none",
+    "random_forest__raw__balanced",
+    "random_forest__raw__none"
+  ],
+  "saved_development_oof_rows_verified": 162000,
+  "fold_metric_cells_verified": 180,
+  "pooled_metric_cells_verified": 36,
+  "mean_std_metric_cells_verified": 72,
+  "maximum_metric_absolute_difference": 8.326672684688674e-17,
+  "fits": 0,
+  "model_loading": false,
+  "final_test_outcomes_read": false,
+  "label_alignment_scope": "Saved development outcomes agree across all baseline variants; no raw-label reread"
+}

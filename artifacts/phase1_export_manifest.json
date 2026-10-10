@@ -1,0 +1,19 @@
+{
+  "audit_export_sha256": "54f7869afe47e2a65e138fcf71b5ab0f69c60e7413875b76498e6df82a1f3204",
+  "audit_rows": 30000,
+  "code_tree_sha256": "310f6d8d43f6b6985d737875421d395a4841d5df293320e4cf2b70349258d359",
+  "counts_reconcile": true,
+  "curated_rows": 30000,
+  "dataset_version": "uci350-v1.1",
+  "exported_rows": 30000,
+  "feature_contract_sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+  "financial_export_sha256": "4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e",
+  "git_commit": null,
+  "label_export_sha256": "ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f",
+  "lock_sha256": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+  "rejected_rows": 0,
+  "rules_sha256": "36cbdb963b1247e8b327212ba3194f694d1b7b75e3b906ea4a832e21bff079ae",
+  "source_rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "sql_python_all_rows_agree": true
+}

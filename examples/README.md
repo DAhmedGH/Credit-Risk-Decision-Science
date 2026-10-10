@@ -1,0 +1,1 @@
+Synthetic unlabeled software example only; never used in real-data results. The input contains normalized raw financial fields and preserves record IDs. Score with the frozen bundle using the Phase 5 CLI.

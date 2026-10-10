@@ -1,0 +1,51 @@
+{
+  "inventory_sha256": "73bce5a8573b00af27d0fab873def39f95f6c60c2f53e2655ae7a52e57aee5ae",
+  "inventory_files_verified": 2682,
+  "inventory_bytes_verified": 131298257,
+  "inventory_extensions": {
+    ".csv": 102,
+    ".json": 238,
+    ".joblib": 70,
+    ".yaml": 55,
+    "": 2080,
+    ".parentRunId": 48,
+    ".runName": 53,
+    ".toml": 4,
+    ".in": 2,
+    ".lock": 1,
+    ".sh": 3,
+    ".py": 26
+  },
+  "search_runs": [
+    {
+      "run_id": "0c41719e0c73482f875a4015477a03c6",
+      "model": "logistic",
+      "candidates": 12,
+      "cv_fits_recorded": 60
+    },
+    {
+      "run_id": "e055463d1abd40f3bcdd6a2bd47f82a8",
+      "model": "random_forest",
+      "candidates": 12,
+      "cv_fits_recorded": 60
+    },
+    {
+      "run_id": "6c2fee1f9e5e4bfeab64e9bcda9ffed6",
+      "model": "xgboost",
+      "candidates": 24,
+      "cv_fits_recorded": 120
+    }
+  ],
+  "search_candidates_verified": 48,
+  "saved_development_oof_rows_verified": 864000,
+  "development_rows_per_candidate": 18000,
+  "fold_metric_cells_verified": 960,
+  "pooled_metric_cells_verified": 192,
+  "candidate_mean_std_cells_verified": 384,
+  "maximum_metric_absolute_difference": 8.326672684688674e-17,
+  "model_loading": false,
+  "fits": 0,
+  "final_test_outcomes_read": false,
+  "label_alignment_scope": "Saved development outcomes agree across all candidates; no raw-label reread",
+  "runtime_seconds": 3.9130469970114063
+}

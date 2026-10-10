@@ -1,0 +1,9 @@
+comparison,model,right,left,average_precision_mean_delta,roc_auc_mean_delta,log_loss_mean_delta,brier_score_mean_delta
+engineered_minus_raw,logistic,logistic/engineered/none,logistic/raw/none,0.006331781956793292,0.005614780621741811,-0.002962491633489328,-0.0010523090643138888
+balanced_minus_none,logistic,logistic/raw/balanced,logistic/raw/none,-0.001608054592013075,0.000309421679852262,0.12681511885523328,0.04835871548328083
+balanced_minus_none,logistic,logistic/engineered/balanced,logistic/engineered/none,-0.003515457223531193,0.0003314158231053632,0.1255095983553104,0.04835104183412495
+engineered_minus_raw,logistic,logistic/engineered/balanced,logistic/raw/balanced,0.004424379325275174,0.005636774764994912,-0.004268012133412213,-0.0010599827134697704
+engineered_minus_raw,random_forest,random_forest/engineered/none,random_forest/raw/none,0.004011414847930439,0.0046859007953888865,-0.001921320913806035,-0.0005087998336947841
+balanced_minus_none,random_forest,random_forest/raw/balanced,random_forest/raw/none,0.0003325621851382188,0.0013656547207135938,0.05671087636920252,0.021551802777640128
+balanced_minus_none,random_forest,random_forest/engineered/balanced,random_forest/engineered/none,-0.0023059213410117074,0.00016990715883868912,0.04132454301957422,0.01598836120406172
+engineered_minus_raw,random_forest,random_forest/engineered/balanced,random_forest/raw/balanced,0.0013729313217805128,0.0034901532335139818,-0.017307654263434336,-0.006072241407273193

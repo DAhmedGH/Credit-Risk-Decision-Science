@@ -1,0 +1,14 @@
+{
+  "command": "UV_CACHE_DIR=/tmp/credit-risk-phase4-uv .tools/bin/uv pip install --python .venv/bin/python --no-deps matplotlib==3.10.6 shap==0.48.0",
+  "exit_code": 2,
+  "result": "Failed to fetch https://pypi.org/simple/matplotlib/ after three retries: Temporary failure in name resolution",
+  "installed_packages": false,
+  "existing_lock_changed": false,
+  "pending": [
+    "resolved additive dependency lock",
+    "actual SHAP/Matplotlib smoke",
+    "actual full SHAP explanation artifacts",
+    "complete-artifact independent PASS review",
+    "successful pre-test freeze"
+  ]
+}

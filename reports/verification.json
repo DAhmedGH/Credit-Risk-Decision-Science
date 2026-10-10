@@ -1,0 +1,102 @@
+{
+  "checks": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+      "failed": 0,
+      "passed": 47,
+      "result": "passed with explicit live-integration skip",
+      "skipped": 1,
+      "tests_run": 48
+    },
+    {
+      "command": "python3 -m compileall -q src scripts tests",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "ast.parse(..., feature_version=(3,12)) for all project Python files",
+      "exit_code": 0,
+      "result": "passed; syntax compatibility only, not Python3.12 runtime validation"
+    },
+    {
+      "command": "bash -n scripts/bootstrap.sh",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "docker compose config --no-interpolate --quiet",
+      "exit_code": 0,
+      "result": "passed; configuration only, no Docker daemon"
+    },
+    {
+      "command": "PYTHONPATH=src python3 scripts/reproduce_inspection.py",
+      "exit_code": 0,
+      "result": "passed; independent diagnostic repeated; 30,000 accepted rows; all row/group checks passed; canonical xlrd/SQL pending"
+    },
+    {
+      "command": "compare final EDA source/split/feature/rules/code hashes to actual files",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "bash scripts/bootstrap.sh",
+      "exit_code": 6,
+      "result": "blocked: curl could not resolve astral.sh; no environment installed"
+    },
+    {
+      "command": "python3 scripts/dev_db.py up",
+      "exit_code": 1,
+      "result": "blocked: Docker socket access denied; no service or volume created"
+    },
+    {
+      "command": "bind 127.0.0.1:55432 availability probe",
+      "result": "blocked: PermissionError errno1; no free host port assumed"
+    },
+    {
+      "command": "git init --initial-branch=main",
+      "result": "blocked: .git/info read-only filesystem; no staging/commit"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m credit_risk validate",
+      "exit_code": 1,
+      "result": "blocked: xlrd unavailable; source-read attempt logged"
+    },
+    {
+      "command": "python3 -m ruff check .",
+      "exit_code": 1,
+      "result": "not run: ruff module unavailable"
+    },
+    {
+      "command": "python3 -m pytest --version",
+      "exit_code": 1,
+      "result": "pytest unavailable; fixture suite run through unittest instead"
+    }
+  ],
+  "code_tree_sha256": "310f6d8d43f6b6985d737875421d395a4841d5df293320e4cf2b70349258d359",
+  "dataset_version": "uci350-v1.1",
+  "dependency_pins": "Manual exact Linux/Python 3.12 closure; installation and smoke validation pending",
+  "feature_contract_sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+  "git_commit": null,
+  "heldout_outcome_eda_performed": false,
+  "isolated_environment_smoke_verified": false,
+  "lock_sha256": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+  "original_retrieval_timestamp_known": false,
+  "original_zip_present": false,
+  "phase1_exit_gate": "blocked: canonical runtime, SQL and Git evidence unavailable",
+  "postgresql_idempotency_verified": false,
+  "postgresql_rows": null,
+  "predictive_models_trained": false,
+  "requested_scope": "Phase 1 only",
+  "rules_sha256": "36cbdb963b1247e8b327212ba3194f694d1b7b75e3b906ea4a832e21bff079ae",
+  "runtime_actually_used": "Python 3.14.4 (system; unchanged)",
+  "runtime_target": "Python 3.12 (not installed in this session)",
+  "scientific_review": {
+    "allocation_sql_orchestration": "docs/review-data-features.md",
+    "code_findings": "corrected and rechecked",
+    "live_evidence_gate": "pending",
+    "source_features": "docs/review-source.md"
+  },
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "split_manifest_sha256": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+  "verified_at_utc": "2026-10-07T02:06:13.939670+00:00"
+}

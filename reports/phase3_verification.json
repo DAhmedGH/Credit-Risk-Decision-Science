@@ -1,0 +1,28 @@
+{
+  "phase": 3,
+  "phase3_gate": "PASS",
+  "user_run_evidence": {
+    "bootstrap": "compatibility verified; requirements.lock updated;110 tests passed;SQL disabled",
+    "database": "127.0.0.1:55432 ready",
+    "enabled_sql_suite": {
+      "command": "CREDIT_RISK_SQL_TEST=1 .venv/bin/python -m pytest -q -p no:cacheprovider",
+      "passed": 111,
+      "seconds": 49.88,
+      "skipped": 0
+    },
+    "note": "User-reported; exact invocation timestamps not supplied; no tests repeated for acceptance."
+  },
+  "acceptance_check": "read-only verification, no fits or test reruns",
+  "receipt": "reports/phase3_acceptance.json",
+  "independent_review": "docs/review-phase3-acceptance.md",
+  "historical_verification": "reports/phase3_verification_pre_acceptance.json",
+  "search_cv_fits": 240,
+  "profile_fits": 5,
+  "oof_refits": 25,
+  "all_development_refits": 5,
+  "base_selected": true,
+  "champion_frozen": false,
+  "complete_bundle_frozen": false,
+  "held_out_outcome_evaluation": false,
+  "remaining_scientific_or_artifact_delivery_blockers": []
+}

@@ -1,0 +1,32 @@
+{
+  "average_precision_mean": 0.5372429044953211,
+  "average_precision_pooled_oof": 0.5353048474235932,
+  "average_precision_std": 0.022157714908853408,
+  "brier_score_mean": 0.18456888134523028,
+  "brier_score_pooled_oof": 0.18456888134523025,
+  "brier_score_std": 0.001862236986853823,
+  "candidate_id": "logistic_02_engineered_balanced",
+  "feature_set": "engineered",
+  "fit_seconds_mean": 0.34720619519939644,
+  "fit_seconds_std": 0.0298952302546955,
+  "log_loss_mean": 0.5617837047146181,
+  "log_loss_pooled_oof": 0.561783704714618,
+  "log_loss_std": 0.005223872545167995,
+  "model": "logistic",
+  "model_params": {
+    "C": 1.0
+  },
+  "predict_seconds_mean": 0.015010319600696676,
+  "predict_seconds_std": 0.0009754746065305517,
+  "rank_average_precision": 4,
+  "roc_auc_mean": 0.7713966415189031,
+  "roc_auc_pooled_oof": 0.7711240167670678,
+  "roc_auc_std": 0.004820091578782387,
+  "score_seconds_mean": 0.023479223251342773,
+  "score_seconds_std": 0.0010204088685382973,
+  "setting": 2,
+  "setting_id": "logistic_02",
+  "sklearn_fit_seconds_mean": 0.3494594573974609,
+  "sklearn_fit_seconds_std": 0.027426620989869737,
+  "weighting": "balanced"
+}

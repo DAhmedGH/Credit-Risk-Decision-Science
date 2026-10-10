@@ -1,0 +1,14 @@
+# Exact dependency closure for Ubuntu/WSL Python 3.12, including build and test tools.
+# Manually pinned; installation/import smoke validation is PENDING in this restricted session.
+# No predictive training is part of Phase 1. See docs/reproduction.md.
+xlrd==2.0.2
+psycopg==3.2.3
+psycopg-binary==3.2.3
+typing-extensions==4.12.2
+pytest==8.3.3
+iniconfig==2.0.0
+packaging==24.1
+pluggy==1.5.0
+ruff==0.7.1
+setuptools==75.3.0
+wheel==0.44.0

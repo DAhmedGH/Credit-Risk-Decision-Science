@@ -1,0 +1,4 @@
+# Preserve every accepted Phase 3 pin; resolve only additive explanation dependencies.
+-r reports/phase3_source_snapshots/accepted/requirements.lock
+matplotlib==3.10.6
+shap==0.48.0

@@ -1,0 +1,133 @@
+{
+  "accepted_freeze_modified": false,
+  "accidental_exposure_or_evaluation_defect_found": false,
+  "artifact_archive": {
+    "bytes": 9819660,
+    "normal_git_history_excluded": true,
+    "path": "artifacts/runtime/phase5/credit-risk-phase5-artifacts.tar.gz",
+    "payload_files": 174,
+    "sha256": "0a4f075b34257eb651f10cf1edcdaf5852aeb3fb76629af0a6c90b3f090a49c2"
+  },
+  "bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+  "completion_sha256": "aa8340655363322bf6126008920f15d1a4809ec950e2d6471477705a4a7b21d5",
+  "decisions_sha256": "c2ca324bd28228cd236f1fc8528f8e3104e8e374c4542af9863af22d5b3c8042",
+  "disposition": "PASS",
+  "evaluation_run_id": "faa4d59ec05c408aacd3bd6560678c76",
+  "final_test_rows": 4500,
+  "fingerprint_groups": 4378,
+  "freeze_run_id": "9ca62eca2665438c9c97b4889413acfa",
+  "freeze_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+  "fresh_core_command_observed": "docker run --rm --network none -e PYTHONPATH=/project/src -v \"$PWD:/project:ro\" -v \"$PWD/artifacts/runtime/phase5:/delivery\" credit-risk-phase5:local python /project/scripts/reproduce_phase5.py --root /project --output /delivery/fresh_container",
+  "frozen_artifacts_verified": 106,
+  "git_branch": "main",
+  "independent_scientific_code_report_review": "PASS",
+  "interruption_recovery": {
+    "RESTORE_RECEIPT_execution_id": "exec-28043a80-77f1-4121-966a-fdcb5893cb5f",
+    "completed_stdout": "All checks passed!\nAll final portfolio document links resolve\n",
+    "completed_suite_or_container_reruns": 0,
+    "evaluation_reruns": 0,
+    "existing_receipts_verified": true,
+    "fits": 0,
+    "observed_shell_exit_code": 0,
+    "same_tracking_run_recovered": true,
+    "searches": 0
+  },
+  "limitations": [
+    "Supplied UCI350-compatible workbook: original official ZIP/download chain/retrieval time unverified",
+    "Historical existing-account next-month benchmark; no temporal/external or new-applicant validation",
+    "Synthetic payoff units and monitoring scenarios; no actual profit/causal effects/fairness certification/production deployment",
+    "Intervals condition on fitted models and frozen policies, excluding model-development uncertainty",
+    "Remote GitHub Actions configured but unobserved; only local checks claimed"
+  ],
+  "lock_sha256": "c1a5bad0f66c43644ed3f63fa083e5b992d219fff57b4b9374784f337e02c2c3",
+  "observed_checks": {
+    "batch": {
+      "database_access": false,
+      "fits": 0,
+      "input": 12,
+      "quarantined": 0,
+      "scored": 12
+    },
+    "focused_fixtures": {
+      "passed": 24,
+      "seconds": 32.6
+    },
+    "fresh_core_reproduction": {
+      "feature_max_absolute_difference": 1.1641532182693481e-10,
+      "feature_tolerance": {
+        "absolute": 1e-10,
+        "relative": 1e-12
+      },
+      "fits": 0,
+      "saved_metrics_intervals_exact": true,
+      "scoring_absolute_tolerance": 1e-12,
+      "seconds": 114.77779685499263,
+      "source_rows": 30000,
+      "split_exact": true,
+      "status": "PASS"
+    },
+    "local_full_sql_suite": {
+      "passed": 207,
+      "seconds": 87.89,
+      "skipped": 0
+    },
+    "local_tracking": {
+      "run_id": "61449a81592f446281de1f939fc8badd",
+      "saved_metric_values_verified": 541,
+      "status": "FINISHED"
+    },
+    "network_disabled_container_fixtures": {
+      "passed": 206,
+      "seconds": 54.31,
+      "skip": "SQL unavailable; full local SQL fixture suite passed",
+      "skipped": 1
+    },
+    "restoration": {
+      "payload_files": 174,
+      "scored_csv_byte_exact": true,
+      "status": "PASS"
+    },
+    "ruff": "PASS"
+  },
+  "phase": 5,
+  "portfolio_document_sha256": {
+    "README.md": "841472ff5ad663bf1e4425fd6b48a75613b98d269285dab2db8bfa38b0a98c36",
+    "docs/decision-log.md": "f20bc391e290315420661b538320597b11e702cb598bde88b8dcd841585797bb",
+    "docs/leakage-audit.md": "a047da5650fbf06ea392dbdf2ad9a363d37bceb9e10ef2c90170b233edebbd49",
+    "docs/model-card.md": "f69b2c8c6677a8465f86b1873b4b262429c5953d74c1bf4435ab0ea5b61e3d0e",
+    "docs/monitoring-report.md": "173e7eb855ff006ebab608cb11d2a5ebd72cd7d91410319c41bccea92d9a102e",
+    "docs/progress.md": "cc4e5ddb1de0971a72d15fa98b983735ca38e07894abf136a70a7de434a1eb96",
+    "docs/project-checklist.md": "aeb1d51be835665df30247e4f332929251b2e963d29412f4c2c9fe20371594f4",
+    "docs/reproduction-phase5.md": "cbcdfd7ab45e1308bb231dd8f0b8cf15f3766d42070ee7be742808a7f3eab703",
+    "docs/test-exposure-log.md": "fed2d1bba97bb9c402d2d0597e0ea9cf6627fd46e1dafdb4ef92b3f4099db902",
+    "docs/walkthrough.md": "80dff7d8c37e23d018dec8d80f73e8668a3322fbc4cfc05faec397fd1f02fade",
+    "reports/phase5.md": "ddbcb0197a0d956431b89f4613ac96b346f28c9f6b983ed1499744a13f01eba7",
+    "reports/results.md": "71794da578424daa7224a3480f6fd2a9f1eebeb0ed4d71491eea0e28df457d49"
+  },
+  "predictions_sha256": "144e6861e40c65ed7871844a0dbf80a8ec707bdab38dcc863cdeea2fec8cf23c",
+  "project_checklist": "PASS on recorded local evidence",
+  "publication_or_push": false,
+  "receipt_sha256": {
+    "reports/phase5/artifact_delivery.json": "9e4a9c2fb43ca764f32dfbc2909004c971d6cbd517dada79d54e2e338c54c05d",
+    "reports/phase5/checks.json": "85bc218aeea3c23a28142f03ae0478b9780e826f021e136c16682725d64c6de9",
+    "reports/phase5/reproduction_receipt.json": "eabfcf315e4cbb981795c26ca503595a8a4049dc6606f936cc3f8503700c6de1",
+    "reports/phase5/restoration_receipt.json": "d017b23907fc46c66c3936ab01b96e938bc99776755d2ff8ff5b5d631d45a7a8",
+    "reports/phase5/results.json": "4d84fe22dd8acfd3f7f2c7173fadbafb352ab7384f3419796eaa858596dc3c58",
+    "reports/phase5/test_exposure_receipt.json": "aa8340655363322bf6126008920f15d1a4809ec950e2d6471477705a4a7b21d5",
+    "reports/phase5/tracking_receipt.json": "c3ab30936c5c0feb940033ca55f015a70c4fe178e1b14d354d111ee0f4db1771",
+    "reports/phase5_monitoring/execution_checks.json": "8ea54c19634e735c367c9e044effa7f30d373fec1bf8eb2c132d5f39c0028e4b",
+    "reports/phase5_review_receipt.json": "4b12bb935ae00645710e449f35dacacee7e5bb8ffaec2438ac42c877bf19960a"
+  },
+  "remaining_blockers": [],
+  "remote_ci_observed": false,
+  "remote_configured": false,
+  "reporting_command": ".venv/bin/python -m credit_risk.phase5 report (new restored copy with preserved prior report directory; no evaluator rerun)",
+  "reviewed_source_test_files": 48,
+  "scientific_changes_due_to_test": false,
+  "scoring_command_for_new_output": ".venv/bin/python -m credit_risk.phase5 score --input examples/scoring_batch.csv --output artifacts/runtime/my_batch --scenario base --policy empirical",
+  "source_commit": "1a0af13972ce4dc6e22856abfdc895d5da07f388",
+  "source_test_map_sha256": "816b8cce9ecd1327f94d971d0922b45d22671b1a9a4a1c085360c491f56f0130",
+  "stop_after": "Phase 5 and project acceptance",
+  "utc": "2026-10-09T22:06:29.872002+00:00",
+  "version": 1
+}

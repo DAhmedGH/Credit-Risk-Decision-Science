@@ -1,0 +1,116 @@
+{
+  "accepted_rows": 30000,
+  "accepted_targets_binary_and_non_null": true,
+  "category_code_inventory": {
+    "education": {
+      "0": 14,
+      "1": 10585,
+      "2": 14030,
+      "3": 4917,
+      "4": 123,
+      "5": 280,
+      "6": 51
+    },
+    "marriage": {
+      "0": 54,
+      "1": 13659,
+      "2": 15964,
+      "3": 323
+    },
+    "pay_status_2005_04": {
+      "-1": 5740,
+      "-2": 4895,
+      "0": 16286,
+      "2": 2766,
+      "3": 184,
+      "4": 49,
+      "5": 13,
+      "6": 19,
+      "7": 46,
+      "8": 2
+    },
+    "pay_status_2005_05": {
+      "-1": 5539,
+      "-2": 4546,
+      "0": 16947,
+      "2": 2626,
+      "3": 178,
+      "4": 84,
+      "5": 17,
+      "6": 4,
+      "7": 58,
+      "8": 1
+    },
+    "pay_status_2005_06": {
+      "-1": 5687,
+      "-2": 4348,
+      "0": 16455,
+      "1": 2,
+      "2": 3159,
+      "3": 180,
+      "4": 69,
+      "5": 35,
+      "6": 5,
+      "7": 58,
+      "8": 2
+    },
+    "pay_status_2005_07": {
+      "-1": 5938,
+      "-2": 4085,
+      "0": 15764,
+      "1": 4,
+      "2": 3819,
+      "3": 240,
+      "4": 76,
+      "5": 21,
+      "6": 23,
+      "7": 27,
+      "8": 3
+    },
+    "pay_status_2005_08": {
+      "-1": 6050,
+      "-2": 3782,
+      "0": 15730,
+      "1": 28,
+      "2": 3927,
+      "3": 326,
+      "4": 99,
+      "5": 25,
+      "6": 12,
+      "7": 20,
+      "8": 1
+    },
+    "pay_status_2005_09": {
+      "-1": 5686,
+      "-2": 2759,
+      "0": 14737,
+      "1": 3688,
+      "2": 2667,
+      "3": 322,
+      "4": 76,
+      "5": 26,
+      "6": 11,
+      "7": 9,
+      "8": 19
+    },
+    "sex": {
+      "1": 11888,
+      "2": 18112
+    }
+  },
+  "counts_reconcile": true,
+  "evidence_scope": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "identifiers_unique_and_non_null": true,
+  "inspection_records_sha256": "3d6f072a5a3c20391482853f344255f03f35643033acf4a1cef921f67d9d5507",
+  "inventory_scope": "source integrity only; target distributions are never computed",
+  "missing_by_column": {},
+  "rejected_rows": 0,
+  "rejection_reason_counts": {},
+  "schema_version": "uci350-v1",
+  "source_rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "unknown_demographic_code_counts": {
+    "education": 345,
+    "marriage": 54
+  }
+}

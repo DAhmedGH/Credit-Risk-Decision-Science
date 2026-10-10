@@ -1,0 +1,25 @@
+{
+  "database": {
+    "audit_rows": 30000,
+    "counts_reconcile": true,
+    "curated_rows": 30000,
+    "exported_rows": 30000,
+    "rejected_rows": 0,
+    "source_rows": 30000,
+    "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "development_report": {
+    "development_rows": 18000,
+    "scope": "development only"
+  },
+  "first_ingestion_noop": true,
+  "predictive_training": "not run",
+  "second_ingestion_noop": true,
+  "split_manifest_sha256": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+  "validation": {
+    "accepted_rows": 30000,
+    "counts_reconcile": true,
+    "rejected_rows": 0,
+    "source_rows": 30000
+  }
+}

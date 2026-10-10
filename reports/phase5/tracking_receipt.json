@@ -1,0 +1,13 @@
+{
+  "evaluation_run_id": "faa4d59ec05c408aacd3bd6560678c76",
+  "fits": 0,
+  "metric_keys_verified": 541,
+  "parameter_keys": 22,
+  "prior_status": "FAILED",
+  "recovered_existing_run": true,
+  "results_sha256": "4d84fe22dd8acfd3f7f2c7173fadbafb352ab7384f3419796eaa858596dc3c58",
+  "run_id": "61449a81592f446281de1f939fc8badd",
+  "scope": "saved aggregates only; no evaluator rerun",
+  "status": "FINISHED",
+  "tracking_store": "/mnt/c/users/danieal/desktop/credit risk project/mlruns/phase5"
+}

@@ -1,0 +1,8 @@
+{
+  "payload_hashes_verified": 174,
+  "archive_sha256": "0a4f075b34257eb651f10cf1edcdaf5852aeb3fb76629af0a6c90b3f090a49c2",
+  "restored_hashes_verified": 174,
+  "installed_pins_verified": 72,
+  "missing_links": [],
+  "starting_commit": "fb022d9dca79d6aee1a565a62c36df33ece743e2"
+}

@@ -1,0 +1,13 @@
+selection_run = "6a0725d18b164582938e0b07b2df6b27"
+selected_candidate = "xgboost_05_engineered_none"
+model_root = "/home/danieal/credit-risk-backups/phase3-20261008-195946/runtime"
+output_dir = "artifacts/models/phase4"
+tracking_dir = "mlruns/phase4"
+seed = 42
+threads = 1
+calibration_tolerance = 0.005
+reliability_bins = 10
+sparse_bin_count = 100
+empirical_step = 0.005
+bootstrap_repetitions = 1000
+bootstrap_seed = 42

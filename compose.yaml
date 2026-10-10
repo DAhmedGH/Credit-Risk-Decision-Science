@@ -1,0 +1,33 @@
+name: credit-risk-phase1
+services:
+  postgres:
+    image: postgres:16-bookworm
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-credit_risk_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-credit_risk_app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Use python3 scripts/dev_db.py up}
+    command:
+      - postgres
+      - -c
+      - credit_risk.project=credit-risk-decision-science
+      - -c
+      - credit_risk.lifecycle=disposable-development
+    ports:
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-55432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    labels:
+      com.credit-risk.project: credit-risk-decision-science
+      com.credit-risk.lifecycle: disposable-development
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: "no"
+volumes:
+  pgdata:
+    name: credit-risk-phase1-pgdata
+    labels:
+      com.credit-risk.project: credit-risk-decision-science
+      com.credit-risk.lifecycle: disposable-development

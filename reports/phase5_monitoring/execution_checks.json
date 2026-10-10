@@ -1,0 +1,45 @@
+{
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m credit_risk.phase5 monitor --output reports/phase5_monitoring",
+  "command_exit_code": 0,
+  "checked_utc": "2026-10-09T21:32:37.955483+00:00",
+  "report_written_utc": "2026-10-09T21:30:36.593280+00:00",
+  "freeze_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+  "freeze_manifest_file_sha256": "0cd8c5c63e90ffc159acfa5fb63d10affeda015f885171e3bde9b4c08402e6f1",
+  "bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+  "readiness_file_sha256": "5d46230e76887c1b0a55acf23be86730c834e822d279b79b095a8977b936d144",
+  "readiness_code_hashes_sha256": "816b8cce9ecd1327f94d971d0922b45d22671b1a9a4a1c085360c491f56f0130",
+  "source_test_hashes_unchanged": true,
+  "source_test_file_count": 48,
+  "accepted_artifact_hashes_unchanged": true,
+  "accepted_artifact_count": 106,
+  "input_hashes": {
+    "artifacts/feature_contract_v1_1.json": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+    "artifacts/phase1_export_manifest.json": "6157949db2e77b548d7de831f196b5d6506bd9c8e28dc3bd6290401f2be0e81a",
+    "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json": "840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537",
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "data/processed/audit_attributes.csv": "54f7869afe47e2a65e138fcf71b5ab0f69c60e7413875b76498e6df82a1f3204",
+    "data/processed/financial_features_v1.csv": "4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e",
+    "data/processed/labels.csv": "ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f",
+    "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "sampling_rng_and_weights_counts_match": true,
+  "corruption_rng_and_counts_match": true,
+  "scenario_counts_reconcile": true,
+  "json_csv_distributions_match": true,
+  "csv_rows": 198,
+  "svg_count_proportions_match": true,
+  "svg_distribution_bars": 52,
+  "final_test_conversion_or_evaluation": false,
+  "access_boundary": "Shared CSV strings traversed for ID/schema routing; conversion limited to development and policy_validation. Full-input byte hashes are integrity checks.",
+  "output_hashes": {
+    "monitoring.csv": "8534820bd98a76ad71d58351c40349be91c5ec14f7b7f9a3fd5473d389db4aad",
+    "monitoring.json": "f8d11d1d4d1433e523591731a824d670ef654e43f42a9b845b5b2cd445a692f2",
+    "risk_distribution.svg": "4fcef9f436fd696a0048350d9be3f0db6bd160df7578a53c5f8a101de8f87af5"
+  },
+  "runtime_receipt_hashes": {
+    "corruption_source_ids.csv": "388127781eee7a8cfa30d6bcc673865694c2d346ebf8cc1ac5ff17c40fb2d0f6",
+    "delinquency_mix_shift_draws.csv": "48e999aa39736d0028a3c0565d9202998693e195dbd60db38b6aee49c86ad048",
+    "financial_mix_shift_draws.csv": "07d9a2199c66fdfc97f83fe0c268d8e5f0e2cd1290ce72c3f14641f2ea439270",
+    "sampling_weights_counts.csv": "e5feac9d6ae5d3e9cd27125c9dcd898bbd6687f0ee45e8cc74850ab3d1107fe2"
+  }
+}

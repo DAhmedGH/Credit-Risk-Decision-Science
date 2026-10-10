@@ -1,0 +1,8 @@
+dataset_version = "uci350-v1.1"
+workbook = "data/raw/default of credit card clients.xls"
+provenance = "artifacts/source_manifest.json"
+processed_dir = "data/processed"
+split_manifest = "artifacts/split_manifest.csv"
+split_summary = "reports/split_summary.json"
+feature_contract = "artifacts/feature_contract_v1_1.json"
+seed = 42

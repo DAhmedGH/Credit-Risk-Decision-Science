@@ -1,0 +1,18 @@
+{
+  "accepted_rows": 30000,
+  "code_tree_sha256": "310f6d8d43f6b6985d737875421d395a4841d5df293320e4cf2b70349258d359",
+  "dataset_version": "uci350-v1.1",
+  "evidence_scope": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "feature_contract_sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+  "git_commit": null,
+  "lock_sha256": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+  "postgresql_curated_rows": null,
+  "postgresql_idempotency_verified": false,
+  "python_counts_reconcile": true,
+  "python_feature_rows": 30000,
+  "rejected_rows": 0,
+  "rules_sha256": "36cbdb963b1247e8b327212ba3194f694d1b7b75e3b906ea4a832e21bff079ae",
+  "source_rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "sql_export_rows": null
+}

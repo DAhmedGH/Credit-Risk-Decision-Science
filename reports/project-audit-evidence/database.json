@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-10T03:00:32.678768+00:00",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "counts": {
+    "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "source_rows": 30000,
+    "curated_rows": 30000,
+    "audit_rows": 30000,
+    "exported_rows": 30000,
+    "rejected_rows": 0,
+    "counts_reconcile": true
+  },
+  "source_rows_validated": 30000,
+  "accepted_rows": 30000,
+  "rejected_rows": 0,
+  "persisted_source_curated_audit_exact": true,
+  "sql_python_feature_agreement": true,
+  "sql_saved_export_agreement": true,
+  "read_only_transaction": true,
+  "fits": 0,
+  "outcome_distributions": false
+}

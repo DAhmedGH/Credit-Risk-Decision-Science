@@ -1,0 +1,22 @@
+base_config = "configs/base.toml"
+export_manifest = "artifacts/phase1_export_manifest.json"
+split_receipt = "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json"
+tracking_dir = "mlruns"
+output_dir = "artifacts/models/phase2"
+reports_dir = "reports/phase2_runs"
+experiment = "credit-risk-phase2-development-baselines"
+seed = 42
+threads = 1
+
+[logistic]
+C = 1.0
+solver = "lbfgs"
+max_iter = 2000
+tol = 0.0001
+
+[random_forest]
+n_estimators = 200
+min_samples_leaf = 5
+max_features = "sqrt"
+bootstrap = true
+# max_depth=None is the sklearn default; no population-driven cutoff or tuning.

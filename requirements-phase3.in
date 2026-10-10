@@ -1,0 +1,4 @@
+# Preserve every accepted Phase 2 dependency; add the official CPU-only wheel.
+# requirements.lock changes only after successful import/fit/serialization checks.
+-r requirements.lock
+xgboost-cpu==3.0.5

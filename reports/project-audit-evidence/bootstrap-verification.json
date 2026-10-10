@@ -1,0 +1,12 @@
+{
+  "statistics": 341,
+  "interval_max_absolute_difference": 5.551115123125783e-17,
+  "errors": [],
+  "groups": 4378,
+  "seed": 42,
+  "repetitions": 1000,
+  "paired": true,
+  "resample_indices_sha256": "18ecf64cac061d62831872327e7bd08d5d2e3e4902acac4086529b879e61b447",
+  "plan_hash_matches": true,
+  "seconds": 38.61409485900367
+}

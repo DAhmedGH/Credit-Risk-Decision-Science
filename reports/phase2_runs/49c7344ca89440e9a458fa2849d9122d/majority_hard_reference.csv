@@ -1,0 +1,6 @@
+accuracy,false_negative,false_positive,fit_majority_class,fold,precision_positive,recall_positive,true_negative,true_positive
+0.7788888888888889,796,0,0,0,,0.0,2804,0
+0.7786111111111111,797,0,0,1,,0.0,2803,0
+0.7788888888888889,796,0,0,2,,0.0,2804,0
+0.7788888888888889,796,0,0,3,,0.0,2804,0
+0.7788888888888889,796,0,0,4,,0.0,2804,0

@@ -1,0 +1,10 @@
+# Preserve Phase 1 pins; resolve the expanded closure before replacing the lock.
+# Not a lock: Phase 2 installation/import/train/save/load validation is pending.
+-r requirements.lock
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+joblib==1.5.2
+threadpoolctl==3.6.0
+mlflow-skinny==3.3.2

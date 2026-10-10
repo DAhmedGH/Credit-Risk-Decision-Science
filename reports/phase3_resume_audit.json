@@ -1,0 +1,75 @@
+{
+  "active_training_processes": [],
+  "audited_at_utc": "2026-10-08T23:27:13.903188+00:00",
+  "base_selected": false,
+  "blockers": [
+    "PyPI DNS prevents XGBoost installation and compatible lock validation",
+    "XGBoost real profile/search and full base/reference fit evidence missing",
+    "Managed shell project writes, Git initialization and Docker access blocked"
+  ],
+  "budget": {
+    "declared_configurations": {
+      "logistic": 12,
+      "random_forest": 12,
+      "xgboost": 24
+    },
+    "development_final_refits": 0,
+    "family_configuration_ceilings": {
+      "logistic": 12,
+      "random_forest": 15,
+      "xgboost": 25
+    },
+    "folds": 5,
+    "real_search_fits_completed": 120,
+    "real_search_fits_interrupted": 0,
+    "real_search_fits_remaining": 120,
+    "resume_duplicate_search_fits": 0,
+    "selection_oof_refits": 0,
+    "xgboost_profile_fits": 0,
+    "xgboost_synthetic_smoke_fits": 0
+  },
+  "compact_files_byte_verified": 38,
+  "completed_runs": [
+    {
+      "artifact_hashes_and_tracking": "passed",
+      "base_selected": false,
+      "candidate_count": 12,
+      "family": "logistic",
+      "fit_count": 60,
+      "manifest_sha256": "b55fc6e231d7401d41f81bf68f0ff9ab84d2720ff18cfccdb7539c2dc20f065d",
+      "original_code_tree_sha256": "f10306c4b8e9e9c861571a5be93e14c40add17e9a8745adcfb3325cf62b7138e",
+      "run_id": "0c41719e0c73482f875a4015477a03c6",
+      "runtime_seconds": 19.948072020000836,
+      "status": "FINISHED"
+    },
+    {
+      "artifact_hashes_and_tracking": "passed",
+      "base_selected": false,
+      "candidate_count": 12,
+      "family": "random_forest",
+      "fit_count": 60,
+      "manifest_sha256": "244d02ef317a1878b887e326431a5aafeb5f72cffeb5e6608d133c4baec3b6d8",
+      "original_code_tree_sha256": "f10306c4b8e9e9c861571a5be93e14c40add17e9a8745adcfb3325cf62b7138e",
+      "run_id": "e055463d1abd40f3bcdd6a2bd47f82a8",
+      "runtime_seconds": 438.54728979399806,
+      "status": "FINISHED"
+    }
+  ],
+  "controlled_comparisons_sha256": "29caed2f4e94cfdcb323d137a52795cfe5276978e2e1ae6c056319d5a641fb2a",
+  "failed_searches": [],
+  "held_out_outcome_access": false,
+  "independent_numerical_review": {
+    "development_oof_rows": 432000,
+    "evidence": "docs/review-phase3.md",
+    "finished_tracking_records": 26,
+    "folds_recomputed": 120,
+    "maximum_fold_metric_difference": 0.0
+  },
+  "interrupted_searches": [],
+  "model_binary_saved": false,
+  "original_snapshot_files_verified": 36,
+  "phase3_gate": "BLOCKED",
+  "reuse_audit_sha256": "bb1789eaa1787a6ccf26f6f8effe2d8a5e3b2e62375572ebcaf81d282e3941e8",
+  "runtime_root": "/tmp/credit-risk-phase3-real-03kpjn82",
+  "search_fit_runtime_seconds": 458.4953618139989
+}

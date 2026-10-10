@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<rect width="900" height="600" fill="white"/>
+<text x="35" y="30" font-size="20">Policy-validation reliability: fixed equal-width bins</text>
+<path d="M80 70 V430 H440 M80 430 L440 70" fill="none" stroke="#888"/>
+<text x="150" y="475">Mean predicted probability (0–1)</text>
+<text x="85" y="58">Observed default fraction (0–1)</text>
+<text x="485" y="58">Bin counts (sparse: fewer than 100)</text>
+<text x="76.0" y="451" font-size="10">0.0</text>
+<text x="45" y="434.0" font-size="10">0.0</text>
+<text x="112.0" y="451" font-size="10">0.1</text>
+<text x="45" y="398.0" font-size="10">0.1</text>
+<text x="148.0" y="451" font-size="10">0.2</text>
+<text x="45" y="362.0" font-size="10">0.2</text>
+<text x="184.0" y="451" font-size="10">0.3</text>
+<text x="45" y="326.0" font-size="10">0.3</text>
+<text x="220.0" y="451" font-size="10">0.4</text>
+<text x="45" y="290.0" font-size="10">0.4</text>
+<text x="256.0" y="451" font-size="10">0.5</text>
+<text x="45" y="254.0" font-size="10">0.5</text>
+<text x="292.0" y="451" font-size="10">0.6</text>
+<text x="45" y="218.0" font-size="10">0.6</text>
+<text x="328.0" y="451" font-size="10">0.7</text>
+<text x="45" y="182.00000000000003" font-size="10">0.7</text>
+<text x="364.0" y="451" font-size="10">0.8</text>
+<text x="45" y="146.0" font-size="10">0.8</text>
+<text x="400.0" y="451" font-size="10">0.9</text>
+<text x="45" y="110.0" font-size="10">0.9</text>
+<text x="436.0" y="451" font-size="10">1.0</text>
+<text x="45" y="74.0" font-size="10">1.0</text>
+<text x="110" y="515" fill="#1764ab">raw</text>
+<circle cx="104.6861311191905" cy="405.2423900789177" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="88" fill="#1764ab" font-size="12">0.0–0.1: 887</text>
+<circle cx="131.32158741514857" cy="376.9658536585366" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="119" fill="#1764ab" font-size="12">0.1–0.2: 1025</text>
+<circle cx="167.14597588365004" cy="353.53221957040574" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="150" fill="#1764ab" font-size="12">0.2–0.3: 419</text>
+<circle cx="204.04461291858127" cy="292.8571428571429" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="181" fill="#1764ab" font-size="12">0.3–0.4: 210</text>
+<circle cx="243.4197705558368" cy="262.8571428571429" r="4" fill="white" stroke="#1764ab"/>
+<text x="485" y="212" fill="#1764ab" font-size="12">0.4–0.5: 84 *</text>
+<circle cx="278.4345576979897" cy="240.90909090909088" r="4" fill="white" stroke="#1764ab"/>
+<text x="485" y="243" fill="#1764ab" font-size="12">0.5–0.6: 99 *</text>
+<circle cx="313.36477269371636" cy="191.72661870503597" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="274" fill="#1764ab" font-size="12">0.6–0.7: 139</text>
+<circle cx="350.75820832986096" cy="172.46153846153845" r="4" fill="#1764ab" stroke="#1764ab"/>
+<text x="485" y="305" fill="#1764ab" font-size="12">0.7–0.8: 130</text>
+<circle cx="372.28534051350186" cy="70.0" r="4" fill="white" stroke="#1764ab"/>
+<text x="485" y="336" fill="#1764ab" font-size="12">0.8–0.9: 7 *</text>
+<text x="485" y="367" fill="#1764ab" font-size="12">0.9–1.0: 0 *</text>
+<polyline points="104.6861311191905,405.2423900789177 131.32158741514857,376.9658536585366 167.14597588365004,353.53221957040574 204.04461291858127,292.8571428571429 243.4197705558368,262.8571428571429 278.4345576979897,240.90909090909088 313.36477269371636,191.72661870503597 350.75820832986096,172.46153846153845 372.28534051350186,70.0" fill="none" stroke="#1764ab"/>
+<text x="230" y="515" fill="#bb4411">sigmoid</text>
+<circle cx="111.9662878549832" cy="410.1694915254237" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="88" fill="#bb4411" font-size="12">0.0–0.1: 708</text>
+<circle cx="129.00810079476628" cy="375.32951289398284" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="119" fill="#bb4411" font-size="12">0.1–0.2: 1396</text>
+<circle cx="166.59433174366154" cy="347.1134020618557" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="150" fill="#bb4411" font-size="12">0.2–0.3: 291</text>
+<circle cx="200.17978212743378" cy="274.0" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="181" fill="#bb4411" font-size="12">0.3–0.4: 150</text>
+<circle cx="242.11175558258498" cy="258.30769230769226" r="4" fill="white" stroke="#bb4411"/>
+<text x="610" y="212" fill="#bb4411" font-size="12">0.4–0.5: 65 *</text>
+<circle cx="278.2740025184844" cy="247.46478873239437" r="4" fill="white" stroke="#bb4411"/>
+<text x="610" y="243" fill="#bb4411" font-size="12">0.5–0.6: 71 *</text>
+<circle cx="316.10256339955197" cy="220.6122448979592" r="4" fill="white" stroke="#bb4411"/>
+<text x="610" y="274" fill="#bb4411" font-size="12">0.6–0.7: 98 *</text>
+<circle cx="349.8209199405268" cy="184.0" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="305" fill="#bb4411" font-size="12">0.7–0.8: 120</text>
+<circle cx="377.7549557320205" cy="162.67326732673268" r="4" fill="#bb4411" stroke="#bb4411"/>
+<text x="610" y="336" fill="#bb4411" font-size="12">0.8–0.9: 101</text>
+<text x="610" y="367" fill="#bb4411" font-size="12">0.9–1.0: 0 *</text>
+<polyline points="111.9662878549832,410.1694915254237 129.00810079476628,375.32951289398284 166.59433174366154,347.1134020618557 200.17978212743378,274.0 242.11175558258498,258.30769230769226 278.2740025184844,247.46478873239437 316.10256339955197,220.6122448979592 349.8209199405268,184.0 377.7549557320205,162.67326732673268" fill="none" stroke="#bb4411"/>
+<text x="350" y="515" fill="#278044">isotonic</text>
+<circle cx="101.8199500924296" cy="403.0177514792899" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="88" fill="#278044" font-size="12">0.0–0.1: 1014</text>
+<circle cx="136.8952008684917" cy="375.66037735849056" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="119" fill="#278044" font-size="12">0.1–0.2: 901</text>
+<circle cx="163.04648654013488" cy="350.4113110539846" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="150" fill="#278044" font-size="12">0.2–0.3: 389</text>
+<circle cx="209.43874455748067" cy="302.258064516129" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="181" fill="#278044" font-size="12">0.3–0.4: 248</text>
+<circle cx="243.296312616296" cy="262.32876712328766" r="4" fill="white" stroke="#278044"/>
+<text x="735" y="212" fill="#278044" font-size="12">0.4–0.5: 73 *</text>
+<text x="735" y="243" fill="#278044" font-size="12">0.5–0.6: 0 *</text>
+<circle cx="307.5202694432489" cy="214.3103448275862" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="274" fill="#278044" font-size="12">0.6–0.7: 232</text>
+<circle cx="348.5714340209961" cy="183.68421052631578" r="4" fill="white" stroke="#278044"/>
+<text x="735" y="305" fill="#278044" font-size="12">0.7–0.8: 38 *</text>
+<circle cx="374.55210978441903" cy="162.67326732673268" r="4" fill="#278044" stroke="#278044"/>
+<text x="735" y="336" fill="#278044" font-size="12">0.8–0.9: 101</text>
+<circle cx="417.42076218128204" cy="70.0" r="4" fill="white" stroke="#278044"/>
+<text x="735" y="367" fill="#278044" font-size="12">0.9–1.0: 4 *</text>
+<polyline points="101.8199500924296,403.0177514792899 136.8952008684917,375.66037735849056 163.04648654013488,350.4113110539846 209.43874455748067,302.258064516129 243.296312616296,262.32876712328766 307.5202694432489,214.3103448275862 348.5714340209961,183.68421052631578 374.55210978441903,162.67326732673268 417.42076218128204,70.0" fill="none" stroke="#278044"/>
+<text x="80" y="555">Hollow points / *: sparse bins. Empty bins have no point.</text>
+<text x="80" y="578">Log loss and Brier assess probability quality; this plot diagnoses calibration.</text>
+</svg>

@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools==75.3.0", "wheel==0.44.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credit-risk-decision-science"
+version = "0.1.0"
+description = "Reproducible existing-account credit-risk study with fold-safe baselines"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["xlrd==2.0.2", "psycopg[binary]==3.2.3"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.3", "ruff==0.7.1"]
+modeling = [
+    "numpy==2.2.6", "pandas==2.3.3", "scipy==1.15.3", "scikit-learn==1.7.2",
+    "joblib==1.5.2", "threadpoolctl==3.6.0", "mlflow-skinny==3.3.2",
+    "xgboost-cpu==3.0.5", "shap==0.48.0", "matplotlib==3.10.6", "pyarrow==21.0.0",
+]
+
+[project.scripts]
+credit-risk = "credit_risk.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["postgres: needs the dedicated disposable project PostgreSQL"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+# Keep generated/installed code out of discovery even before Git is initialized.
+# extend-exclude preserves Ruff's defaults; maintained project code stays included.
+extend-exclude = [
+    ".venv",
+    ".tools",
+    ".cache",
+    "data/raw",
+    "data/processed",
+    "data/quarantine",
+    "artifacts/models",
+    "artifacts/runtime",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

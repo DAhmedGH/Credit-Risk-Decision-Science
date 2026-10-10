@@ -1,0 +1,97 @@
+{
+  "acceptance_checks": {
+    "bootstrap_repeated": false,
+    "unintended_bootstrap_attempt": "Stopped; integrity report write failed before install/smoke/fits/tests",
+    "calibration_fits": 0,
+    "final_hashed_artifacts": 106,
+    "finalize_command": "PASS",
+    "full_suite_repeated": false,
+    "guarded_load": "PASS",
+    "exact_documented_loading_command": "PASS",
+    "independent_final_documentation_review": "PASS: exact loading command independently executed; no unresolved issues",
+    "independent_review": "PASS",
+    "real_data_fits": 0,
+    "review_receipt_path": "reports/phase4_review_receipt.json",
+    "reviewed_artifacts": 104
+  },
+  "accepted_at_utc": "2026-10-09T16:57:32.886235+00:00",
+  "accepted_model_hashes": {
+    "dummy_prior": "cf92e3a562ba1ecd4f591b44e85ddbeec678f29f00b4e368576a8799a98b185d",
+    "logistic_00_engineered_none": "0f0e88ef743f82a48d7198b6c35b9f45cab54887a584b760ce00d2776c817e0e",
+    "random_forest_02_engineered_none": "fcc1f8123934f005a1caf4ab553db63df52111f5a5aa1a030b090d497ad7158e",
+    "xgboost_04_engineered_none": "4d0bbdfc3968d932d19fac801757ef23ed59407dbdf9b1560773888b563f2198",
+    "xgboost_05_engineered_none": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c"
+  },
+  "bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+  "complete_bundle_frozen": true,
+  "completed_lock_sha256": "af2037d68e8508c120ff7e70fa2c4d43720f309839230b88db106703479668d8",
+  "durable_root": "/mnt/c/users/danieal/desktop/credit risk project/artifacts/models/phase4/9ca62eca2665438c9c97b4889413acfa",
+  "final_test_evaluated": false,
+  "final_test_outcomes_interpreted": false,
+  "frozen_review_receipt_sha256": "7e8b2e4c2f402ff9dd548128a841d08635b64f584c16fa6796275a6a3c70d29e",
+  "review_receipt_semantic_equality": true,
+  "operational_incident_log": "docs/decision-log.md#d022--acceptance-verification-corrections-and-documentation-shell-incident-2026-10-09",
+  "exit_requirements": {
+    "accepted_data_splits_features_and_fitted_identities": "PASS: source/integrity and original pipeline/metadata hashes verified",
+    "calibration_fit_separation_unchanged_base": "PASS: 4,500 calibration rows; two original mapping fits and zero base fits; unchanged state/predictions",
+    "probability_selection_and_reliability": "PASS: policy-validation metrics reproduced; raw follows 0.005 rule; fixed bins/counts/sparse markings verified",
+    "synthetic_payoff_and_required_policies": "PASS: all eight policies, arithmetic, strict ties, N/A zero acceptance and fixed fractions verified",
+    "complete_sensitivity": "PASS: all ten scenarios/eighty sensitivity rows; unfavorable and abstain-all outcomes preserved",
+    "logistic_and_shap_explanations": "PASS: exact models/preprocessing, scale, provenance, all margins/additivity, fourteen recomputed SHAP rows, seven figures inspected",
+    "behavioral_and_demographic_analysis": "PASS: development-defined bands, counts, support suppression and descriptive limits verified",
+    "policy_and_reporting_freeze": "PASS: scenarios/cutoffs/definitions hash-bound before test access",
+    "durable_serialization_and_complete_freeze": "PASS: finalizer succeeded; 106 durable artifacts and guarded loading verified",
+    "tests_and_environment": "PASS: accepted pins checked; user-run synthetic smoke, live-SQL 183/no-skip suite and Ruff attributed separately",
+    "independent_review": "PASS: genuine run/inventory/document-bound receipt; independent post-seal/post-incident checks",
+    "final_test_boundary": "PASS: no outcome interpretation/evaluation or Phase 5 work"
+  },
+  "freeze_content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+  "freeze_manifest_file_sha256": "0cd8c5c63e90ffc159acfa5fb63d10affeda015f885171e3bde9b4c08402e6f1",
+  "limitations": [
+    "Git commit null; no remote CI/fresh container rebuild",
+    "Historical account benchmark; synthetic utility, no causal/profit/fairness inference",
+    "Evaluation-sample bootstrap remains a separately requested Phase 5 task"
+  ],
+  "phase4_exit_gate": "PASS",
+  "report_definitions_sha256": "d0fcb5f0b2528dbd281693eedaa1d0b89d937f340ae91d1fff50a56c1fc40e32",
+  "review_document_sha256": "8dcc6160a4d640f8fb8e0ab9078a068e7946c368a21a259f1d8c254029b70afc",
+  "review_receipt_sha256": "829fc9e83f54aa31c62e5777b14bc0c4d2c2874e2d52e9c736747a4385228ff5",
+  "reviewed_artifacts_sha256": "4de2c397ec4ad8659b6da9a4dd7cda9d58a9c57474ecd3c743dc0a5411ea4e2a",
+  "run_id": "9ca62eca2665438c9c97b4889413acfa",
+  "source_tree_sha256": "fe44551d459c780b1ee2cce011aecb35ff1c54601ed2fb198f5be620098f2885",
+  "unresolved_phase4_blockers": [],
+  "user_run_evidence": {
+    "attribution": "User-run successful verification supplied October 9, 2026; successful smoke/resume/database/tests/Ruff results were not repeated by acceptance. D022 discloses an unintended bootstrap attempt stopped at integrity preflight before install/smoke/fits/tests.",
+    "bootstrap": {
+      "command": "bash scripts/bootstrap_phase4.sh",
+      "result": "PASS",
+      "smoke": "Synthetic calibration, TreeSHAP, plotting and save/load passed; accepted dependency pins preserved",
+      "tests_passed": 182,
+      "tests_skipped": 1
+    },
+    "database": {
+      "command": "python3 scripts/dev_db.py up",
+      "result": "Project PostgreSQL ready at 127.0.0.1:55432; credentials in ignored .env"
+    },
+    "enabled_sql_suite": {
+      "command": "CREDIT_RISK_SQL_TEST=1 .venv/bin/python -m pytest -q -p no:cacheprovider",
+      "passed": 183,
+      "seconds": 54.31,
+      "skipped": 0
+    },
+    "exact_invocation_timestamps_supplied": false,
+    "resume": {
+      "blockers": [],
+      "command": ".venv/bin/python -m credit_risk.phase4 resume --run-id 9ca62eca2665438c9c97b4889413acfa",
+      "complete_bundle_frozen": false,
+      "core_complete": true,
+      "output_dir": "/mnt/c/Users/Danieal/Desktop/Credit Risk Project/artifacts/models/phase4/9ca62eca2665438c9c97b4889413acfa",
+      "run_id": "9ca62eca2665438c9c97b4889413acfa",
+      "selected_mapping": "raw"
+    },
+    "ruff": {
+      "command": ".venv/bin/ruff check . --no-cache",
+      "result": "All checks passed!"
+    }
+  }
+}

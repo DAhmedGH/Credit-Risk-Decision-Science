@@ -1,0 +1,279 @@
+{
+  "availability": "All released September fields available at existing-account month-end snapshot (assumption)",
+  "categorical_predictors": [
+    "pay_status_2005_04",
+    "pay_status_2005_05",
+    "pay_status_2005_06",
+    "pay_status_2005_07",
+    "pay_status_2005_08",
+    "pay_status_2005_09"
+  ],
+  "derived": {
+    "aggregate_payment_balance_missing": {
+      "fit_scope": "row-only",
+      "formula": "1 when aggregate_payment_balance_proxy is missing, else 0",
+      "source_dependencies": [
+        "pay_amt_2005_04",
+        "pay_amt_2005_05",
+        "pay_amt_2005_06",
+        "pay_amt_2005_07",
+        "pay_amt_2005_08",
+        "pay_amt_2005_09",
+        "bill_amt_2005_04",
+        "bill_amt_2005_05",
+        "bill_amt_2005_06",
+        "bill_amt_2005_07",
+        "bill_amt_2005_08",
+        "bill_amt_2005_09"
+      ]
+    },
+    "aggregate_payment_balance_proxy": {
+      "fit_scope": "row-only",
+      "formula": "sum(six payments) / sum(max(bill, 0)); missing if denominator = 0",
+      "source_dependencies": [
+        "pay_amt_2005_04",
+        "pay_amt_2005_05",
+        "pay_amt_2005_06",
+        "pay_amt_2005_07",
+        "pay_amt_2005_08",
+        "pay_amt_2005_09",
+        "bill_amt_2005_04",
+        "bill_amt_2005_05",
+        "bill_amt_2005_06",
+        "bill_amt_2005_07",
+        "bill_amt_2005_08",
+        "bill_amt_2005_09"
+      ]
+    },
+    "bill_balance_change": {
+      "fit_scope": "row-only",
+      "formula": "(September bill - April bill) / credit limit",
+      "source_dependencies": [
+        "bill_amt_2005_04",
+        "bill_amt_2005_09",
+        "limit_bal"
+      ]
+    },
+    "bill_volatility_proxy": {
+      "fit_scope": "row-only",
+      "formula": "population SD(six bills) / credit limit",
+      "source_dependencies": [
+        "bill_amt_2005_04",
+        "bill_amt_2005_05",
+        "bill_amt_2005_06",
+        "bill_amt_2005_07",
+        "bill_amt_2005_08",
+        "bill_amt_2005_09",
+        "limit_bal"
+      ]
+    },
+    "latest_utilization_proxy": {
+      "fit_scope": "row-only",
+      "formula": "September bill / credit limit",
+      "source_dependencies": [
+        "bill_amt_2005_09",
+        "limit_bal"
+      ]
+    },
+    "maximum_positive_delay": {
+      "fit_scope": "row-only",
+      "formula": "max(max(status, 0)), April-September",
+      "source_dependencies": [
+        "pay_status_2005_04",
+        "pay_status_2005_05",
+        "pay_status_2005_06",
+        "pay_status_2005_07",
+        "pay_status_2005_08",
+        "pay_status_2005_09"
+      ]
+    },
+    "mean_payment": {
+      "fit_scope": "row-only",
+      "formula": "mean(six payments) in source monetary units",
+      "source_dependencies": [
+        "pay_amt_2005_04",
+        "pay_amt_2005_05",
+        "pay_amt_2005_06",
+        "pay_amt_2005_07",
+        "pay_amt_2005_08",
+        "pay_amt_2005_09"
+      ]
+    },
+    "mean_utilization_proxy": {
+      "fit_scope": "row-only",
+      "formula": "mean(six bills) / credit limit",
+      "source_dependencies": [
+        "bill_amt_2005_04",
+        "bill_amt_2005_05",
+        "bill_amt_2005_06",
+        "bill_amt_2005_07",
+        "bill_amt_2005_08",
+        "bill_amt_2005_09",
+        "limit_bal"
+      ]
+    },
+    "payment_to_prior_bill_missing": {
+      "fit_scope": "row-only",
+      "formula": "1 when payment_to_prior_bill_proxy is missing, else 0",
+      "source_dependencies": [
+        "pay_amt_2005_09",
+        "bill_amt_2005_08"
+      ]
+    },
+    "payment_to_prior_bill_proxy": {
+      "fit_scope": "row-only",
+      "formula": "September payment / August bill if bill > 0; otherwise missing",
+      "source_dependencies": [
+        "pay_amt_2005_09",
+        "bill_amt_2005_08"
+      ]
+    },
+    "recent_delinquency_count": {
+      "fit_scope": "row-only",
+      "formula": "count(status > 0), April-September",
+      "source_dependencies": [
+        "pay_status_2005_04",
+        "pay_status_2005_05",
+        "pay_status_2005_06",
+        "pay_status_2005_07",
+        "pay_status_2005_08",
+        "pay_status_2005_09"
+      ]
+    },
+    "recent_history_delay_contrast": {
+      "fit_scope": "row-only",
+      "formula": "mean(max(status, 0)), July-September minus April-June",
+      "source_dependencies": [
+        "pay_status_2005_04",
+        "pay_status_2005_05",
+        "pay_status_2005_06",
+        "pay_status_2005_07",
+        "pay_status_2005_08",
+        "pay_status_2005_09"
+      ]
+    },
+    "zero_payment_count": {
+      "fit_scope": "row-only",
+      "formula": "count(payment == 0), April-September",
+      "source_dependencies": [
+        "pay_amt_2005_04",
+        "pay_amt_2005_05",
+        "pay_amt_2005_06",
+        "pay_amt_2005_07",
+        "pay_amt_2005_08",
+        "pay_amt_2005_09"
+      ]
+    }
+  },
+  "engineered_predictors": [
+    "recent_delinquency_count",
+    "maximum_positive_delay",
+    "recent_history_delay_contrast",
+    "latest_utilization_proxy",
+    "mean_utilization_proxy",
+    "bill_balance_change",
+    "bill_volatility_proxy",
+    "mean_payment",
+    "zero_payment_count",
+    "payment_to_prior_bill_proxy",
+    "payment_to_prior_bill_missing",
+    "aggregate_payment_balance_proxy",
+    "aggregate_payment_balance_missing"
+  ],
+  "excluded": [
+    "client_id",
+    "default_next_month",
+    "sex",
+    "age",
+    "education",
+    "marriage"
+  ],
+  "feature_version": "financial-row-v1",
+  "learned_preprocessing": "Fit imputation, scaling, category vocabularies and cutoffs only on relevant training rows",
+  "missingness_rule": "Any missing required input propagates; no population statistics or imputation",
+  "months_oldest_to_latest": [
+    "2005_04",
+    "2005_05",
+    "2005_06",
+    "2005_07",
+    "2005_08",
+    "2005_09"
+  ],
+  "predictors": [
+    "limit_bal",
+    "pay_status_2005_04",
+    "pay_status_2005_05",
+    "pay_status_2005_06",
+    "pay_status_2005_07",
+    "pay_status_2005_08",
+    "pay_status_2005_09",
+    "bill_amt_2005_04",
+    "bill_amt_2005_05",
+    "bill_amt_2005_06",
+    "bill_amt_2005_07",
+    "bill_amt_2005_08",
+    "bill_amt_2005_09",
+    "pay_amt_2005_04",
+    "pay_amt_2005_05",
+    "pay_amt_2005_06",
+    "pay_amt_2005_07",
+    "pay_amt_2005_08",
+    "pay_amt_2005_09",
+    "recent_delinquency_count",
+    "maximum_positive_delay",
+    "recent_history_delay_contrast",
+    "latest_utilization_proxy",
+    "mean_utilization_proxy",
+    "bill_balance_change",
+    "bill_volatility_proxy",
+    "mean_payment",
+    "zero_payment_count",
+    "payment_to_prior_bill_proxy",
+    "payment_to_prior_bill_missing",
+    "aggregate_payment_balance_proxy",
+    "aggregate_payment_balance_missing"
+  ],
+  "ratio_interpretation": "Payment/balance ratios are proxies, not contractual repayment or debt-to-income",
+  "raw_predictors": [
+    "limit_bal",
+    "pay_status_2005_04",
+    "pay_status_2005_05",
+    "pay_status_2005_06",
+    "pay_status_2005_07",
+    "pay_status_2005_08",
+    "pay_status_2005_09",
+    "bill_amt_2005_04",
+    "bill_amt_2005_05",
+    "bill_amt_2005_06",
+    "bill_amt_2005_07",
+    "bill_amt_2005_08",
+    "bill_amt_2005_09",
+    "pay_amt_2005_04",
+    "pay_amt_2005_05",
+    "pay_amt_2005_06",
+    "pay_amt_2005_07",
+    "pay_amt_2005_08",
+    "pay_amt_2005_09"
+  ],
+  "raw_source_mapping": {
+    "bill_amt_2005_04": "BILL_AMT6",
+    "bill_amt_2005_05": "BILL_AMT5",
+    "bill_amt_2005_06": "BILL_AMT4",
+    "bill_amt_2005_07": "BILL_AMT3",
+    "bill_amt_2005_08": "BILL_AMT2",
+    "bill_amt_2005_09": "BILL_AMT1",
+    "limit_bal": "LIMIT_BAL",
+    "pay_amt_2005_04": "PAY_AMT6",
+    "pay_amt_2005_05": "PAY_AMT5",
+    "pay_amt_2005_06": "PAY_AMT4",
+    "pay_amt_2005_07": "PAY_AMT3",
+    "pay_amt_2005_08": "PAY_AMT2",
+    "pay_amt_2005_09": "PAY_AMT1",
+    "pay_status_2005_04": "PAY_6",
+    "pay_status_2005_05": "PAY_5",
+    "pay_status_2005_06": "PAY_4",
+    "pay_status_2005_07": "PAY_3",
+    "pay_status_2005_08": "PAY_2",
+    "pay_status_2005_09": "PAY_0"
+  }
+}

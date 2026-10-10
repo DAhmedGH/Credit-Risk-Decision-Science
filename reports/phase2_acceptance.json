@@ -1,0 +1,335 @@
+{
+  "all_recorded_source_code_config_artifact_hashes_match": true,
+  "all_warnings_empty": true,
+  "audit_script_sha256": "d1b913b710903271f517484ff81b08c7d0e44da8836599d88be2591357a31890",
+  "champion_frozen": false,
+  "compact_artifacts_hashed": 6,
+  "delivery_limitations": [
+    "Git unavailable; commit explicitly null with source/config content hashes",
+    "No remote CI or fresh-volume rebuild claimed"
+  ],
+  "documentation_finalized_at_utc": "2026-10-08T19:08:03.512887+00:00",
+  "documentation_validation": {
+    "final_independent_documentation_review": "PASS",
+    "local_links_checked": 42,
+    "metric_transcriptions_match_saved_table": true,
+    "preserved_checkpoint_hashes_verified": true,
+    "status": "PASS",
+    "tests_and_experiments_rerun": false
+  },
+  "expanded_lock_pins_verified": 58,
+  "expanded_lock_sha256": "b8f4f36250c998b0d9850d8d99d6968b6810c244c06aa7c1262bb28d91c00fd5",
+  "fold_local_weights_verified": true,
+  "full_labels_csv_opened": false,
+  "groups_and_frozen_folds_verified": true,
+  "heldout_outcomes_accessed": false,
+  "independent_review": {
+    "disposition": "PASS",
+    "documentation_findings_resolved": [
+      "Phase2-first reproduction commands and explicit historical Phase1 cross-lock evidence guard",
+      "Aggregate diagnostic review distinguished from individual saved cases not inspected"
+    ],
+    "path": "docs/review-phase2-acceptance.md",
+    "unresolved_findings": []
+  },
+  "learned_transform_fit_statistics_verified": true,
+  "local_artifacts_hashed": 101,
+  "max_recomputed_fold_metric_absolute_error": 1.1102230246251565e-16,
+  "max_serialized_prediction_absolute_error": 1.1102230246251565e-16,
+  "mlflow_logged_copies_match_local_artifacts": true,
+  "model_pipelines_inspected_and_rescored": 45,
+  "models_fit_or_changed": false,
+  "parent_run_id": "49c7344ca89440e9a458fa2849d9122d",
+  "parent_status": "FINISHED",
+  "phase1_lock_preserved": true,
+  "phase2_exit_gate": "PASS",
+  "phase3_started": false,
+  "predictor_allowlist_and_positive_class_verified": true,
+  "reconciliation": "All assertions passed; development OOF only, no training, no heldout outcome access",
+  "recorded_at_utc": "2026-10-08T18:59:23.503585+00:00",
+  "run_code_tree_sha256": "8f4a9975a50b1d87c2426ac3649391662efb6b9e48ae590caac920188e351bd0",
+  "run_manifest_sha256": "2f5a31e8633ca751d63b5b4dbd43bd096812474954436e5df2e5ba3a88373761",
+  "scope": "read-only Phase 2 acceptance",
+  "unresolved_phase2_scientific_or_runtime_blockers": [],
+  "user_run_evidence": {
+    "attribution": "User-reported ordinary WSL commands; not rerun during acceptance",
+    "baseline_execution": {
+      "champion_frozen": false,
+      "parent_run_id": "49c7344ca89440e9a458fa2849d9122d",
+      "runtime_validation_passed": true
+    },
+    "baseline_inputs": "18000 development rows, 5x3600; frozen verified; no heldout interpretation; no fit",
+    "bootstrap": "Synthetic smoke/local MLflow, Ruff, 78 passed 1 skipped, closure verified and locked",
+    "commands": [
+      "bash scripts/bootstrap_phase2.sh",
+      ".venv/bin/python -m credit_risk baseline-inputs --config configs/phase2.toml",
+      ".venv/bin/python -m credit_risk baselines --config configs/phase2.toml",
+      "python3 scripts/dev_db.py up",
+      "CREDIT_RISK_SQL_TEST=1 .venv/bin/python -m pytest -q -p no:cacheprovider"
+    ],
+    "enabled_sql_full_suite": "79 passed in 39.26s, zero skips",
+    "exact_test_execution_timestamp": null,
+    "postgres": "Project disposable instance ready at 127.0.0.1:55432; credentials not inspected"
+  },
+  "variant_count": 9,
+  "variants": {
+    "dummy__raw__none": {
+      "fold_average": {
+        "average_precision": 0.2211666666666666,
+        "brier_score": 0.1722519791666666,
+        "log_loss": 0.528380631436422,
+        "roc_auc": 0.5
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.22112223338636303,
+        "brier_score": 0.17225197916666665,
+        "log_loss": 0.528380631436422,
+        "roc_auc": 0.49987099002736785
+      },
+      "run_id": "4593ebb8c5384a10b9c9c92863312f1d",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "logistic__engineered__balanced": {
+      "fold_average": {
+        "average_precision": 0.5372429044953211,
+        "brier_score": 0.1845688813452302,
+        "log_loss": 0.5617837047146181,
+        "roc_auc": 0.7713966415189031
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [
+        105,
+        124,
+        126,
+        131,
+        122
+      ],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5353048474235932,
+        "brier_score": 0.18456888134523025,
+        "log_loss": 0.561783704714618,
+        "roc_auc": 0.7711240167670678
+      },
+      "run_id": "ec0e1d5bf7fe4cbb891a9294cc1969c3",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "logistic__engineered__none": {
+      "fold_average": {
+        "average_precision": 0.5407583617188523,
+        "brier_score": 0.1362178395111053,
+        "log_loss": 0.4362741063593077,
+        "roc_auc": 0.7710652256957977
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [
+        89,
+        90,
+        97,
+        85,
+        90
+      ],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5383953939386061,
+        "brier_score": 0.13621783951110536,
+        "log_loss": 0.43627410635930763,
+        "roc_auc": 0.7707670533400154
+      },
+      "run_id": "9090e7e1698147589f64b69f362216bd",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "logistic__raw__balanced": {
+      "fold_average": {
+        "average_precision": 0.5328185251700459,
+        "brier_score": 0.1856288640587,
+        "log_loss": 0.5660517168480304,
+        "roc_auc": 0.7657598667539082
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [
+        91,
+        100,
+        87,
+        94,
+        77
+      ],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5307929619787172,
+        "brier_score": 0.18562886405870005,
+        "log_loss": 0.5660517168480302,
+        "roc_auc": 0.7653907239930364
+      },
+      "run_id": "96c9c67e25354c7b96f02315b799b4f0",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "logistic__raw__none": {
+      "fold_average": {
+        "average_precision": 0.534426579762059,
+        "brier_score": 0.1372701485754192,
+        "log_loss": 0.4392365979927971,
+        "roc_auc": 0.7654504450740559
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [
+        67,
+        80,
+        76,
+        71,
+        75
+      ],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.532729223399017,
+        "brier_score": 0.13727014857541922,
+        "log_loss": 0.43923659799279713,
+        "roc_auc": 0.7651253934826563
+      },
+      "run_id": "fae6572cb2e8443cbdc4580f6f475ddb",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "random_forest__engineered__balanced": {
+      "fold_average": {
+        "average_precision": 0.5504851144281904,
+        "brier_score": 0.1510029748818842,
+        "log_loss": 0.4713217294103288,
+        "roc_auc": 0.7794271688096337
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5500083933243614,
+        "brier_score": 0.15100297488188422,
+        "log_loss": 0.4713217294103288,
+        "roc_auc": 0.7791241043505047
+      },
+      "run_id": "74d4b87493604c8d8e1216758e1ae3cc",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "random_forest__engineered__none": {
+      "fold_average": {
+        "average_precision": 0.5527910357692021,
+        "brier_score": 0.1350146136778225,
+        "log_loss": 0.4299971863907545,
+        "roc_auc": 0.779257261650795
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5517474354117636,
+        "brier_score": 0.13501461367782253,
+        "log_loss": 0.42999718639075457,
+        "roc_auc": 0.7789559792708927
+      },
+      "run_id": "aa8cd98635824b2aa7414a4afb35140b",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "random_forest__raw__balanced": {
+      "fold_average": {
+        "average_precision": 0.5491121831064099,
+        "brier_score": 0.1570752162891574,
+        "log_loss": 0.4886293836737631,
+        "roc_auc": 0.7759370155761197
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5475425559652616,
+        "brier_score": 0.1570752162891574,
+        "log_loss": 0.4886293836737631,
+        "roc_auc": 0.7757144693231218
+      },
+      "run_id": "2456a02662374cb7a3e0cddd3d6f8e5e",
+      "status": "FINISHED",
+      "warnings": []
+    },
+    "random_forest__raw__none": {
+      "fold_average": {
+        "average_precision": 0.5487796209212716,
+        "brier_score": 0.1355234135115173,
+        "log_loss": 0.4319185073045606,
+        "roc_auc": 0.7745713608554061
+      },
+      "fold_rows": [
+        3600,
+        3600,
+        3600,
+        3600,
+        3600
+      ],
+      "logistic_iterations": [],
+      "oof_rows": 18000,
+      "pooled_oof": {
+        "average_precision": 0.5473189235660095,
+        "brier_score": 0.1355234135115173,
+        "log_loss": 0.4319185073045606,
+        "roc_auc": 0.7742961659364971
+      },
+      "run_id": "a707f88a7320408887b350a14fb64336",
+      "status": "FINISHED",
+      "warnings": []
+    }
+  }
+}

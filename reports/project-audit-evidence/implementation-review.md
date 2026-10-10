@@ -1,0 +1,40 @@
+# Implementation and delivery review of the completed-project audit
+
+This review records the implementation auditor's direct inspection and executed checks. It is separate from historical phase acceptance/review receipts and does not reseal them. The inspected corrections preserve accepted fitted identities, probability mapping, scenarios, cutoffs, predictions and scientific result files. No unresolved material issue was identified in the reviewed corrections or final audit conclusions; this is a bounded review, not proof that software has no bugs.
+
+## Directly inspected scope and corrections
+
+Initially inspected maintained inference, artifact atomic writes and freeze loading, all Phase 5 execution paths, feature/schema validation, PostgreSQL identity/transaction/idempotence checks, monitoring, preprocessing and class-1 probability helper, config/CLI, restoration/packing/reproduction/tracking/setup scripts, Docker/Compose/build exclusions, CI and behavioral tests. Read project instructions, design/phase plan and reproduction guides/receipts. Independently reproduced CSV width/index shifting and embedded-NUL truncation; implemented parser fixes and meaningful identity/malformed-input regressions. Implemented monitoring evidence-preservation guards with repeated-output/stale-receipt regressions. The scientific checks independently inspected and tested these corrections, including finding and verifying the additional Parquet NUL-ID correction.
+
+Independently reviewed the Phase 4 loader correction and all new partition regressions. Canonical `None` missing values now survive fingerprint verification before DataFrame/pipeline conversion to NaN. Blank demographics retain unknown-group semantics rather than failing integer conversion. Tests exercise frozen IDs/fingerprints/labels, fitted-selector missingness, descriptive slice denominators and explicit nonfinite rejection. This changes behavior for valid incomplete synthetic records; the accepted complete workbook/results are unaffected.
+
+Separately inspected CLI/readiness and optimized-Python corrections. Missing scoring/monitoring flags now fail with argparse exit 2 before loading. Relative readiness resolves under explicit project root, while absolute overrides remain explicit. Optional `main(argv)` retains ordinary module invocation. The reproduction optimization guard runs before imports/writes. Regression tests use raising loading sentinels and a mocked evaluator, so no final evaluation is executed.
+
+## Checks executed by this review
+
+- `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_audit_inference.py tests/test_phase5.py`: 21 passed in 17.32s initially, then 23 passed in 14.71s after CSV NUL regressions.
+- `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_audit_monitoring.py tests/test_phase5_monitoring.py tests/test_audit_partition_inputs.py`: 17 passed in 27.41s.
+- Final cross-format/command coverage: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_audit_inference.py tests/test_phase5.py tests/test_audit_commands.py`: 31 passed in 16.46s.
+- Ruff passed on changed owned inference/monitoring files and their new regression modules; existing tests/tolerances were not weakened or removed.
+- `.venv/bin/python -O scripts/reproduce_phase5.py --help`: exit 1 with actionable assertion-enabled instruction, before imports or output.
+- Synthetic extreme finite-limit probe using the trusted frozen bundle scored 2/2 unchanged rows with one limit changed to `1e100`; a suspected representation defect did not reproduce. No labels/outcomes were read and no fitting occurred. An initial probe failed while constructing an integer-typed pandas fixture; object dtype corrected that harness failure.
+- Final JSON syntax/count check parsed all 10 compact evidence JSON files and confirmed eight resolved findings, matching severity totals, and no accepted-result-impact flags.
+- Final maintained/untracked file inventory and targeted credential-signature search found no raw customer payloads, model/runtime binaries or credential literals in the audit evidence/scripts/regressions. This combines direct content inspection with a limited signature scan, not a guarantee about every possible secret encoding.
+
+Separate execution recorded the final full live-SQL suite (231 passed, zero skips), Ruff and historical-restoration preflight. Separate targeted checks recorded parser/Phase 5 (25), monitoring (13), and command (6) cases. These counts identify distinct recorded executions.
+
+## Final report, evidence and delivery cross-check
+
+Read `project-audit.md`, all structured findings, current maintained diff, README/reproduction/progress/decision/exposure changes, scientific final review, compact restoration/delivery/database receipts and retained verification scripts. Finding totals agree: one high, three medium, four low; 24 added cases (11 parser/identity, four partition, three monitoring, six command) supplement the historical 207 cases to give 231. OOF/model/bootstrap/monitoring count dimensions and reported aggregate identities agree with the linked evidence. Headline measurements remain tied to original saved predictions; no audit-driven reselection or fresh scientific execution is claimed.
+
+The read-only database script checks workbook bytes, logs structural target access before decoding, uses the project/lifecycle-verified connection, sets the transaction read-only before parity queries, verifies persisted source/curated/audit values and SQL/Python/saved financial export agreement, and rolls back. Its compact receipt contains only aggregate counts/hashes/booleans, not customers or credentials. The recorded receipt reports 30,000 reconciled rows and zero exclusions. This review inspected the script/receipt but did not repeat that full-source access.
+
+Guides now pin historical replay to accepted `fb022d9`, explain why maintained core/tests deliberately fail exact historical guards, and provide a no-fit restored-environment recipe and pinned-container route. Current standalone scoring uses unchanged frozen transformation sources. No accepted source snapshots, manifests or historical review receipts were relaxed/replaced. Acquisition-chain uncertainty, ignored local payload requirements, source-only clone limits, conditional uncertainty, synthetic utility/monitoring, and lack of rebuilt audit container/remote CI observation remain explicit.
+
+A replay usability check identified that the read-only database verifier should accept an exclusive new output path and reject an existing receipt before source/DB access, rather than repeat reads and then fail on its existing default receipt. This concerns retained audit tooling, not accepted scientific results.
+
+No searches, real-data model/base/calibration fits, or accepted final evaluation were run by this review. Fixture tests fit synthetic models only. File edits remain local; no staging, commit, push, publication or deployment was performed. Existing fresh-container evidence was inspected, not rerun or relabeled as audit execution. Remaining general limitations include untested dependency/platform combinations and concurrent filesystem races; the report does not claim exhaustive bug absence.
+
+## Verifier replay closeout
+
+The replay correction was implemented in `verify-database.py`: `--output NEW_PATH` selects a new receipt, an existing output or symlink fails with an actionable argparse error before workbook hashing, exposure-log append, decoding or database connection, and final receipt creation remains exclusive. Parent directories are created only when writing successful evidence. The original `database.json` was preserved. Inspection covered the updated argument/guard/write ordering and the report's new replay command; no concrete flaw was found. Help and existing-receipt refusal were checked (expected exit 2); full-source/database access was not repeated for that correction. This suggestion is resolved and requires no scientific re-execution.

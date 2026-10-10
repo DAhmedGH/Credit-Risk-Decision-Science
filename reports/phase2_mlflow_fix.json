@@ -1,0 +1,84 @@
+{
+  "changed_code_sha256": {
+    "src/credit_risk/phase2.py": "e0dc78d45d3fc33d1e62b1905f2d396cc03bef5e2bdd4ba3640b63f3528d7b30",
+    "tests/test_baseline_tracking.py": "58844434f58463e8f9ca8900d4f4afc5c0e283e54babd30f1680d145af8db094"
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider tests/test_baseline_tracking.py::test_real_local_mlflow_tracks_fixture_runs_and_ignores_remote_environment",
+      "exit_code": 1,
+      "result": "1 failed in 43.03s; MissingConfigException at mlruns/artifacts/<run-id>/meta.yaml",
+      "stage": "before correction"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider tests/test_baseline_tracking.py::test_real_local_mlflow_tracks_fixture_runs_and_ignores_remote_environment",
+      "exit_code": 0,
+      "result": "1 passed in 27.50s",
+      "stage": "after storage/cleanup correction, before expanded regressions"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider tests/test_baseline_tracking.py",
+      "exit_code": 0,
+      "result": "4 passed in 38.91s",
+      "stage": "final expanded tests"
+    },
+    {
+      "command": ".venv/bin/ruff check . --no-cache",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+      "exit_code": 0,
+      "result": "78 passed, 1 skipped in 40.17s",
+      "skip": "Existing live PostgreSQL test not enabled"
+    },
+    {
+      "command": ".venv/bin/python scripts/phase2_smoke.py",
+      "exit_code": 0,
+      "result": {
+        "import_fit_save_load": "passed",
+        "local_mlflow": "passed",
+        "models": 3,
+        "scope": "synthetic fixture only"
+      }
+    }
+  ],
+  "execution_blocks": [],
+  "explicit_local_tracking_preserved": true,
+  "fix": "Default experiment artifact layout, legacy nondefault-layout guard, best-effort cleanup with notes on original exception",
+  "full_data_baseline_workflow_run": false,
+  "git_commit": null,
+  "installed_direct_modeling_pins": {
+    "joblib": "1.5.2",
+    "mlflow-skinny": "3.3.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "threadpoolctl": "3.6.0"
+  },
+  "installed_source_inspected": "mlflow/store/tracking/file_store.py: _get_active_experiments, _find_run_root, _create_experiment_with_id; mlflow/tracking/_tracking_service/client.py: _get_artifact_repo cache",
+  "intermediate_new_test_correction": "1 failed, 3 passed in 55.56s: cached parent artifact repository prevented an expected third cleanup fault; fixture now also creates a filesystem obstruction. Final tests pass.",
+  "legacy_recovery": "Choose a new experiment name; no deletion, URI rewriting, migration or historical status changes",
+  "phase2_overall_gate": "Pending actual full-data baseline evidence and expanded-lock delivery; fix verification is complete",
+  "phase3_started": false,
+  "python": "3.12.11",
+  "real_data_outcome_analysis": false,
+  "recorded_at_utc": "2026-10-08T18:33:23.843957+00:00",
+  "repeated_fixture_runs_same_store": 2,
+  "review": "docs/review-phase2.md: independent installed-source/code/test inspection, no unresolved integrity issue",
+  "root_cause": "MLflow skinny 3.3.2 FileStore includes top-level artifact directory in experiment discovery and returns first matching run directory, potentially shadowing metadata.",
+  "scientific_inputs_and_lock_preserved": {
+    "artifacts/feature_contract_v1_1.json": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "requirements.lock": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624"
+  },
+  "scope": "Phase 2 MLflow storage layout and cleanup correction only",
+  "tests_use_real_mlflow_client": true,
+  "user_run_evidence": {
+    "attribution": "User-reported manual run",
+    "result": "1 failed, 74 passed, 1 skipped"
+  }
+}

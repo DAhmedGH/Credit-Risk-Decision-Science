@@ -1,0 +1,31 @@
+{
+  "accepted_code_tree_sha256": "bcad5c99614b24044c72f904ce1a73c2552d82528b50d90679478cec3f50a44f",
+  "accepted_lock_sha256": "31e7241f3499567f92579f1381892351dcd433faf219fe8b0be70321937e6b57",
+  "accepted_selection_manifest_sha256": "17239cecdbc8754cdd6cdef129d550385f62dc591dc0218ddb08fffb0d06f0fb",
+  "durable_model_root": "/home/danieal/credit-risk-backups/phase3-20261008-195946/runtime",
+  "input_hashes": {
+    "artifacts/feature_contract_v1_1.json": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+    "artifacts/phase1_export_manifest.json": "6157949db2e77b548d7de831f196b5d6506bd9c8e28dc3bd6290401f2be0e81a",
+    "artifacts/split_checks/840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537.json": "840b8d85f42f4dc69e0a693c47af7effcac1afc90004094f189fef467dd79537",
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "data/processed/audit_attributes.csv": "54f7869afe47e2a65e138fcf71b5ab0f69c60e7413875b76498e6df82a1f3204",
+    "data/processed/financial_features_v1.csv": "4dc8498776fbe56b64d75ff3cd79257275ad7657cc133aaa08457b27c1cc6e7e",
+    "data/processed/labels.csv": "ecb12689643cb256d1707338f695d22fe8c28bce70c985f7c2fd6247e8080f2f",
+    "data/raw/default of credit card clients.xls": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "model_sha256": {
+    "dummy_prior": "cf92e3a562ba1ecd4f591b44e85ddbeec678f29f00b4e368576a8799a98b185d",
+    "logistic_00_engineered_none": "0f0e88ef743f82a48d7198b6c35b9f45cab54887a584b760ce00d2776c817e0e",
+    "random_forest_02_engineered_none": "fcc1f8123934f005a1caf4ab553db63df52111f5a5aa1a030b090d497ad7158e",
+    "xgboost_04_engineered_none": "4d0bbdfc3968d932d19fac801757ef23ed59407dbdf9b1560773888b563f2198",
+    "xgboost_05_engineered_none": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c"
+  },
+  "partition_sizes": {
+    "calibration": 4500,
+    "development": 18000,
+    "final_test": 4500,
+    "policy_validation": 3000
+  },
+  "selected_candidate": "xgboost_05_engineered_none",
+  "selection_run": "6a0725d18b164582938e0b07b2df6b27"
+}

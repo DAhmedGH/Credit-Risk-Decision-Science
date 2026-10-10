@@ -1,0 +1,345 @@
+{
+  "descriptive_financial_features": {
+    "aggregate_payment_balance_missing": {
+      "maximum": 1,
+      "mean": 0.03133333333333333,
+      "median": 0.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "aggregate_payment_balance_proxy": {
+      "maximum": 797.0,
+      "mean": 0.5053425880006497,
+      "median": 0.09526737043196423,
+      "minimum": 0.0,
+      "missing": 564,
+      "observed": 17436
+    },
+    "bill_amt_2005_04": {
+      "maximum": 961664,
+      "mean": 38694.011,
+      "median": 17169.0,
+      "minimum": -339603,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_amt_2005_05": {
+      "maximum": 927171,
+      "mean": 40151.8335,
+      "median": 18142.5,
+      "minimum": -46627,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_amt_2005_06": {
+      "maximum": 891586,
+      "mean": 43175.03327777778,
+      "median": 19052.0,
+      "minimum": -170000,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_amt_2005_07": {
+      "maximum": 1664089,
+      "mean": 47056.56022222222,
+      "median": 20076.0,
+      "minimum": -157264,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_amt_2005_08": {
+      "maximum": 983931,
+      "mean": 49108.94422222222,
+      "median": 21323.5,
+      "minimum": -69777,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_amt_2005_09": {
+      "maximum": 964511,
+      "mean": 51154.57511111111,
+      "median": 22355.0,
+      "minimum": -165580,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_balance_change": {
+      "maximum": 4.1331,
+      "mean": 0.10665340732308008,
+      "median": 0.007132575757575758,
+      "minimum": -1.8273,
+      "missing": 0,
+      "observed": 18000
+    },
+    "bill_volatility_proxy": {
+      "maximum": 3.861827145086158,
+      "mean": 0.09068057381203061,
+      "median": 0.03871621339514622,
+      "minimum": 0.0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "latest_utilization_proxy": {
+      "maximum": 6.4553,
+      "mean": 0.42624559458296535,
+      "median": 0.31697,
+      "minimum": -0.5519333333333334,
+      "missing": 0,
+      "observed": 18000
+    },
+    "limit_bal": {
+      "maximum": 1000000,
+      "mean": 167534.09333333332,
+      "median": 140000.0,
+      "minimum": 10000,
+      "missing": 0,
+      "observed": 18000
+    },
+    "maximum_positive_delay": {
+      "maximum": 8,
+      "mean": 0.691,
+      "median": 0.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "mean_payment": {
+      "maximum": 627344.3333333334,
+      "mean": 5300.52162037037,
+      "median": 2387.083333333333,
+      "minimum": 0.0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "mean_utilization_proxy": {
+      "maximum": 5.364308333333334,
+      "mean": 0.3751365476518569,
+      "median": 0.2877410714285714,
+      "minimum": -0.23259,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_04": {
+      "maximum": 528666,
+      "mean": 5243.015611111111,
+      "median": 1500.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_05": {
+      "maximum": 417990,
+      "mean": 4793.520555555556,
+      "median": 1500.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_06": {
+      "maximum": 621000,
+      "mean": 4804.4985,
+      "median": 1500.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_07": {
+      "maximum": 896040,
+      "mean": 5291.825111111111,
+      "median": 1800.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_08": {
+      "maximum": 1684259,
+      "mean": 6037.303722222222,
+      "median": 2006.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_amt_2005_09": {
+      "maximum": 873552,
+      "mean": 5632.966222222222,
+      "median": 2100.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_04": {
+      "maximum": 8,
+      "mean": -0.28888888888888886,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_05": {
+      "maximum": 8,
+      "mean": -0.2592777777777778,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_06": {
+      "maximum": 8,
+      "mean": -0.2127777777777778,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_07": {
+      "maximum": 8,
+      "mean": -0.15638888888888888,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_08": {
+      "maximum": 7,
+      "mean": -0.12427777777777778,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "pay_status_2005_09": {
+      "maximum": 8,
+      "mean": -0.0047777777777777775,
+      "median": 0.0,
+      "minimum": -2,
+      "missing": 0,
+      "observed": 18000
+    },
+    "payment_to_prior_bill_missing": {
+      "maximum": 1,
+      "mean": 0.107,
+      "median": 0.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "payment_to_prior_bill_proxy": {
+      "maximum": 103.44827586206897,
+      "mean": 0.36529806520015023,
+      "median": 0.07721331611614483,
+      "minimum": 0.0,
+      "missing": 1926,
+      "observed": 16074
+    },
+    "recent_delinquency_count": {
+      "maximum": 6,
+      "mean": 0.8423333333333334,
+      "median": 0.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    },
+    "recent_history_delay_contrast": {
+      "maximum": 3.3333333333333335,
+      "mean": 0.09135185185185185,
+      "median": 0.0,
+      "minimum": -5.333333333333333,
+      "missing": 0,
+      "observed": 18000
+    },
+    "zero_payment_count": {
+      "maximum": 6,
+      "mean": 1.238611111111111,
+      "median": 0.0,
+      "minimum": 0,
+      "missing": 0,
+      "observed": 18000
+    }
+  },
+  "development_default_prevalence": 0.22116666666666668,
+  "development_defaults": 3981,
+  "development_repayment_category_counts": {
+    "pay_status_2005_04": {
+      "-1": 3450,
+      "-2": 2929,
+      "0": 9778,
+      "2": 1646,
+      "3": 116,
+      "4": 25,
+      "5": 8,
+      "6": 10,
+      "7": 36,
+      "8": 2
+    },
+    "pay_status_2005_05": {
+      "-1": 3332,
+      "-2": 2702,
+      "0": 10168,
+      "2": 1578,
+      "3": 111,
+      "4": 56,
+      "5": 7,
+      "6": 2,
+      "7": 43,
+      "8": 1
+    },
+    "pay_status_2005_06": {
+      "-1": 3449,
+      "-2": 2570,
+      "0": 9843,
+      "1": 2,
+      "2": 1917,
+      "3": 112,
+      "4": 40,
+      "5": 20,
+      "6": 3,
+      "7": 43,
+      "8": 1
+    },
+    "pay_status_2005_07": {
+      "-1": 3546,
+      "-2": 2416,
+      "0": 9482,
+      "1": 3,
+      "2": 2297,
+      "3": 161,
+      "4": 49,
+      "5": 12,
+      "6": 13,
+      "7": 19,
+      "8": 2
+    },
+    "pay_status_2005_08": {
+      "-1": 3604,
+      "-2": 2228,
+      "0": 9485,
+      "1": 19,
+      "2": 2353,
+      "3": 211,
+      "4": 66,
+      "5": 15,
+      "6": 7,
+      "7": 12
+    },
+    "pay_status_2005_09": {
+      "-1": 3423,
+      "-2": 1573,
+      "0": 8860,
+      "1": 2278,
+      "2": 1574,
+      "3": 201,
+      "4": 51,
+      "5": 16,
+      "6": 9,
+      "7": 4,
+      "8": 11
+    }
+  },
+  "development_rows": 18000,
+  "evidence_scope": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "learned_preprocessing": "none; descriptive summaries are not exported as fitted transforms",
+  "scope": "development only",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "split_manifest_sha256": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c"
+}

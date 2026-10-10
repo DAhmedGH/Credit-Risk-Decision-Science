@@ -1,0 +1,18 @@
+{
+  "disposition": "PASS",
+  "archive_sha256": "0a4f075b34257eb651f10cf1edcdaf5852aeb3fb76629af0a6c90b3f090a49c2",
+  "verified_payload_files": 174,
+  "restored_root": "artifacts/runtime/phase5/restoration_check",
+  "guarded_preflight": "PASS",
+  "scoring_counts": {
+    "input": 12,
+    "scored": 12,
+    "quarantined": 0
+  },
+  "scored_csv_byte_exact": true,
+  "fitting": false,
+  "database_access": false,
+  "tmp_dependency": false,
+  "source_population_outcome_decoding": false,
+  "command": "python3 scripts/restore_phase5.py ...; copy maintained source; phase5 preflight/score --root restoration_check"
+}

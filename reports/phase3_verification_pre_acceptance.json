@@ -1,0 +1,135 @@
+{
+  "phase": 3,
+  "scope": "development-only implementation and partial real bounded searches",
+  "phase3_gate": "BLOCKED",
+  "checks": {
+    "ruff": {
+      "command": ".venv/bin/ruff check . --no-cache",
+      "status": "passed"
+    },
+    "shell_syntax": {
+      "command": "bash -n scripts/bootstrap_phase3.sh",
+      "status": "passed"
+    },
+    "installed_phase2_dependency_consistency": {
+      "command": "UV_CACHE_DIR=/tmp/credit-risk-phase3-uv .tools/bin/uv pip check --python .venv/bin/python",
+      "status": "passed",
+      "packages_checked": 59,
+      "note": "Existing installed environment only; XGBoost is absent."
+    },
+    "phase2_smoke": {
+      "command": ".venv/bin/python scripts/phase2_smoke.py",
+      "status": "passed",
+      "synthetic_fits": 3,
+      "checks": [
+        "import",
+        "fit",
+        "save/load agreement",
+        "explicit local MLflow FINISHED run"
+      ]
+    },
+    "full_fixture_suite": {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+      "status": "passed with explicit skips",
+      "passed": 108,
+      "skipped": 3,
+      "runtime_seconds": 46.38,
+      "skip_reasons": [
+        "real XGBoost search/OOF integration",
+        "real XGBoost complete selection integration",
+        "live project PostgreSQL integration"
+      ],
+      "note": "Final resumed source, including all provenance-reuse guards."
+    },
+    "phase3_synthetic_smoke": {
+      "command": ".venv/bin/python scripts/phase3_smoke.py",
+      "status": "blocked before fitting",
+      "fits": 0,
+      "reason": "xgboost-cpu==3.0.5 is not installed"
+    },
+    "phase3_real_profile": {
+      "command": ".venv/bin/python -m credit_risk phase3-profile",
+      "status": "blocked before outcome loading or fitting",
+      "fits": 0,
+      "reason": "xgboost-cpu==3.0.5 is not installed"
+    },
+    "xgboost_install": {
+      "command": "UV_CACHE_DIR=/tmp/credit-risk-phase3-uv UV_HTTP_TIMEOUT=15 UV_HTTP_RETRIES=1 .tools/bin/uv pip install --python .venv/bin/python --no-deps xgboost-cpu==3.0.5",
+      "status": "blocked",
+      "reason": "PyPI DNS resolution unavailable in managed shell"
+    },
+    "project_database_service": {
+      "command": "python3 scripts/dev_db.py up",
+      "status": "blocked",
+      "reason": "Docker command access unavailable in managed shell",
+      "live_sql_suite_run": false
+    },
+    "git": {
+      "commands": [
+        "git status --short --branch",
+        "git init"
+      ],
+      "status": "blocked",
+      "reason": "Empty .git directory is read-only",
+      "commit": null
+    },
+    "historical_initial_full_fixture_suite": {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider",
+      "status": "passed with explicit skips",
+      "passed": 91,
+      "skipped": 3,
+      "runtime_seconds": 46.09,
+      "skip_reasons": [
+        "real XGBoost search/OOF integration",
+        "real XGBoost complete selection integration",
+        "live project PostgreSQL integration"
+      ]
+    },
+    "provenance_reuse_tests": {
+      "command": ".venv/bin/python -m pytest -q -p no:cacheprovider tests/test_phase3_reuse.py",
+      "status": "passed",
+      "passed": 17,
+      "runtime_seconds": 0.52,
+      "real_fits": 0
+    },
+    "completed_search_verification": {
+      "status": "passed",
+      "run_ids": [
+        "0c41719e0c73482f875a4015477a03c6",
+        "e055463d1abd40f3bcdd6a2bd47f82a8"
+      ],
+      "verified_compact_files": 38,
+      "verified_original_code_files": 36,
+      "finished_tracking_records": 26,
+      "real_fits": 120,
+      "resume_duplicate_fits": 0,
+      "receipt": "reports/phase3_resume_audit.json"
+    },
+    "orchestration_only_reuse_proof": {
+      "status": "passed",
+      "receipt": "reports/phase3_reuse_audit.json",
+      "added_dependencies": {},
+      "changed_files": [
+        "src/credit_risk/__main__.py",
+        "src/credit_risk/phase3.py"
+      ],
+      "current_code_tree_sha256": "9725240b75a6b3c8b6243a32bfaeafc5da0e18c350b2130806e0901ed3a47858",
+      "additional_fits": 0,
+      "note": "Actual additive XGBoost transition remains pending installation; synthetic rejection/acceptance tests passed."
+    }
+  },
+  "preserved_hashes": {
+    "requirements.lock": "b8f4f36250c998b0d9850d8d99d6968b6810c244c06aa7c1262bb28d91c00fd5",
+    "requirements-phase1.lock": "8ca35948b60fc22ce665588864982a468ef7bf362dd5fa61e9fd604d08eb4624",
+    "artifacts/split_manifest.csv": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+    "original_workbook": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "dependency_lock_replaced": false,
+  "base_selected": false,
+  "complete_bundle_frozen": false,
+  "calibration_policy_or_final_test_evaluation": false,
+  "managed_runtime_root": "/tmp/credit-risk-phase3-real-03kpjn82",
+  "independent_review": "docs/review-phase3.md",
+  "remaining_real_cv_fits": 120,
+  "recovery_receipt": "reports/phase3_resume_audit.json"
+}

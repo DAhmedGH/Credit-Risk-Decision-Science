@@ -1,0 +1,9 @@
+{
+  "accepted_source_commit": "fb022d9dca79d6aee1a565a62c36df33ece743e2",
+  "new_restored_payload_hashes_verified": 174,
+  "historical_source_test_files_verified": 48,
+  "historical_preflight": "executed successfully against new restored accepted checkout",
+  "maintained_preflight": "rejected changed src/credit_risk/models/phase4_inputs.py before outcome decoding",
+  "historical_receipts_rewritten": false,
+  "fresh_container_repeated": false
+}

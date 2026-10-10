@@ -1,0 +1,10 @@
+{
+  "bundle_bytes": 2300592,
+  "database_access": false,
+  "fitting": false,
+  "real_population_performance_claim": false,
+  "rows": 3000,
+  "rows_per_second": 4126.7029133403485,
+  "scope": "synthetic repeated-row local software benchmark; includes validation/feature generation/scoring; excludes loading and I/O",
+  "seconds": 0.7269726130034542
+}

@@ -1,0 +1,17 @@
+{
+  "dataset_version": "uci350-v1.1",
+  "feature_contract_sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+  "integrity": {
+    "complete_unique_assignment": true,
+    "fingerprint_groups_fold_disjoint": true,
+    "fingerprint_groups_partition_disjoint": true,
+    "folds_only_on_development": true,
+    "nonempty_development_folds": true,
+    "nonempty_partitions": true,
+    "two_classes_in_each_development_fold": true,
+    "two_classes_in_each_partition": true
+  },
+  "manifest_file_sha256": "775f9862fb5b97095c81fdae440d4acb7fd52f692a216b6284e879db5e4d5e4c",
+  "source_reader_evidence": "independent-biff-diagnostic; canonical-xlrd-parity-pending",
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+}

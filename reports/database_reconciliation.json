@@ -1,0 +1,10 @@
+{
+  "audit_rows": 30000,
+  "counts_reconcile": true,
+  "curated_rows": 30000,
+  "exported_rows": 30000,
+  "rejected_rows": 0,
+  "rules_sha256": "36cbdb963b1247e8b327212ba3194f694d1b7b75e3b906ea4a832e21bff079ae",
+  "source_rows": 30000,
+  "source_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+}
