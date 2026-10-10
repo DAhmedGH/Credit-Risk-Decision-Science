@@ -11,5 +11,7 @@ COPY tests /app/tests
 COPY scripts /app/scripts
 COPY sql /app/sql
 COPY configs /app/configs
+COPY bundles /app/bundles
+COPY examples /app/examples
 ENV PYTHONPATH=/app/src
 CMD ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider"]

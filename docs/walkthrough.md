@@ -1,10 +1,21 @@
-# Five-minute walkthrough
+# Project walkthrough
 
-1. Start with the task: an existing Taiwan credit-card customer's next-month benchmark risk at a released month-end snapshot; six history columns are not six labeled observations.
-2. Show source reconciliation and the frozen 60/15/10/15 fingerprint-group partitions. Explain the predictor allowlist, signed balances, special status codes and fit-only preprocessing.
-3. Open the development comparison/ablation. Explain bounded AP searches and why the 100-tree XGBoost was retained using the declared practical tie/log-loss/simplicity rule.
-4. Show separate calibration/policy-validation evidence. Raw validation log loss beat the mappings; fixing a classifier does not guarantee calibration helps.
-5. Open final-test PR/reliability plots and intervals. AP 0.5642 beats the prior baseline; the forest's small numerical lead does not change the preselected champion. Paired group intervals condition on the fitted model.
-6. Explain the policy equation with synthetic G 50/L 500/C 0. The empirical 0.085 cutoff accepts 1,028 records and yields 4.70 benchmark units/customer; analytic 5.0667 is reported honestly. This cannot establish real profit or a lending intervention effect.
-7. Show sensitivity and the abstain-all G 25/L 750 case, fixed fraction cutoffs, and N/A for empty acceptance. Show exact raw-log-odds SHAP and the audit support limits.
-8. Score the synthetic unlabeled batch, inspect its receipt/count reconciliation, then show synthetic monitoring distributions/corruption quarantine. Finish with the reproduction guide and limitations: no temporal/external, new-applicant, causal or fairness validation.
+This sequence connects the prediction task, model evidence and simulated policy
+interpretation. Scoring is optional and requires the separately supplied frozen
+payload; all linked public figures and aggregates can be inspected from a clone.
+
+| Step | What to inspect | Interpretation |
+| --- | --- | --- |
+| Prediction task | [Data contracts](data_contracts.md) | One historical existing-account snapshot; all included September histories must be available |
+| Data and isolation | [Architecture](architecture.md) · [modeling](modeling.md) | Row reconciliation, financial allowlist and 60/15/10/15 grouped partitions protect the stated contract |
+| Development selection | [Modeling findings](modeling.md#selection-and-measured-development-findings) | Bounded AP searches and the declared practical-tie/log-loss/simplicity rule selected 100-tree XGBoost |
+| Probability assessment | [Calibration](calibration_policies.md#probability-fitting-and-selection) | Separate fit/selection partitions retained raw probabilities; calibration did not improve validation log loss |
+| Final evaluation | [Results and intervals](../reports/results.md) | AP 0.5642 improves on the prior baseline; the forest's numerical lead does not replace the preselected model |
+| Hypothetical decisions | [Policies](calibration_policies.md) | Cutoff 0.085 accepts 1,028 records and yields 4.70 synthetic units/customer; analytic 5.0667 is also reported |
+| Diagnostics | [Explanations](explanations.md) · [monitoring](monitoring.md) | Raw-log-odds associations, suppressed descriptive slices and synthetic shifts do not establish causation or fairness |
+| Optional scoring | [Batch runbook](batch_scoring.md) · [setup](setup.md) | Inspect synthetic output/receipt reconciliation; public source alone cannot load the frozen model |
+
+The gain-25/loss-750 scenario retains abstain-all, and an empty accepted set has
+default rate N/A. Conditional group-bootstrap intervals omit model-development
+uncertainty. No temporal/external, new-applicant or intervention validation is
+claimed. These limitations belong beside the figures and measurements.

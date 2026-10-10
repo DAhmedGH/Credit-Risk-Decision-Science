@@ -1,4 +1,4 @@
-# Leakage audit: Phase 1
+# Feature availability and leakage controls
 
 The fixed prediction time is after all released September 2005 histories are available. This is a retrospective availability assumption, not verified operational availability for a deployed lender. Each customer contributes one snapshot. No history month is relabeled as an independent observation. The target's exact operational definition remains limited to UCI's released next-month indicator.
 
@@ -45,17 +45,24 @@ The following audit covers every source input and deterministic predictor. Sourc
 | `aggregate_payment_balance_proxy` | `PAY_AMT6`–`PAY_AMT1`, `BILL_AMT6`–`BILL_AMT1` | Histories above | Sum payments / sum positive bills | Row-only | Include; proxy, not repayment obligation |
 | `aggregate_payment_balance_missing` | Same six payment and six bill fields | Histories above | Missing-proxy indicator | Row-only | Include |
 
-SQL and Python may calculate only these fixed row formulas before splitting. No whole-data category vocabulary, winsorization cutoff, imputation statistic, feature selection, or resampling is permitted. The Phase 1 feature builder has no fitted state and cannot use other rows. Sentinel tests check that another row and changes to labels/IDs/audit attributes cannot change its financial predictors. At the original Phase 1 checkpoint, fold-fitted preprocessing was planned for Phase 2. It is now implemented and verified: held-out sentinels cannot affect fitted medians/scales or vocabularies. See [Phase 2 acceptance](validation-phase2-acceptance.md), [Phase 3 acceptance](validation-phase3-acceptance.md), and the Phase 5 verification receipts.
+SQL and Python calculate only fixed row formulas before splitting. No whole-data
+category vocabulary, winsorization cutoff, imputation statistic, feature selection
+or resampling is permitted. The row-feature builder has no fitted state and cannot
+use other rows. Recorded sentinel tests verify that other records and changes to
+labels, IDs or audit fields cannot change financial predictors. Fold-fitted
+preprocessing separately preserves fit-only medians, scales and vocabularies.
+[Modeling](modeling.md) describes the pipeline and
+[testing and CI](ci_cd.md) distinguishes verification scopes.
 
 Fingerprinting uses all 19 raw financial predictors, excludes label/ID/audits, and retains exact-profile customer groups in one partition and one development fold. Target access needed for stratified allocation is logged separately; it is not held-out outcome EDA. EDA must load development IDs through the frozen manifest and fail if given a held-out scope. The partition/fold report is the authority for actual allocation and group-integrity evidence.
 
 Remaining limits are the released target's operational definition, exact within-month billing/payment timing, special repayment-code semantics, and representativeness beyond historical Taiwanese existing accounts. None is repaired by fabricating dates, financial fields, or behavioral meanings.
-# Phase 2 learned-transform addendum
+## Learned transforms and isolation
 
-Phase 2 uses the unchanged financial-row-v1.1 feature contract. The selector
+Modeling uses the unchanged financial-row-v1.1 feature contract. The selector
 retains only the raw/combined allowlist before any learned operation; IDs,
 outcomes and audit demographics remain excluded. Source availability retains
-the historical month-end assumption described below.
+the historical month-end assumption described above.
 
 | Operation | Source dependencies | Fit scope | Inclusion and limitation |
 | --- | --- | --- | --- |
@@ -71,8 +78,24 @@ Export hashes cover complete files without analyzing outcomes. CSV streaming
 routes rows by ID before numeric/outcome conversion; held-out strings are
 traversed but not interpreted. Entry points log this traversal before loading.
 No calibration/policy/final-test outcome distribution guides these operations.
-The original Phase 2 checkpoint preceded dependency setup; that pending status is historical. Learned-transform and sentinel verification subsequently passed. Phase 5 recorded 207 SQL-enabled fixture tests with zero skips and 206 network-disabled container fixture tests with one explicitly unavailable SQL integration test. Accepted transformation source and fitted identities remain hash-bound. See `reports/phase5/checks.json` (private historical evidence).
+Learned-transform and sentinel checks passed in their recorded executions;
+[verification provenance](ci_cd.md#recorded-verification-provenance) keeps original
+delivery, subsequent software checks and publication checks separate. Accepted
+transformation source and fitted identities remain hash-bound. Original detailed
+execution records remain private historical evidence.
 
-## Phase5 frozen evaluation and delivery
+## Frozen evaluation and delivery
 
-Independent readiness reviewed current source/tests and all106 accepted artifacts before final-test access. No feature/formula, fitted preprocessing, model, mapping, scenario, cutoff or tie rule changed. Fingerprint-group draws(seed42,1000) pair all comparisons and retain complete clusters. Reports verify saved exact IDs/fingerprints/models/decision masks and hash-bound review/code snapshots. Final outcomes were evaluated once; reporting/review/reproduction access saved evidence under the exposure log. Standalone scoring rejects label/audit/extra-schema fields and uses only frozen imputation/vocabularies. Monitoring bins are learned on development; labeled synthetic mixes retain unchanged histories; corruption removes labels. Source availability remains the assumed released September month-end snapshot. Original official-download identity remains unknown, as disclosed in D002 and the model card.
+Readiness checks inspected source/tests and all 106 accepted artifacts before
+final-test access. Feature formulas, fitted preprocessing, model, mapping,
+scenarios, cutoffs and tie rules remained fixed. Seed-42 fingerprint-group draws
+(1,000 repetitions) pair comparisons and retain complete clusters. Reports verify
+saved IDs, fingerprints, models and decision masks against frozen identities.
+Final outcomes were evaluated once; subsequent reporting and reproduction use
+saved evidence with access recorded in the [exposure log](test-exposure-log.md).
+
+[Standalone scoring](batch_scoring.md) rejects labels, audit fields and extra
+schema fields, using only frozen transformations. [Monitoring](monitoring.md)
+fits bins on development; labeled synthetic mixes retain unchanged histories,
+while corruption removes labels. The assumed September month-end availability
+and unknown original official-download identity remain limitations.

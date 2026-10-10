@@ -3,16 +3,16 @@
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
 and dependency checkpoint. The publication source uses the current pinned lock
-and the [standalone scoring workflow](reproduction-phase5.md); it does not ship
+and the [standalone scoring workflow](setup.md); it does not ship
 all historical execution attachments.
 
 This guide records the historical Phase 2 checkpoint. Its 58-pin lock is now
 `requirements-phase2.lock`; the maintained completed-project lock has 72 pins.
-Use [Phase 5 reproduction](reproduction-phase5.md) for current scoring and exact
+Use [Setup and reproduction](setup.md) for current scoring and exact
 accepted-source replay. Git and later-phase status below describe this checkpoint.
 
 Phase 2 acceptance is complete. The measured parent run is
-`49c7344ca89440e9a458fa2849d9122d`; all nine children are FINISHED. The user ran
+`49c7344ca89440e9a458fa2849d9122d`; all nine children are FINISHED. Reported WSL execution completed
 bootstrap, input validation, real baselines and the enabled full suite
 (**79 passed in 39.26s; no skips**) from ordinary WSL. Acceptance then inspected
 saved artifacts and rescored trusted pipelines without refitting. See
@@ -37,7 +37,7 @@ reuse the accepted lock rather than resolving new versions:
 
 ```bash
 set -euo pipefail
-cd '/mnt/c/users/danieal/desktop/credit risk project'
+cd /path/to/private/credit-risk-historical
 export UV_CACHE_DIR="$PWD/.cache/uv"
 .venv/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 12)'
 .tools/bin/uv pip install --python .venv/bin/python -r requirements.lock
@@ -75,7 +75,7 @@ workbook decoding or split regeneration is needed for these two commands:
 
 ```bash
 set -euo pipefail
-cd '/mnt/c/users/danieal/desktop/credit risk project'
+cd /path/to/private/credit-risk-historical
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 .venv/bin/python -m credit_risk baseline-inputs --config configs/phase2.toml
 .venv/bin/python -m credit_risk baselines --config configs/phase2.toml
@@ -108,7 +108,7 @@ To verify the MLflow correction first, then lint and the complete enabled suite:
 
 ```bash
 set -euo pipefail
-cd '/mnt/c/users/danieal/desktop/credit risk project'
+cd /path/to/private/credit-risk-historical
 .venv/bin/python -m pytest -q -p no:cacheprovider \
   tests/test_baseline_tracking.py::test_real_local_mlflow_tracks_fixture_runs_and_ignores_remote_environment
 .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_baseline_tracking.py
@@ -118,7 +118,7 @@ CREDIT_RISK_SQL_TEST=1 .venv/bin/python -m pytest -q -p no:cacheprovider
 ```
 
 The project-only PostgreSQL helper verifies instance ownership and uses ignored
-`.env`; the user reports 127.0.0.1:55432 for the current instance. No credentials
+`.env`; the recorded instance used 127.0.0.1:55432. No credentials
 should be printed or committed. SQL fixture tests use rollback to preserve real
 project records. Services and enabled tests were not rerun during acceptance.
 Without the service, the fixture-only command is

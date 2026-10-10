@@ -3,13 +3,13 @@
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
 and dependency checkpoint. The publication source uses the current pinned lock
-and the [standalone scoring workflow](reproduction-phase5.md); it does not ship
+and the [standalone scoring workflow](setup.md); it does not ship
 all historical execution attachments.
 
 This is the historical Phase 3 checkpoint. All five phases subsequently completed,
 Git was initialized, and the final bundle is frozen. Its private backup locations
 remain historical evidence dependencies; completed-project scoring and core
-reproduction use the portable payload in [Phase 5 reproduction](reproduction-phase5.md).
+reproduction use the portable payload in [Setup and reproduction](setup.md).
 Source-bound historical commands require the original accepted source after
 audit fixes; the guide below preserves their original checkpoint context.
 
@@ -33,7 +33,7 @@ for measured results and `docs/phase4-checkpoint.md` (private historical evidenc
 - Compact copies, selection table, acceptance receipt, preservation inventory
   and accepted source overrides are preserved in the project `reports/` tree.
 
-The user's backup contains 2,682 regular artifact/provenance/tracking files,
+The preserved backup contains 2,682 regular artifact/provenance/tracking files,
 131,298,257 bytes, all byte-equivalent to the original at acceptance. The
 preservation inventory SHA and every file SHA/size are in
 `reports/phase3_acceptance.json` and `reports/phase3_preservation_inventory.csv`.

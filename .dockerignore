@@ -15,3 +15,7 @@
 !configs/
 !configs/**
 !requirements-phase*.in
+!bundles/
+!bundles/**
+!examples/
+!examples/**

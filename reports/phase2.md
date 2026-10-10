@@ -1,5 +1,11 @@
 # Phase 2: baselines and fold-safe machine learning
 
+This report records the historical Phase 2 checkpoint. Phase status, Git
+state and check counts below describe that execution, not the current publication
+checkout. Use [modeling](../docs/modeling.md),
+[setup](../docs/setup.md) and [final evaluation](results.md) for the completed
+project's methods, execution boundaries and results.
+
 **Phase 2 complete: the scientific exit gate passes.** Acceptance date:
 October 8, 2026. The measured development run is `49c7344ca89440e9a458fa2849d9122d`;
 its parent and all nine child MLflow runs are **FINISHED**.
@@ -257,8 +263,8 @@ the measured acceptance above, not deleted or represented as successful runs.
   [legacy recovery instructions](../docs/reproduction-phase2.md).
 
 Phase 1 canonical xlrd agreement, counts, SQL/Python feature parity and frozen
-integrity remain supported by [phase1.md](phase1.md) and its receipts. The user's
-prior **4 enabled SQL tests passed in 2.37s**, two ingestion no-ops and
+integrity remain supported by [phase1.md](phase1.md) and its receipts. The previously reported
+**4 enabled SQL tests passed in 2.37s**, two ingestion no-ops and
 18,000-row-only EDA remain reported WSL historical evidence. The earlier statement
 that no predictive training ran applies to Phase 1, not these completed baselines.
 

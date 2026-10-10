@@ -3,11 +3,11 @@
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
 and dependency checkpoint. The publication source uses the current pinned lock
-and the [standalone scoring workflow](reproduction-phase5.md); it does not ship
+and the [standalone scoring workflow](setup.md); it does not ship
 all historical execution attachments.
 
 This is the historical Phase 1 checkpoint. For the completed project and current
-72-pin environment, start with [Phase 5 reproduction](reproduction-phase5.md).
+72-pin environment, start with [Setup and reproduction](setup.md).
 Historical phase state, Git limitations and dependency counts below describe
 their original checkpoints, not the current checkout.
 
@@ -31,7 +31,7 @@ Existing user Python installations and unrelated Docker resources are untouched.
 ## Canonical workflow
 
 ```bash
-cd '/mnt/c/Users/Danieal/Desktop/Credit Risk Project'
+cd /path/to/private/credit-risk-historical
 bash scripts/bootstrap.sh
 python3 scripts/dev_db.py up
 .venv/bin/python -m credit_risk reproduce --config configs/base.toml
@@ -108,7 +108,7 @@ The following reproduces the available measurements using only the Python
 standard library; it **cannot satisfy the canonical runtime/SQL exit checks**:
 
 ```bash
-cd '/mnt/c/Users/Danieal/Desktop/Credit Risk Project'
+cd /path/to/private/credit-risk-historical
 PYTHONPATH=src python3 scripts/reproduce_inspection.py
 PYTHONPATH=src python3 -m unittest discover -s tests -v
 ```

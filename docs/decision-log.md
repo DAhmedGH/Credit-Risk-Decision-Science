@@ -12,6 +12,8 @@ The original official ZIP, download chain and retrieval time are unknown;
 file timestamps do not establish them. The canonical reader is xlrd, sheet
 `Data`, aliases in Excel row 1, headers in row 2, records from row 3.
 Dataset attribution and CC BY 4.0 terms remain in the source manifest.
+The subsequent official-source byte comparison is recorded separately in D029;
+it does not reconstruct these original acquisition records.
 
 Predict released next-month default for existing accounts at the retrospective
 month-end snapshot. September history availability is an explicit assumption.
@@ -144,3 +146,71 @@ Source-bound historical preflight/report guards still reject maintained fixes.
 Current scoring uses the unchanged frozen financial transforms; exact historical
 replay uses preserved private source. Original evidence is never resealed to match
 presentation edits. See [software findings and checks](../reports/project-audit.md).
+
+## Design and delivered-documentation reconciliation — D028
+
+The documentation comparison preserves original design/plan files, scientific
+artifacts and historical receipts. It clarifies delivered behavior without changing
+models, cutoffs or acceptance evidence.
+
+| Difference | Classification | Documentation consequence |
+| --- | --- | --- |
+| Original ZIP, retrieval time and acquisition checksums unavailable | Recorded D002 deviation; subsequent official byte comparison recorded in D029 | Preserve unknown original acquisition records; distinguish the later verification |
+| 12/12/24 searches under 12/15/25 ceilings; 0.001 log-loss tie and 48-candidate scope | Consistent budgets and recorded D014/D015 refinement | Explain paired variants and full tie order in modeling |
+| YAML sketch/unified commands and notebook tree differ from delivered modules/TOML | Delivered interface variation; proposed notebook layout not implemented | Document actual entry points and data-only `reproduce` boundary |
+| Monitoring thresholds have no configuration argument | Planned configuration interface not implemented | Identify fixed module constants and heuristic scope |
+| Nominal exposure is not a scorer field | Delivered representation of planned synthetic payoffs | State that scenario G/L/C fully determine utility |
+| Canonical source and scoring validators differ for limits, categories, payment signs and text | Omitted contract explanation | Keep both delivered contracts explicit without changing either validator |
+| Initial manifests retain pending reader/hash annotations and null Git commits | Preserved historical evidence | Link later canonical validation; do not overwrite early receipts or infer retroactive commits |
+| Blanket design-completion language and restoration interpreter ambiguity | Documentation errors | Qualify completion, distinguish public/private workflows and use the pinned interpreter |
+
+Reliability bins, payoff guards, SHAP/case selection and descriptive slice definitions
+were added to their topic guides from existing implementation/evidence. No new
+scientific execution is represented by these explanations. The source-download
+chain remains unresolved; private artifact access and remote CI remain explicit
+reproduction/verification limitations.
+
+## Subsequent official-source comparison — D029
+
+The supplied workbook was verified byte-for-byte against the official UCI 350
+archive retrieved at `2026-10-10T18:00:23.006402Z`. The current official page's
+download link was confirmed over certificate-verified HTTPS. The archive was
+downloaded into an isolated temporary directory, and its unique expected workbook
+member was read directly without extraction or cell decoding. The recorded
+accepted, independently measured local and official-member SHA-256 hashes all
+match; full workbook byte equality was also checked.
+
+The [new verification receipt](../reports/provenance/uci350-official-comparison-20261010T180023Z.json)
+records requested/final URLs, actual UTC retrieval time, archive/member lengths
+and hashes, available HTTP metadata and the three-way comparison. The original
+acquisition date, download chain and original archive checksum remain unknown;
+this verification does not reconstruct them. Historical source manifests,
+acceptance receipts and execution records remain unchanged. Changes are limited
+to this new receipt and maintained public provenance documentation. No artifact
+packaging or scientific workflow ran.
+
+## Public frozen-scoring delivery — D030
+
+The maintained scoring route now uses a separate `public-scoring-v1` package.
+The accepted selected pipeline and feature-schema bytes are copied unchanged;
+the raw mapping requires no fitted calibrator. Policies are an exact projection
+of all 88 frozen definitions across 11 scenarios. Historical review attachments,
+reference estimators and evaluation records remain outside this inference-only
+package. The original freeze, probability bundle and acceptance receipts retain
+their identities and bytes.
+
+The new distribution manifest records its own content identity, actual member
+hashes, accepted lineage, runtime versions and financial transformation hashes.
+The public loader verifies that contract before deserializing trusted artifacts.
+Restoration checks the archive digest, bounds decompression, rejects unsafe
+members and refuses an existing installation. Historical loading retains its
+original complete-freeze verification contract.
+
+At 29,213 bytes the archive is suitable for ordinary Git distribution; no release
+asset is needed. It remains locally prepared; publication is pending. The saved example
+retains its original `model_version` and byte-identical scientific outputs;
+new receipts separately identify the distributed pipeline and delivery manifest.
+The [delivery evidence](../reports/public-scoring-delivery.json) and
+[focused review](../reports/public-scoring-review.md) record offline verification,
+regression checks and preserved limitations. No training, refitting, calibration,
+selection or accepted final-test evaluation ran.

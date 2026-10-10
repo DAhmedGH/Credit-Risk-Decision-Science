@@ -3,7 +3,7 @@
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
 and dependency checkpoint. The publication source uses the current pinned lock
-and the [standalone scoring workflow](reproduction-phase5.md); it does not ship
+and the [standalone scoring workflow](setup.md); it does not ship
 all historical execution attachments.
 
 Use the accepted Phase 2 environment and exports. These commands stop at base
@@ -24,7 +24,7 @@ until the following bootstrap succeeds.
 
 ```bash
 set -euo pipefail
-cd '/mnt/c/users/danieal/desktop/credit risk project'
+cd /path/to/private/credit-risk-historical
 export UV_CACHE_DIR=/tmp/credit-risk-phase3-uv
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 bash scripts/bootstrap_phase3.sh
@@ -224,7 +224,7 @@ store remain temporary. Before cleaning `/tmp`, run from ordinary WSL:
 
 ```bash
 set -euo pipefail
-cd '/mnt/c/users/danieal/desktop/credit risk project'
+cd /path/to/private/credit-risk-historical
 mkdir -p artifacts/runtime
 test ! -e artifacts/runtime/phase3-preserved-03kpjn82.tar.gz
 tar --dereference -C /tmp -czf artifacts/runtime/phase3-preserved-03kpjn82.tar.gz \

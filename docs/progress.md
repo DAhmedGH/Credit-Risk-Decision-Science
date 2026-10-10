@@ -1,10 +1,26 @@
 # Project status
 
-All five phases are complete on the recorded local evidence. The study uses
+All five phases reached their recorded local acceptance checkpoints. Completion
+is qualified by unknown original acquisition records, historical replay
+dependencies and unobserved remote CI; the [checklist](project-checklist.md)
+distinguishes these from passed local checks. The study uses
 30,000 historical customer snapshots, four frozen fingerprint-group partitions
 (18,000/4,500/3,000/4,500 rows), and five development folds. Source attribution,
 unknown original acquisition details, prediction-time assumptions and limitations
-are documented in the [model card](model-card.md) and [data contract](data-contract.md).
+are documented in the [model card](model_card.md) and [data contract](data_contracts.md).
+
+The supplied workbook was subsequently verified byte-for-byte against the official
+UCI archive retrieved at `2026-10-10T18:00:23.006402Z`. Recorded accepted,
+existing-local and official-member hashes all agree. The
+[new provenance receipt](../reports/provenance/uci350-official-comparison-20261010T180023Z.json)
+records this separate comparison; the original acquisition date/download chain
+remain unknown. During that provenance-only task, only public provenance
+documentation and this new receipt changed. No packaging, fitting, search,
+calibration or final-test evaluation ran during that task.
+The receipt was independently rechecked against retained HTTP records, archive
+bytes and the unchanged local workbook. All 94 local documentation link targets
+resolve; Git whitespace checks pass. Original workbook bytes/mtime, historical
+manifests/receipts and both staging indexes are preserved.
 
 Development comparison completed 48 bounded configurations and 240 search fits.
 The development-selected 100-tree XGBoost remains fixed. Policy validation
@@ -35,8 +51,21 @@ Accepted model, split, prediction, policy, manifest and historical receipt bytes
 are preserved. This documentation is a presentation summary; exact historical
 receipt/source attachments are retained privately.
 
-Restoration and scoring require the trusted private payload; a source-only clone
-cannot load the frozen model. Follow [reproduction and scoring](reproduction-phase5.md).
+Maintained scoring now uses the separately versioned
+[public package](../bundles/README.md), prepared for repository inclusion. It
+contains the unchanged selected fitted pipeline and frozen definitions, with
+no private-payload dependency. Historical replay still requires additional
+original inputs and source/evidence attachments. Follow [reproduction and scoring](setup.md).
+The subsequent public-delivery task prepared a 29,213-byte `public-scoring-v1`
+archive and verified restoration/scoring in an offline container with no host
+mounts. The synthetic example scored 12/12 rows with zero quarantines and
+byte-identical saved output; all 88 frozen policy definitions were checked.
+Focused tests passed 55 cases in 5.60 seconds. The rebuilt container passed
+268 tests with one expected live-SQL skip in 50.45 seconds; Ruff passed.
+Installed-package scoring also passed from a different directory with
+`PYTHONPATH` removed. See the [delivery evidence](../reports/public-scoring-delivery.json)
+and [focused review](../reports/public-scoring-review.md). No accepted model was
+fitted and no scientific evaluation was rerun.
 No further modeling phase is pending. No push, public artifact hosting or deployment
 has occurred. Historical Taiwan data, absent temporal/external validation,
 synthetic utility and conditional uncertainty remain material limitations.

@@ -3,11 +3,11 @@
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
 and dependency checkpoint. The publication source uses the current pinned lock
-and the [standalone scoring workflow](reproduction-phase5.md); it does not ship
+and the [standalone scoring workflow](setup.md); it does not ship
 all historical execution attachments.
 
 This guide records the Phase 4 acceptance checkpoint. Phase 5 subsequently
-completed. Use [Phase 5 reproduction](reproduction-phase5.md) for the completed
+completed. Use [Setup and reproduction](setup.md) for the completed
 project, trusted payload restoration, and exact accepted-source replay after
 the audit fixes. The frozen artifacts and no-fit bundle identity below are
 unchanged; historical phase/Git/dependency status retains its original context.
@@ -59,7 +59,7 @@ all 106 file hashes, required artifacts and independent review binding
 before unpickling trusted local artifacts. It reads no outcomes and fits nothing.
 
 ```bash
-cd '/mnt/c/Users/Danieal/Desktop/Credit Risk Project'
+cd /path/to/private/credit-risk-historical
 phase4_bundle="$PWD/artifacts/models/phase4/9ca62eca2665438c9c97b4889413acfa"
 PYTHONPATH="$phase4_bundle/completion_source/src" .venv/bin/python - <<'PY'
 import json
@@ -149,10 +149,10 @@ Bootstrap passed synthetic calibration/TreeSHAP/plot/save-load smoke and
 new base/mapping fits. Project PostgreSQL started at 127.0.0.1:55432.
 The SQL-enabled suite passed **183 tests in 54.31s with zero skips**;
 Ruff passed. Exact invocation timestamps were not supplied.
-[User evidence](../reports/phase4_user_verification.json) preserves attribution.
+[Reported WSL evidence](../reports/phase4_user_verification.json) preserves attribution.
 Prior DNS/SQL failures remain in D019,
 [historical review](validation-phase4-blocked.md) and archived reports; actual
-user execution and completed artifacts resolve them.
+reported execution and completed artifacts resolved them.
 
 Acceptance checked identities, installed/locked pins, actual artifacts and
 figures, and obtained [independent review](validation-phase4-complete.md).

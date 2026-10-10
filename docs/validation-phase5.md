@@ -54,8 +54,8 @@ The resumed original MLflow run `61449a81592f446281de1f939fc8badd` is FINISHED. 
 
 - **P5-L01, LOW, reports/phase5/policy_utility.png — resolved:** original overlapping labels obscured visual comparison only. Supplement reports/phase5/policy_utility_detail.png fixes readability using saved aggregates and preserves original evidence.
 - **P5-M02, MEDIUM, reports/results.md:64 — resolved:** malformed `F 10.42122` could imply an impossible detection score. Corrected to `F1 0.42122`; saved numeric evidence unchanged.
-- **P5-M03, MEDIUM, docs/leakage-audit.md:48,74–75 — resolved:** earlier pending/future wording is explicitly historical; current learned-transform/sentinel verification and accepted evidence links are stated. Reporting now agrees with verified leakage protections.
-- **P5-L04, LOW, docs/reproduction-phase5.md, Saved-evidence reporting — resolved:** current prose correctly places freeze/source/review/evidence-hash checks before outcome decoding and exact model/ID/fingerprint/decision validation before reporting.
+- **P5-M03, MEDIUM, docs/leakage_audit.md:48,74–75 — resolved:** earlier pending/future wording is explicitly historical; current learned-transform/sentinel verification and accepted evidence links are stated. Reporting now agrees with verified leakage protections.
+- **P5-L04, LOW, docs/setup.md, Saved-evidence reporting — resolved:** current prose correctly places freeze/source/review/evidence-hash checks before outcome decoding and exact model/ID/fingerprint/decision validation before reporting.
 - **P5-M05, MEDIUM, reproduction guide restoration success — resolved:** initially premature while execution was pending; actual restoration receipt and independent permitted-file/scoring checks now support it.
 
 **All findings resolved.**

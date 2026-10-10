@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "scope": "New local public-delivery verification; not an original scientific acceptance receipt",
+  "status": "PASS",
+  "distribution": {
+    "version": "public-scoring-v1",
+    "archive": "bundles/credit-risk-scoring-v1.tar.gz",
+    "byte_length": 29213,
+    "sha256": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349",
+    "checksum_file": "bundles/credit-risk-scoring-v1.sha256",
+    "manifest_file": "bundles/credit-risk-scoring-v1.manifest.json",
+    "manifest_file_sha256": "a7811d602d2eeda9123ab77b09888f54b64d5ad989a9c2a9b034e1d9ca83aa02",
+    "delivery_content_sha256": "a2a9b2883f5543a1d4da2d8026f79e4ef60be79b97343357e946f3c7a906d40c",
+    "member_names": [
+      "NOTICE.md",
+      "feature_schema.json",
+      "manifest.json",
+      "pipeline.joblib",
+      "policy.json"
+    ],
+    "delivery_mechanism": "Prepared for ordinary Git inclusion; no release asset needed",
+    "availability": "Local, uncommitted preparation; no remote repository or download URL published",
+    "deterministic_repackage": "All three distribution files independently reproduced byte-for-byte"
+  },
+  "scientific_lineage": {
+    "phase4_run_id": "9ca62eca2665438c9c97b4889413acfa",
+    "freeze_content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+    "probability_bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+    "pipeline_sha256": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c",
+    "candidate_id": "xgboost_05_engineered_none",
+    "mapping": "raw",
+    "positive_class": 1
+  },
+  "scientific_preservation": {
+    "pipeline_bytes": "Copied unchanged from accepted development_pipeline.joblib; matches the original bundle's selected base/raw estimator",
+    "feature_schema_bytes": "Copied unchanged from accepted feature_schema.json",
+    "policies": "Exact projection of all 88 frozen definitions across 11 scenarios; results/tuning evidence omitted",
+    "scored_model_version": "Original probability_bundle_sha256 retained",
+    "receipt_identity": "Distribution version, delivery content SHA-256, actual fitted-pipeline SHA-256 and verified manifest snapshot SHA-256 added separately",
+    "financial_transformations": "Unchanged; source hashes checked against accepted completion_source and pinned in distribution manifest",
+    "no_training_refitting_recalibration_selection": true,
+    "no_accepted_final_test_evaluation": true
+  },
+  "isolation": {
+    "image": "sha256:d2eb86a3685c214dc2f313c7c2ee31ebc332c53098820a61869e019ee88ef1cd",
+    "image_tag": "credit-risk-public-scoring:local",
+    "build": "PASS",
+    "host_mounts": false,
+    "network": "none",
+    "root_filesystem": "read-only",
+    "temporary_filesystem": "/tmp tmpfs",
+    "inputs": "Publication-bound runtime/source/tests/scripts, pinned installed dependencies, distribution package and synthetic examples only",
+    "original_repository_accessible": false,
+    "private_payload_accessible": false,
+    "database": "Unusable fixture settings; no connection",
+    "mlflow": "Unusable URI and import blocked in scoring verification"
+  },
+  "isolated_verification": {
+    "verification_utc": "2026-10-10T19:01:38.668535+00:00",
+    "scope": "Isolated publication image; no host bind mounts; network disabled by Docker",
+    "archive_sha256": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349",
+    "archive_bytes": 29213,
+    "restoration": {
+      "version": "public-scoring-v1",
+      "delivery_sha256": "a2a9b2883f5543a1d4da2d8026f79e4ef60be79b97343357e946f3c7a906d40c",
+      "archive_sha256": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349",
+      "artifact_count": 5,
+      "deserialization": false
+    },
+    "original_model": {
+      "phase4_run_id": "9ca62eca2665438c9c97b4889413acfa",
+      "freeze_content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+      "probability_bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+      "pipeline_sha256": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c",
+      "candidate_id": "xgboost_05_engineered_none",
+      "mapping": "raw",
+      "positive_class": 1
+    },
+    "example_counts": [
+      12,
+      12,
+      0
+    ],
+    "example_byte_identical": true,
+    "example_output_sha256": "54e26de021aadcbc22e9028129b5501f0c6e658124cd086dc0fc942c25fc1244",
+    "cwd_independent_cli": true,
+    "quarantine_counts": [
+      12,
+      10,
+      2
+    ],
+    "empty_counts": [
+      0,
+      0,
+      0
+    ],
+    "record_identity_and_order": true,
+    "single_row_batch_agreement": true,
+    "frozen_policy_definitions_checked": 88,
+    "expected_utility_exact": true,
+    "invalid_database_and_tracking_settings": true,
+    "fit_methods_blocked": true,
+    "model_state_unchanged": true,
+    "final_test_evaluation": false,
+    "historical_artifacts_available": false,
+    "disposition": "PASS"
+  },
+  "checks": {
+    "ruff": {
+      "command": "docker run --rm --network none credit-risk-public-scoring:local ruff check . --no-cache",
+      "result": "PASS"
+    },
+    "focused": {
+      "command": "docker run --rm --network none credit-risk-public-scoring:local python -m pytest -q -p no:cacheprovider tests/test_public_scoring.py tests/test_audit_inference.py tests/test_audit_commands.py",
+      "passed": 55,
+      "skipped": 0,
+      "seconds": 5.6,
+      "result": "PASS"
+    },
+    "full_fixture_suite": {
+      "command": "docker run --rm --network none credit-risk-public-scoring:local",
+      "passed": 268,
+      "skipped": 1,
+      "skip_reason": "Live SQL integration requires separately enabled disposable database",
+      "seconds": 50.45,
+      "result": "PASS",
+      "fit_scope": "Small synthetic fixture estimators only; accepted model is never fitted"
+    },
+    "standalone_scoring": {
+      "command": "docker run --rm --network none --read-only --tmpfs /tmp credit-risk-public-scoring:local python scripts/verify_public_scoring.py",
+      "result": "PASS"
+    },
+    "installed_package": {
+      "result": "PASS",
+      "image": "sha256:d2eb86a3685c214dc2f313c7c2ee31ebc332c53098820a61869e019ee88ef1cd",
+      "procedure": "Installed publication wheel with --no-deps --no-build-isolation in a network-disabled container; changed directory to /tmp; removed PYTHONPATH; restored and scored with installed credit_risk.scoring; cmp confirmed exact accepted example bytes",
+      "host_mounts": false,
+      "example_counts": [12, 12, 0],
+      "example_byte_identical": true
+    },
+    "regression_scope": [
+      "Explicit trust before deserialization",
+      "Missing, altered, symlinked or incompatible artifacts fail before loading",
+      "Pinned manifest prevents rehashed replacement artifacts",
+      "Unsafe, duplicate, sparse, oversized and decompression-heavy members rejected",
+      "No silent installation overwrite",
+      "CWD-independent CLI",
+      "Empty and all-quarantined batches",
+      "Record identity and ordering",
+      "Exact saved example and frozen policy/utility behavior",
+      "Verified snapshot identity in output receipt"
+    ],
+    "focused_independent_review": {
+      "report": "reports/public-scoring-review.md",
+      "result": "PASS after resolving one resource-bound finding and documentation clarifications"
+    }
+  },
+  "closeout_checks": {
+    "local_documentation_links_and_anchors": {"checked": 194, "failures": 0},
+    "git_whitespace": "PASS",
+    "changed_and_new_text_whitespace_and_developer_path_scan": "PASS",
+    "task_diff_and_complete_package_inventory": "Inspected",
+    "original_baseline_files_preserved": 342,
+    "accepted_source_artifact_files_preserved": 116,
+    "both_git_indexes_preserved": true,
+    "publication_provenance_receipt_preserved": "reports/provenance/uci350-official-comparison-20261010T180023Z.json",
+    "other_preserved_inputs": "Original design/phase plan, locks, accepted source manifest, financial transformations, historical loader, historical receipts and saved example bytes",
+    "original_git_status": "?? publication/",
+    "publication_git_status": {"modified_tracked_paths": 24, "preexisting_deleted_paths": 5, "untracked_entries": 22, "staged_paths": 0},
+    "publication_branch": "main",
+    "configured_remotes": [],
+    "git_mutations": "No staging, commit, push, release or upload"
+  },
+  "package_privacy": {
+    "inventory": "Five permitted regular members; no raw workbook, labels, customer evaluation records, SHAP samples, full MLflow store, environments, credentials, private configuration or review narratives",
+    "member_scan": "No developer-home, original project, temporary acquisition path, private-backup, private-key or PostgreSQL-URL markers found"
+  },
+  "remaining_limits": [
+    "Only Linux/WSL Python 3.12 with the pinned dependency versions is validated; installation/build needs network access or cached dependencies.",
+    "Serialized model loading requires explicit trust in the supplied archive and matching publication code.",
+    "Full historical replay still requires original data, private accepted artifacts/source and recorded evidence; this package supplies frozen inference.",
+    "Original acquisition date/download chain remain unknown; the existing official-UCI comparison receipt is preserved.",
+    "Historical Taiwan snapshots, absent temporal/external validation, hypothetical utility and conditional uncertainty remain scientific limitations.",
+    "Remote GitHub Actions and public-clone checks remain unobserved until publication."
+  ],
+  "remaining_publication_steps": [
+    "Review all uncommitted publication/provenance/scoring changes",
+    "Choose/create the actual GitHub repository and set its remote URL/public visibility",
+    "Commit reviewed publication source, documentation, tests, notices and bundles",
+    "Push reviewed main branch and observe GitHub Actions",
+    "Verify checksum and documented scoring route from a fresh public clone"
+  ],
+  "blocked_execution_steps": []
+}

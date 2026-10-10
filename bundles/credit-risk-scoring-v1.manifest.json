@@ -1,0 +1,64 @@
+{
+  "base_scenario": {
+    "cost": 0.0,
+    "gain": 50.0,
+    "loss": 500.0,
+    "scenario_id": "base"
+  },
+  "delivery_sha256": "a2a9b2883f5543a1d4da2d8026f79e4ef60be79b97343357e946f3c7a906d40c",
+  "files": {
+    "NOTICE.md": {
+      "byte_length": 2016,
+      "sha256": "9ea411dc62cabb14190d4daecac0491c7cb40291adc993fd973ae03a1c072638"
+    },
+    "feature_schema.json": {
+      "byte_length": 8018,
+      "sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae"
+    },
+    "pipeline.joblib": {
+      "byte_length": 148534,
+      "sha256": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c"
+    },
+    "policy.json": {
+      "byte_length": 20763,
+      "sha256": "7d11e6032fa0bf9cc076e667d4950a3e26819f0547263aded25f703a9c22f247"
+    }
+  },
+  "original_feature_schema_sha256": "4adb6745e582e551239b9e999d0128649fdaff0b1f63deebfea6f538ecc2eeae",
+  "original_freeze_file_sha256": "0cd8c5c63e90ffc159acfa5fb63d10affeda015f885171e3bde9b4c08402e6f1",
+  "original_model": {
+    "candidate_id": "xgboost_05_engineered_none",
+    "freeze_content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+    "mapping": "raw",
+    "phase4_run_id": "9ca62eca2665438c9c97b4889413acfa",
+    "pipeline_sha256": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c",
+    "positive_class": 1,
+    "probability_bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd"
+  },
+  "original_policy_evidence_sha256": "b455c0a6cb1e5f749128a70be195283e88e48cebe7c1451d37fdcbcdace3e5ad",
+  "policy_definition_count": 88,
+  "policy_projection": "base_policies plus sensitivity.scenarios[*].scenario/policies only; values unchanged",
+  "runtime": {
+    "dependencies": {
+      "joblib": "1.5.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "pyarrow": "21.0.0",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.15.3",
+      "threadpoolctl": "3.6.0",
+      "xgboost-cpu": "3.0.5"
+    },
+    "python_major_minor": "3.12",
+    "validated_python": "3.12.11"
+  },
+  "scenario_count": 11,
+  "scope": "Inference-only distribution metadata; not an original acceptance receipt",
+  "transformation_sha256": {
+    "data/schema.py": "dfec652be690f83cce99cd98a82088a7f32ce95cc0c1aba90c0d20bcdeda4036",
+    "decisioning/policy.py": "cd6978dabf0eb78a9b77aee514f00b07b2f2a1e742874aaf60f215cbd202cd6a",
+    "features/__init__.py": "ee5c13848908bfdaa6ce6a5fd8c3aec181391381a0701fca4ef58910822e35e9",
+    "models/pipelines.py": "ba67364606589b78b18c00f5a0aee544c567ec66c23d6eb74fd9c40ca6e1fe45"
+  },
+  "version": "public-scoring-v1"
+}

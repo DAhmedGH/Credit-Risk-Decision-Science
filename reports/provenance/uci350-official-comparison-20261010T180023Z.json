@@ -1,0 +1,93 @@
+{
+  "receipt_version": "uci350-official-source-comparison-v1",
+  "verification_status": "verified",
+  "dataset": {
+    "uci_id": 350,
+    "name": "Default of Credit Card Clients",
+    "official_dataset_page": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+    "citation": "Yeh, I. (2009). Default of Credit Card Clients [Dataset]. UCI Machine Learning Repository.",
+    "doi": "10.24432/C55S3H",
+    "license": "CC BY 4.0"
+  },
+  "requested_download_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "final_download_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "retrieved_at_utc": "2026-10-10T18:00:23.006402Z",
+  "official_page_check": {
+    "download_link_confirmed": true,
+    "observed_download_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+    "page_sha256": "454066bcf8510b14938217ecbd1deed6fc5f6b71c1ade06aed824cbc1be965d3",
+    "http": {
+      "requested_url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+      "final_url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+      "request_started_at_utc": "2026-10-10T18:00:20.792847Z",
+      "retrieved_at_utc": "2026-10-10T18:00:21.676904Z",
+      "retrieval_time_definition": "UTC system time immediately after the complete response body was read",
+      "status_code": 200,
+      "headers": {
+        "server": "nginx/1.31.4",
+        "date": "Sat, 10 Oct 2026 18:00:21 GMT",
+        "content-type": "text/html",
+        "content-length": "172377",
+        "etag": "\"1iavjxm\""
+      },
+      "https_certificate_verification": true
+    },
+    "previously_observed_download_url": "https://archive.ics.uci.edu/static/public/350/default%2Bof%2Bcredit%2Bcard%2Bclients.zip",
+    "download_url_encoding_note": "The current page href uses literal plus characters; the previously observed URL used percent-encoded plus characters for the same path."
+  },
+  "archive": {
+    "byte_length": 5539494,
+    "sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+    "http": {
+      "requested_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+      "final_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+      "request_started_at_utc": "2026-10-10T18:00:21.685370Z",
+      "retrieved_at_utc": "2026-10-10T18:00:23.006402Z",
+      "retrieval_time_definition": "UTC system time immediately after the complete response body was read",
+      "status_code": 200,
+      "headers": {
+        "server": "nginx/1.31.4",
+        "date": "Sat, 10 Oct 2026 18:00:22 GMT"
+      },
+      "https_certificate_verification": true,
+      "metadata_notes": "Only Date and Server were supplied among the recorded response metadata fields. Content-Length, Content-Type, ETag and Last-Modified were unavailable; archive byte length is measured from the received body."
+    },
+    "member_names": [
+      "default of credit card clients.xls"
+    ]
+  },
+  "workbook_member": {
+    "name": "default of credit card clients.xls",
+    "byte_length": 5539328,
+    "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "zip_crc32": "aefda08d",
+    "read_directly_from_zip": true
+  },
+  "existing_local_workbook": {
+    "repository": "original-project",
+    "path": "data/raw/default of credit card clients.xls",
+    "byte_length": 5539328,
+    "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  },
+  "recorded_accepted_workbook": {
+    "manifest_path": "artifacts/source_manifest.json",
+    "sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "manifest_repository": "original-project and publication-checkout (matching preserved manifests)"
+  },
+  "comparisons": {
+    "existing_local_matches_recorded_accepted": true,
+    "official_member_matches_recorded_accepted": true,
+    "official_member_matches_existing_local": true,
+    "official_member_byte_for_byte_matches_existing_local": true,
+    "all_three_sha256_match": true
+  },
+  "procedure": "Independently hash the unchanged local workbook and check the accepted hash; retrieve the official UCI page over certificate-verified HTTPS and confirm its ZIP link; download that archive into an isolated temporary directory; record response metadata and completion time; hash the archive; enumerate ZIP members and read the unique expected workbook directly without extraction; compare SHA-256 hashes and workbook bytes. No workbook cells or outcomes were decoded, and no scientific workflow was run.",
+  "limitations": {
+    "original_download_chain": "unknown",
+    "original_retrieved_at_utc": null,
+    "original_archive_sha256": null,
+    "original_download_chain_reconstructed": false,
+    "http_last_modified_is_original_acquisition_date": false,
+    "scope": "Subsequent byte comparison with the official archive retrieved at the recorded time; historical acquisition records and scientific acceptance artifacts are unchanged."
+  }
+}

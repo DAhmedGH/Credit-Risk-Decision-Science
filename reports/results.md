@@ -1,8 +1,8 @@
-# Frozen results: existing-account next-month default risk
+# Final evaluation and uncertainty
 
 This study uses 30,000 historical Taiwanese credit-card customer snapshots, with April–September 2005 histories and the released next-month default indicator (positive class 1). Prediction occurs at the released month-end snapshot, assuming all included September information is available. Each customer contributes one labeled observation. This is an existing-account benchmark and a hypothetical allocation simulation.
 
-The supplied workbook is compatible with UCI Default of Credit Card Clients (ID 350). Its SHA-256 is `30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933`. The original download chain, official ZIP checksum and retrieval time were not supplied; official archive identity has not been verified. Attribution: Yeh, I. (2009), UCI Machine Learning Repository, DOI 10.24432/C55S3H, CC BY 4.0. See [source manifest](../artifacts/source_manifest.json), [data contract](../docs/data-contract.md) and [cleaning/reconciliation](database_reconciliation.json). No unofficial substitute or fabricated data was introduced.
+The supplied workbook is UCI Default of Credit Card Clients (ID 350). Its SHA-256 is `30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933`. It was subsequently verified byte-for-byte against the official UCI archive retrieved at `2026-10-10T18:00:23.006402Z`; recorded accepted, existing-local and official-member hashes all agree. The original acquisition date, download chain and original archive checksum remain unknown. Attribution: Yeh, I. (2009), UCI Machine Learning Repository, DOI 10.24432/C55S3H, CC BY 4.0. See the [new verification receipt](provenance/uci350-official-comparison-20261010T180023Z.json), unchanged [source manifest](../artifacts/source_manifest.json), [data contract](../docs/data_contracts.md) and [cleaning/reconciliation](database_reconciliation.json). This comparison does not reconstruct the original download chain or rerun scientific evaluation.
 
 All 30,000 source, curated and exported records reconcile, with zero exclusions. Special repayment codes and signed bill balances are preserved. Sex, age, education and marital status are audit-only; identifiers and target never enter predictor matrices. The 19 raw financial predictors and 13 row-derived predictors use version financial-row-v1.1. Population-fitted imputation, vocabularies and scaling are restricted to development fit rows.
 
@@ -14,9 +14,11 @@ Development evidence selected the 100-tree unweighted combined-feature XGBoost, 
 
 The bounded development search completed 12 logistic, 12 forest and 24 XGBoost configurations across five folds (240 search fits). Search.fit runtime was 533.734s. The selected model's fold-average AP/ROC-AUC/log loss/Brier were 0.56125/0.78350/0.42652/0.13372. Candidates within 0.01 AP were compared using log loss and simplicity; tolerances are project choices, not significance tests. A 100-tree model was retained over the near-tied 200-tree candidate.
 
-All 24 matched raw-versus-combined-feature contrasts improved development AP, log loss and Brier. Fold-local weighting worsened log loss/Brier in all 24 matched comparisons. These are tuning-sample findings, not independent test improvements. Full budgets, fold variation, runtimes and comparisons: [Phase 3 report](phase3.md), [model-selection table](phase3_selection_candidates.csv), [feature/weight ablation](phase3_controlled_comparisons_accepted.csv).
+All 24 matched raw-versus-combined-feature contrasts improved development AP, log loss and Brier. Fold-local weighting worsened log loss/Brier in all 24 matched comparisons. These are tuning-sample findings, not independent test improvements. [Modeling methodology](../docs/modeling.md) explains the maintained contract. Full budgets, fold variation, runtimes and comparisons: [Phase 3 report](phase3.md), [model-selection table](phase3_selection_candidates.csv), [feature/weight ablation](phase3_controlled_comparisons_accepted.csv).
 
 ## Policy validation: calibration and policies
+
+[Calibration and simulated policies](../docs/calibration_policies.md) describe the fit/selection boundaries and complete policy definitions.
 
 The base and preprocessing were fitted on development only. Sigmoid/isotonic mappings were fitted on the separate 4,500-row calibration partition; raw probabilities were selected using 3,000 policy-validation rows. Validation log losses: raw 0.4329887140, sigmoid 0.4362283190, isotonic 0.4559940960. Raw minimized log loss and won the 0.005 simplicity rule. This comparison does not establish a globally best calibration method. [Calibration table](phase4_runs/9ca62eca2665438c9c97b4889413acfa/calibration_comparison.csv).
 
@@ -90,11 +92,11 @@ Evaluation run `faa4d59ec05c408aacd3bd6560678c76` used the independently reviewe
 
 ## Explanations, audit and monitoring
 
-Logistic coefficients use training-standardized scales/reference contrasts. SHAP explains the exact selected XGBoost's raw default log odds, using 100 development background rows and 996 development plus 4 preselected policy-validation cases. Maximum additivity residual is 1.43148e-6. It is not causal inference. Diagnostic cases were fixed before final evaluation and were not replaced by test examples. [Explanations](phase4.md).
+Logistic coefficients use training-standardized scales/reference contrasts. SHAP explains the exact selected XGBoost's raw default log odds, using 100 development background rows and 996 development plus 4 preselected policy-validation cases. Maximum additivity residual is 1.43148e-6. It is not causal inference. Diagnostic cases were fixed before final evaluation and were not replaced by test examples. [Explanation contracts](../docs/explanations.md) and [recorded explanation evidence](phase4.md).
 
 Demographic audit summaries are descriptive, restricted to policy validation, and suppressed below 100 rows or 20 of either class. No demographic-specific policies were optimized. Excluding demographics cannot establish fairness because financial predictors can encode proxies. No fairness certification is claimed.
 
-Synthetic monitoring uses unchanged policy-validation records for labeled mix shifts and separate unlabeled corruption scenarios. Development-defined PSI bins retain underflow/overflow/missing bins with epsilon 1e-6 and renormalization. PSI warnings are heuristics; no temporal or concept drift is claimed and no retraining occurs. [Monitoring results](../docs/monitoring-report.md).
+Synthetic monitoring uses unchanged policy-validation records for labeled mix shifts and separate unlabeled corruption scenarios. Development-defined PSI bins retain underflow/overflow/missing bins with epsilon 1e-6 and renormalization. PSI warnings are heuristics; no temporal or concept drift is claimed and no retraining occurs. [Monitoring results](../docs/monitoring.md).
 
 ## Figures and limitations
 
@@ -104,6 +106,6 @@ Synthetic monitoring uses unchanged policy-validation records for labeled mix sh
 ![Fixed policy acceptance and synthetic utility](phase5/policy_utility_detail.png)
 ![Frozen empirical synthetic sensitivity](phase5/sensitivity.png)
 
-[SHAP summary](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_global.png), [first dependence](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_dependence_1.png), [second dependence](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_dependence_2.png) and four frozen local examples remain in the durable bundle explanation directory.
+[SHAP summary](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_global.png), [first dependence](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_dependence_1.png), [second dependence](phase4_runs/9ca62eca2665438c9c97b4889413acfa/shap_dependence_2.png) are included in this source checkout. Four frozen local waterfall examples remain in the separately supplied bundle and are unavailable from a source-only clone.
 
 This historical existing-account sample supplies no dated future cohort, contemporary Canadian representativeness, new-applicant underwriting validation or lifetime-default evidence. No production deployment, intervention effect, real profit or fairness guarantee is claimed. Full-data refitting would create a new bundle requiring new validation. The original official-download chain remains a provenance limitation.

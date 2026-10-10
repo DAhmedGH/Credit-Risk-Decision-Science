@@ -1,5 +1,11 @@
 # Phase 1 completion and checkpoint
 
+This report records the historical Phase 1 checkpoint. Phase status, Git
+state and check counts below describe that execution, not the current publication
+checkout. Use [modeling](../docs/modeling.md),
+[setup](../docs/setup.md) and [final evaluation](results.md) for the completed
+project's methods, execution boundaries and results.
+
 **Phase 1 scientific exit gate: passed. Checkpoint: complete. Phase 2: not started.**
 The remaining delivery blocker is Git initialization and committing the prepared
 files; this directory is not yet a repository. No unresolved scientific or data
@@ -9,8 +15,7 @@ integrity finding remains in the reviewed Phase 1 scope.
 
 Recorded WSL execution reports a successful manual WSL reproduction: **30,000 source, curated,
 audit, and exported rows; zero rejected; `counts_reconcile=true`; both ingestion
-attempts were no-ops; development-only EDA; no predictive training**. The user
-also reported the enabled live database test file passed: **4 passed in 2.37s**.
+attempts were no-ops; development-only EDA; no predictive training**. Reported WSL verification also records the enabled live database test file: **4 passed in 2.37s**.
 These are **reported WSL verification results**, distinct from the saved-artifact
 checks below. The exact test execution time and complete console log were not supplied.
 Both no-ops demonstrate stability against already-ingested data, rather than a
@@ -32,7 +37,7 @@ Prior recorded verification in [lint-resolution.json](lint-resolution.json): Ruf
 passed for the repository, with Git ignores disabled, and for explicit maintained
 paths; all 24 maintained Python files remained covered. Fixture pytest passed
 **47 tests**, with the live SQL test explicitly skipped in that fixture run. The
-user's later enabled database run supplies the live evidence separately; these
+later reported enabled database run supplies the live evidence separately; these
 counts must not be combined into an invented single suite run.
 
 ## Phase 1 requirements and evidence
@@ -42,10 +47,10 @@ counts must not be combined into an invented single suite run.
 | Isolated environment, package, configuration, dependency lock, ignores | Implemented in `pyproject.toml`, `requirements.lock`, `.python-version`, `.gitignore`, `.env.example`, `configs/base.toml`, and bootstrap scripts. Python 3.12 import/serialization and exact installed pins verified. Other project environments are preserved. |
 | Existing workbook and official UCI 350 compatibility | Preserved original bytes; attribution, unknown acquisition details, sheet/header/schema interpretation in `artifacts/source_manifest.json`. Canonical xlrd parsing in `reports/source_validation.json` confirms the same 30,000 × 25 numeric records. No ZIP or substitute download was required. |
 | Validation and cleaning | Canonical report confirms unique/non-null IDs, binary/non-null target, 30,000 accepted and zero rejected. Tests cover numeric/finiteness constraints, category codes, signed balances, month mapping, and storage/arithmetic bounds. |
-| Dedicated PostgreSQL, idempotency, reconciliation | `compose.yaml`, owned-service runner, and `sql/001_schema.sql`–`003_feature_export.sql`; reported WSL counts and no-ops corroborated by `reports/phase1_run.json` and `reports/database_reconciliation.json`. Enabled database tests passed as reported by the user. |
+| Dedicated PostgreSQL, idempotency, reconciliation | `compose.yaml`, owned-service runner, and `sql/001_schema.sql`–`003_feature_export.sql`; reported WSL counts and no-ops corroborated by `reports/phase1_run.json` and `reports/database_reconciliation.json`. Enabled database passes are reported WSL evidence. |
 | Row-only features and predictor allowlist | `financial-row-v1.1`: 19 raw plus 13 engineered financial predictors. ID, target, sex, age, education, and marriage are excluded from the predictor matrix. Labels and audit attributes are exported separately. `artifacts/phase1_export_manifest.json` records SQL/Python agreement for every exported row. |
 | Frozen partitions and five development folds | Seed 42; unchanged `artifacts/split_manifest.csv`; canonical xlrd revalidation receipt in `artifacts/split_checks/`. Complete unique assignment, group disjointness, development-only folds, and class-presence checks all true. |
-| EDA, contract, leakage audit, tests, scientific review | `reports/development_eda.json` covers only 18,000 development rows; no learned whole-data transforms. `docs/data-contract.md`, `docs/leakage-audit.md`, tests, decision/exposure logs, and two independent reviews exist. Review closeout is described below. |
+| EDA, contract, leakage audit, tests, scientific review | `reports/development_eda.json` covers only 18,000 development rows; no learned whole-data transforms. `docs/data_contracts.md`, `docs/leakage_audit.md`, tests, decision/exposure logs, and two independent reviews exist. Review closeout is described below. |
 | Committed provenance and project files | Prepared but **not committed**: Git initialization remains outstanding. Hashes provide current artifact identity but do not substitute for a commit. |
 
 The source is `data/raw/default of credit card clients.xls`, **5,539,328 bytes**,

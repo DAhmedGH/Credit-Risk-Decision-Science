@@ -1,5 +1,11 @@
 # Phase 3: bounded tuning and accepted base model
 
+This report records the historical Phase 3 checkpoint. Phase status, Git
+state and check counts below describe that execution, not the current publication
+checkout. Use [modeling](../docs/modeling.md),
+[setup](../docs/setup.md) and [final evaluation](results.md) for the completed
+project's methods, execution boundaries and results.
+
 **Exit gate: PASS.** The selected development-fitted base is
 `xgboost_05_engineered_none`, selection run
 `6a0725d18b164582938e0b07b2df6b27`. All Phase 3 scientific and artifact-delivery
@@ -15,11 +21,11 @@ All experiments use the same 18,000 development customers and five frozen
 IDs, target, sex, age, education and marital status are excluded from predictors.
 The contract remains `financial-row-v1.1`: 19 raw / 32 combined financial inputs.
 
-The user ran the successful dependency bootstrap, XGBoost profile/search,
-selection and final enabled PostgreSQL suite in ordinary WSL. This acceptance
+Reported WSL execution completed dependency bootstrap, XGBoost profile/search,
+selection and the final enabled PostgreSQL suite. This acceptance
 independently audited their saved outputs; it repeated **zero fits and zero
 tests**. The earlier logistic/forest searches were reused without duplication.
-Exact user test invocation times were not supplied. The prior blocked checkpoint
+Exact test invocation times were not supplied. The prior blocked checkpoint
 is retained in [phase3_pre_acceptance.md](phase3_pre_acceptance.md), the resume
 receipt and decisions D014–D016; those blockers are resolved for this milestone.
 
@@ -211,7 +217,7 @@ The accepted durable root is:
 /home/danieal/credit-risk-backups/phase3-20261008-195946/runtime
 ```
 
-The user's copy preserves **2,682 regular files / 131,298,257 bytes** of model,
+The preserved copy contains **2,682 regular files / 131,298,257 bytes** of model,
 OOF, compact evidence, original provenance and tracking records, byte-equivalent
 to the intact original runtime. The earlier `phase3-20261008-194353` backup is
 retained but lacks the final selection; it is not the Phase 4 loading root.
@@ -240,8 +246,7 @@ Reported WSL execution evidence: bootstrap compatibility verified and lock updat
 passed**, live SQL disabled. Final project PostgreSQL was ready at
 127.0.0.1:55432; `CREDIT_RISK_SQL_TEST=1 .venv/bin/python -m pytest -q -p no:cacheprovider`
 returned **111 passed in 49.88s, no skips**. Family and selection artifact/tracking
-verification passed. These executions are attributed to the user, not repeated
-by acceptance. Bootstrap includes Ruff and import/fit/save/load smoke checks.
+verification passed. These are reported WSL executions; acceptance did not repeat them. Bootstrap includes Ruff and import/fit/save/load smoke checks.
 
 Read-only verification reconciled all **864,000 search OOF rows**, **240
 fold results**, five preserved candidates' **90,000 OOF rows**, fold means/SDs,

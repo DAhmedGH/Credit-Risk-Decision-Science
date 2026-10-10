@@ -1,8 +1,39 @@
-# Data contract: UCI 350, financial-row-v1.1
+# Dataset, validation and feature contracts
 
 The observation is one existing credit-card customer at the released month-end snapshot. Prediction is assumed to occur after all released September 2005 histories are available. The outcome is the source's next-month default indicator, normalized to `default_next_month`, with positive class `1`. The release does not establish a regulatory default definition, lifetime risk, new-applicant outcomes, or behavior under additional lending.
 
-The source is [UCI Default of Credit Card Clients, dataset 350](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients), credited to I-Cheng Yeh (2009), [DOI 10.24432/C55S3H](https://doi.org/10.24432/C55S3H), CC BY 4.0. The original local `.xls` bytes are immutable. The provenance manifest records the checksum and observations that can be established; filesystem timestamps do not establish a download date. No ZIP acquisition is implied by the presence of an extracted workbook.
+The study uses the supplied workbook from [UCI Default of Credit Card Clients, dataset 350](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients), credited to I-Cheng Yeh (2009), [DOI 10.24432/C55S3H](https://doi.org/10.24432/C55S3H), CC BY 4.0. Its bytes were subsequently verified against the official archive. The original local `.xls` bytes are immutable. Filesystem timestamps do not establish the original download date.
+
+The plan specified an official ZIP/workbook acquisition with recorded retrieval
+time and both checksums. The delivered study retained an existing workbook under
+the recorded D002 provenance qualification; no original ZIP or acquisition record
+was available. The original download chain, retrieval date and archive checksum
+remain unknown.
+
+The supplied workbook was subsequently verified byte-for-byte against the official
+UCI archive retrieved at `2026-10-10T18:00:23.006402Z`. The recorded accepted hash,
+independently measured local hash and official workbook member hash all equal
+`30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933`;
+both workbooks contain 5,539,328 bytes. The new archive contains 5,539,494 bytes,
+SHA-256 `56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602`.
+The [verification receipt](../reports/provenance/uci350-official-comparison-20261010T180023Z.json)
+records the confirmed page link, requested/final URLs, UTC retrieval time, member
+name and available HTTP metadata. The page currently uses literal `+` characters
+in the ZIP path, equivalent to the previously observed `%2B` spelling.
+
+Verification used certificate-verified HTTPS and an isolated temporary download.
+The unique workbook member was read directly from the ZIP without filesystem
+extraction or cell decoding; hashes and full bytes were compared. The archive
+response supplied Date and Server, but no Content-Length, Content-Type, ETag or
+Last-Modified. Its byte length was measured from the received body. Response
+metadata is not evidence of the original acquisition date. This new comparison
+does not reconstruct the original download chain or alter historical manifests.
+
+The [source manifest](../artifacts/source_manifest.json) preserves initial
+reader/diagnostic states marked pending. Later [canonical validation](../reports/source_validation.json)
+records xlrd 2.0.2, 30,000 accepted rows and zero rejections; the
+[export manifest](../artifacts/phase1_export_manifest.json) records all-row
+SQL/Python agreement. Historical pending fields are not the current reader status.
 
 ## Workbook and normalization
 
@@ -26,7 +57,7 @@ Schema mismatch, invalid/null identifiers, and duplicate identifiers abort inges
 
 Numeric values must be finite; booleans and numeric-looking strings are rejected. Repayment categories must be integers in `-2`, `-1`, `0` through `9`. The special values `-2`, `-1`, and `0` remain separate raw categories. Published descriptions do not resolve every special-code meaning, so no behavior is invented for undocumented values. Demographic categories must be integers when present. Undocumented demographic codes are preserved, with explicit `unknown` audit groups; they do not enter prediction. Positive integer age is required when present. Signed financial amounts are preserved without clipping or unsupported amount cutoffs.
 
-Credit limit and target are mandatory. Missing financial histories and audit values remain missing; they are counted rather than filled. This supports future training-fold imputation without learning a whole-data statistic. All canonical cleaning rules are row-level or structural. A change to source bytes or cleaning rules requires a new version and provenance.
+Credit limit and target are mandatory. Missing financial histories and audit values remain missing; they are counted rather than filled. This leaves imputation to training-fold fitting without learning a whole-data statistic during ingestion. All canonical cleaning rules are row-level or structural. A change to source bytes or cleaning rules requires a new version and provenance.
 
 Identifiers must fit positive PostgreSQL `bigint`; demographic integers must fit
 PostgreSQL `integer`. These are storage limits rather than population cutoffs.
@@ -62,6 +93,41 @@ Payment/balance ratios are proxies. The release does not fully specify contractu
 
 After structural validation, exact 19-field financial profiles are fingerprinted without labels or demographics. Identical profiles stay together in all partitions and development folds; different customers are retained. The fixed targets are development 60%, calibration 15%, policy validation 10%, and final test 15%, seed 42, with five development folds. The split artifacts record actual allocations and deviations. Labels are used only for allocation/integrity; held-out outcomes do not guide EDA or feature decisions.
 
-EDA is restricted to development IDs after the split manifest is frozen. Future imputation, scaling, category vocabularies, feature selection, resampling, and distribution thresholds must be fitted inside the relevant training fold. Synthetic fixtures test software behavior only and supply no portfolio results.
+EDA is restricted to development IDs after the split manifest is frozen. Imputation, scaling, category vocabularies and any learned feature selection or resampling belong inside the relevant fit scope. Monitoring distribution thresholds are fitted on development only. Synthetic fixtures test software behavior only and supply no portfolio results.
 
-Phase 1 transformations and fixture tests use the Python standard library; `xlrd` is needed only for the real XLS loader, and `psycopg` for PostgreSQL. Pandas/NumPy and learned preprocessing are deferred until needed in Phase 2. The explicit Phase 1 restriction on predictive training also defers the design's tiny model fit/serialization environment check; no model was fitted as a setup check.
+## Storage and reconciliation
+
+| Object or file | Grain and key | Contract |
+| --- | --- | --- |
+| `raw.credit_clients`, `curated.credit_clients` | One source/customer record; `(source_sha256, client_id)` | Raw values, acceptance/rejection reasons and curated cleaning flags; transactional, idempotent ingestion |
+| `curated.model_features_v1` | One source/customer; `(source_sha256, client_id)` | Explicit financial allowlist and deterministic SQL row features |
+| `curated.audit_attributes` | One source/customer; `(source_sha256, client_id)` | Demographics are retained separately for descriptive analysis |
+| `data/processed/financial_features_v1.csv` | One customer; `client_id` | 32 financial predictors, with labels and audits exported separately |
+| `artifacts/split_manifest.csv` | One customer assignment | Partition, development fold, raw financial fingerprint, seed and source hash |
+| Batch input/output | One unlabeled input record; `record_id` | Raw financial schema, preserved identities, scored/quarantined counts |
+
+Recorded source, curated, audit and exported counts are each 30,000, with zero
+rejections. SQL/Python agreement is recorded in the
+[export manifest](../artifacts/phase1_export_manifest.json) and
+[database reconciliation](../reports/database_reconciliation.json).
+Reingestion checks preserve already loaded records; the two recorded ingestion
+no-ops are not evidence of a fresh-empty-database load in that execution.
+
+The canonical XLS reader requires `xlrd`, PostgreSQL requires `psycopg`, and
+modeling uses the pinned NumPy/pandas/scikit-learn environment. Training requires
+valid positive limits and binary targets; inference permits missing financial
+cells for frozen preprocessing while rejecting supplied nonpositive limits.
+The training and inference validators have distinct contracts:
+
+| Input condition | Canonical source validation | Batch inference |
+| --- | --- | --- |
+| Missing credit limit | Reject the row | Permit frozen imputation; supplied nonpositive values still quarantine |
+| Repayment status | Integral released range `-2`, `-1`, `0..9` | Permit unseen integral categories with unknown-safe encoding |
+| Payment amount | Preserve finite signed source amounts | Quarantine negative payments |
+| Numeric representation | Accept numeric Excel cells; reject numeric-looking text | Parse numeric CSV text; reject booleans, nonnumeric and nonfinite values |
+
+These differences describe delivered validation, not interchangeable schemas.
+A record accepted by source ingestion is not guaranteed to pass the public scorer.
+No business validity is established for an unseen status.
+See [batch scoring](batch_scoring.md), [leakage and availability](leakage_audit.md),
+and [modeling and partition isolation](modeling.md).

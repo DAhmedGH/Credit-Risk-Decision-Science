@@ -1,5 +1,11 @@
 # Phase 4: probability calibration and hypothetical allocation policies
 
+This report records the historical Phase 4 checkpoint. Phase status, Git
+state and check counts below describe that execution, not the current publication
+checkout. Use [modeling](../docs/modeling.md),
+[setup](../docs/setup.md) and [final evaluation](results.md) for the completed
+project's methods, execution boundaries and results.
+
 **Phase 4 exit gate: PASS. The complete pre-test bundle is frozen and independently reviewed.** Calibration, policy selection, sensitivity, logistic interpretation, descriptive slices, durable serialization and all required real-data SHAP artifacts have supporting evidence. Final-test outcomes have not been evaluated; Phase 5 remains unstarted.
 
 ## Fixed identities and permitted evidence
@@ -130,15 +136,14 @@ Freeze content SHA-256: `89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867d
 checks passed without final-test outcome access. Final-test evaluation and
 intervals remain unexecuted.
 
-Verification evidence is attributed explicitly. The user ran the Phase 4
-bootstrap, including synthetic calibration/TreeSHAP/plot/save-load smoke and
-182 passing tests with one SQL skip; resumed the saved run successfully;
-started the isolated project PostgreSQL; ran the SQL-enabled full suite
-(**183 passed in 54.31s, no skips**); and ran Ruff successfully. Exact command
+Reported WSL verification completed the Phase 4 bootstrap, including synthetic
+calibration/TreeSHAP/plot/save-load smoke and 182 passing tests with one SQL skip.
+The saved run resumed successfully, isolated PostgreSQL started, the SQL-enabled
+suite passed (**183 passed in 54.31s, no skips**), and Ruff passed. Exact command
 invocation timestamps were not supplied. Acceptance does not re-execute or
 relabel these reported WSL commands. The initial original-shell PyPI DNS failure and
 SQL-unavailable checkpoint are preserved in decision D019 and archived reports;
-they are resolved by the user's execution and actual saved artifacts.
+reported WSL execution and saved artifacts resolved them.
 
 The current explanation lock SHA is
 `af2037d68e8508c120ff7e70fa2c4d43720f309839230b88db106703479668d8`.
@@ -163,4 +168,4 @@ The guarded finalize command ran successfully, followed by complete-manifest/
 review/hash verification and no-fit guarded loading. Acceptance performed no
 training, calibration fits, searches, full test suites or dependency installations.
 
-Exact commands and verified loading: [Phase 4 reproduction](../docs/reproduction-phase4.md). The `docs/phase5-checkpoint.md` (private historical evidence) preserves the final-test boundary; Phase 5 still requires a separately requested task after finalization.
+Exact commands and verified loading: [Phase 4 reproduction](../docs/reproduction-phase4.md). The `docs/phase5-checkpoint.md` (private historical evidence) preserves the final-test boundary; At this checkpoint, final-test evaluation had not run; the completed evaluation is documented in [results](results.md).

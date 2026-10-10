@@ -81,7 +81,7 @@ Learned imputation, scaling, category vocabularies, and distribution-based thres
 - Source manifest and row-count reconciliation.
 - `sql/001_schema.sql`, `002_curated.sql`, `003_feature_export.sql`.
 - Versioned predictor allowlist, feature definitions, and split/fold manifest.
-- `docs/data-contract.md` and `docs/leakage-audit.md`.
+- `docs/data_contracts.md` and `docs/leakage_audit.md`.
 - Relevant data, feature, and split tests.
 
 ### Exit gate

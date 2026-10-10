@@ -183,7 +183,7 @@ Start with the released credit limit and repayment, bill, and payment histories.
 
 Exclude `ID` and the target. Keep sex, age, education, and marital status outside the primary predictive feature set; retain them in a separate audit table. This is a scope choice for a behavior-focused portfolio model, not proof that the model is fair.
 
-Create `docs/leakage-audit.md` with one row per input or derived feature:
+Create `docs/leakage_audit.md` with one row per input or derived feature:
 
 | Required field | Meaning |
 | --- | --- |
@@ -579,10 +579,10 @@ credit-risk-decision-science/
     figures/
     results.md
   docs/
-    data-contract.md
-    leakage-audit.md
+    data_contracts.md
+    leakage_audit.md
     methodology.md
-    model-card.md
+    model_card.md
     reproduction.md
     decision-log.md
   .github/workflows/ci.yml
