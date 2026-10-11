@@ -1,5 +1,7 @@
 """Unlabeled, database-independent scoring with the immutable accepted bundle."""
 import csv
+import hashlib
+import io
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -10,12 +12,22 @@ from credit_risk.models.bundle import load_frozen_bundle
 
 
 def read_batch(path):
+    return read_batch_snapshot(path)[0]
+
+
+def read_batch_snapshot(path):
+    """Parse and hash the same captured bytes, even if the input path changes."""
     path = Path(path)
-    if path.suffix.lower() == '.parquet':
-        return pd.read_parquet(path)
-    if path.suffix.lower() != '.csv':
+    if path.suffix.lower() not in {'.csv', '.parquet'}:
         raise ValueError('Input must be CSV or Parquet')
-    with path.open(newline='', encoding='utf-8-sig') as stream:
+    content = path.read_bytes()
+    return _parse_batch(path, content), hashlib.sha256(content).hexdigest()
+
+
+def _parse_batch(path, content):
+    if path.suffix.lower() == '.parquet':
+        return pd.read_parquet(io.BytesIO(content))
+    with io.TextIOWrapper(io.BytesIO(content), newline='', encoding='utf-8-sig') as stream:
         reader = csv.reader(stream, strict=True)
         try:
             header = next(reader, [])
@@ -137,13 +149,14 @@ def score_file(manifest, input_path, output_dir, *, scenario_id='base', policy_i
         if file_sha256(live) != file_sha256(frozen):
             raise ValueError('Scoring transformation source differs from accepted source')
     version = file_sha256(Path(manifest).parent / 'probability_bundle.joblib')
-    scored, rejected, receipt = score_frame(bundle, read_batch(input_path), scenario_id=scenario_id,
+    frame, input_sha256 = read_batch_snapshot(input_path)
+    scored, rejected, receipt = score_frame(bundle, frame, scenario_id=scenario_id,
                                           policy_id=policy_id, model_version=version)
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=False)
     scored.to_csv(output / 'scored.csv', index=False)
     rejected.to_csv(output / 'quarantined.csv', index=False)
-    receipt.update({'input_sha256': file_sha256(input_path), 'bundle_sha256': version,
+    receipt.update({'input_sha256': input_sha256, 'bundle_sha256': version,
                     'manifest_sha256': file_sha256(manifest), 'scenario_id': scenario_id,
                     'policy_id': policy_id})
     write_json(output / 'receipt.json', receipt)

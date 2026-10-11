@@ -1,0 +1,1088 @@
+{
+  "schema_version": 1,
+  "audit": {
+    "date_utc": "2026-10-11",
+    "created_utc": "2026-10-11T06:34:50.647944+00:00",
+    "disposition": "PASS WITH LIMITATIONS",
+    "disposition_scope": "Audited publication checkout plus uncommitted verified correction; public remote remains unchanged and still contains F001.",
+    "critical_or_high_blockers_identified": false,
+    "absence_of_all_bugs_proven": false,
+    "applicable_instructions": "Parent AGENTS.md read; no nested publication instructions found.",
+    "initial_state": {
+      "branch": "main",
+      "head": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "remote": "https://github.com/DAhmedGH/Credit-Risk-Decision-Science.git",
+      "working_tree": "clean",
+      "index": "clean",
+      "pre_existing_edits": []
+    },
+    "public_remote_head_initial_and_recheck": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+    "fresh_clone_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+    "original_observed_head": "3a051cb6dc56578f4adcb69876005695c3c0f0c3",
+    "original_later_status": "Only untracked publication/ observed; no original tracked modifications.",
+    "historical_accepted_source_commit": "fb022d9dca79d6aee1a565a62c36df33ece743e2",
+    "tested_corrected_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+    "corrected_341_file_execution_export_map_sha256": "0677ac1639f2fb1babef87c95f7aa67fbdab22351ce25eafab5b7cc17c91d64e",
+    "execution_export_note": "README/publication-guide disclosure edits and these audit reports followed execution export; all 71 tested runtime Python files match final code."
+  },
+  "finding_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 2,
+    "informational": 3
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "severity": "medium",
+      "title": "Scoring receipt input hash can identify different bytes from the scored batch",
+      "locations": [
+        {
+          "file": "src/credit_risk/inference.py",
+          "line": 18
+        },
+        {
+          "file": "src/credit_risk/inference.py",
+          "line": 149
+        },
+        {
+          "file": "src/credit_risk/scoring.py",
+          "line": 41
+        }
+      ],
+      "trigger": "Replace the input path after read_batch/score_frame but before receipt creation. The untouched public revision records the replacement hash while producing the original example output. CSV width validation and pandas parsing previously made separate passes over the same open file.",
+      "expected_behavior": "The input SHA-256 must identify the captured bytes used for validation, parsing and scoring.",
+      "actual_behavior_before_fix": "The receipt SHA-256 was computed from the current path after scoring, independently of the previously parsed bytes.",
+      "impact": "Incorrect batch provenance during concurrent input replacement; no model, policy or prediction calculation change is required.",
+      "correction": "Capture the input bytes once, parse CSV/Parquet from memory, return the snapshot hash and use it in both scoring receipts. Document snapshot memory usage.",
+      "verification": {
+        "independent_public_revision_probe": "Reproduced with synthetic example input.",
+        "regression_locations": [
+          {
+            "file": "tests/test_audit_inference.py",
+            "line": 58
+          },
+          {
+            "file": "tests/test_public_scoring.py",
+            "line": 201
+          }
+        ],
+        "new_regression_cases": 3,
+        "corrected_full_suite": {
+          "passed": 274,
+          "failed": 0,
+          "skipped": 0
+        },
+        "example_output_byte_identical": true
+      },
+      "disposition": "fixed_locally_verified_not_published",
+      "remaining_limitation": "Snapshot memory is additional to the parsed batch. A concurrent write during the operating-system read can produce a mixed capture, but parsing and hashing identify that same capture."
+    },
+    {
+      "id": "F002",
+      "severity": "low",
+      "title": "Public-content description omitted retained real UCI case metadata",
+      "locations": [
+        {
+          "file": "README.md",
+          "line": 92
+        },
+        {
+          "file": "docs/publication-package.md",
+          "line": 13
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/metadata.json",
+          "line": 46
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/descriptive_metadata.json",
+          "line": 46
+        }
+      ],
+      "trigger": "Inspect the public explanation metadata and split manifest from the fresh clone.",
+      "expected_behavior": "Public inventory statements distinguish synthetic scoring examples, benchmark IDs and the retained case labels/probabilities.",
+      "actual_behavior_before_fix": "README broadly stated that customer-level labels/audit exports were outside Git, while preserved metadata included four real public UCI policy-validation cases and explanation sample IDs.",
+      "impact": "Misleading minimization disclosure. No raw financial workbook, full customer export or private identity mapping was found in the public package.",
+      "correction": "Precisely disclose the retained benchmark metadata in README/publication guide; preserve historical evidence bytes.",
+      "verification": "Public file inventory inspected; five-member archive contains no case records or source workbook; preserved report hashes unchanged.",
+      "disposition": "documentation_fixed_locally_historical_records_preserved"
+    },
+    {
+      "id": "F003",
+      "severity": "low",
+      "title": "Historical personal execution paths remain in public files and history",
+      "locations": [
+        {
+          "file": "configs/phase4.toml",
+          "line": 3
+        },
+        {
+          "file": "docs/partition-access-log.md",
+          "line": 55
+        },
+        {
+          "file": "docs/partition-access-log.md",
+          "line": 99
+        },
+        {
+          "file": "docs/partition-access-log.md",
+          "line": 143
+        },
+        {
+          "file": "docs/partition-access-log.md",
+          "line": 195
+        },
+        {
+          "file": "docs/reproduction-phase3.md",
+          "line": 24
+        },
+        {
+          "file": "docs/reproduction-phase3.md",
+          "line": 98
+        },
+        {
+          "file": "docs/reproduction-phase3.md",
+          "line": 166
+        },
+        {
+          "file": "docs/reproduction-phase3.md",
+          "line": 196
+        },
+        {
+          "file": "docs/reproduction-phase4.md",
+          "line": 23
+        },
+        {
+          "file": "docs/validation-phase3-acceptance.md",
+          "line": 31
+        },
+        {
+          "file": "docs/validation-phase3-acceptance.md",
+          "line": 34
+        },
+        {
+          "file": "reports/phase1.md",
+          "line": 128
+        },
+        {
+          "file": "reports/phase2_verification.json",
+          "line": 43
+        },
+        {
+          "file": "reports/phase3.md",
+          "line": 217
+        },
+        {
+          "file": "reports/phase4.md",
+          "line": 128
+        },
+        {
+          "file": "reports/phase4_acceptance.json",
+          "line": 88
+        },
+        {
+          "file": "reports/phase4_checks.json",
+          "line": 55
+        },
+        {
+          "file": "reports/phase4_integrity.json",
+          "line": 5
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/freeze_manifest.json",
+          "line": 162
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 6
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 368
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 417
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 1858
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 1865
+        },
+        {
+          "file": "reports/phase4_runs/9ca62eca2665438c9c97b4889413acfa/manifest.json",
+          "line": 1912
+        },
+        {
+          "file": "reports/phase4_user_verification.json",
+          "line": 14
+        },
+        {
+          "file": "reports/phase5/test_exposure_receipt.json",
+          "line": 62
+        },
+        {
+          "file": "reports/phase5_monitoring/monitoring.json",
+          "line": 146
+        },
+        {
+          "file": "reports/phase5_preflight.json",
+          "line": 59
+        },
+        {
+          "file": "reports/project-audit-evidence/initial-preflight.json",
+          "line": 59
+        },
+        {
+          "file": "reports/project-audit-evidence/scientific-review.md",
+          "line": 35
+        },
+        {
+          "file": "src/credit_risk/models/phase4_inputs.py",
+          "line": 21
+        }
+      ],
+      "trigger": "Bounded path-pattern inspection of the current public files and all reachable public history.",
+      "expected_behavior": "Delivery documentation should accurately disclose retained execution details, without implying private paths are usable dependencies of public scoring.",
+      "actual_behavior_before_fix": "33 matching locations in 21 files contain personal execution paths despite broader exclusion wording.",
+      "impact": "Local execution information remains exposed; referenced private dependencies cannot support a public historical replay. Public scoring does not require them.",
+      "correction": "Correct the publication guide disclosure. Do not redact hash-bound historical receipts or rewrite public history during this audit.",
+      "verification": {
+        "matching_locations": 33,
+        "matching_files": 21,
+        "history_blob_objects": 386,
+        "history_commits": 5,
+        "selected_secret_pattern_hits": 0,
+        "path_values_in_new_reports": false
+      },
+      "disposition": "disclosed_unresolved_low_limitation",
+      "proposed_owner_action": "If minimization beyond the current retained history is desired, choose a separately versioned public presentation and history policy without falsifying original receipts."
+    },
+    {
+      "id": "F004",
+      "severity": "informational",
+      "title": "Repository-wide code reuse license is undeclared",
+      "locations": [
+        {
+          "file": "pyproject.toml",
+          "line": 5
+        },
+        {
+          "file": "docs/scoring-package-notice.md",
+          "line": 1
+        }
+      ],
+      "trigger": "Inspect tracked inventory and project metadata: no LICENSE file and no project license declaration.",
+      "expected_behavior": "Any intended code reuse permission should be stated by the rights owner, separately from data/model attribution.",
+      "actual_behavior": "UCI DOI/CC BY 4.0 data and model notices exist, but do not declare a repository-wide code license.",
+      "impact": "Inspection and scoring can be validated, while general third-party code reuse terms remain unspecified.",
+      "correction": "No license chosen during the audit; record as an owner decision.",
+      "verification": "Maintained notices and packaging reviewed.",
+      "disposition": "owner_decision_unresolved_information"
+    },
+    {
+      "id": "F005",
+      "severity": "informational",
+      "title": "Individual bootstrap replicate statistics are unavailable",
+      "locations": [
+        {
+          "file": "src/credit_risk/phase5.py",
+          "line": 153
+        },
+        {
+          "file": "reports/phase5/intervals.csv",
+          "line": 1
+        },
+        {
+          "file": "reports/phase5/results.json",
+          "line": 1
+        }
+      ],
+      "trigger": "Inspect preserved bootstrap outputs and runtime evidence for replicate-level statistics.",
+      "expected_behavior": "Independent percentile endpoint recomputation requires the individual saved replicate statistics; unavailable evidence must be identified.",
+      "actual_behavior": "341 interval entries and undefined-count summaries are retained, but no individual replicate statistic arrays were found.",
+      "impact": "CSV/JSON interval consistency and construction can be checked; independent percentile/plan replay is not established.",
+      "correction": "Report the limit; do not regenerate bootstrap samples or modify accepted intervals.",
+      "verification": {
+        "interval_entries_reconciled": 341,
+        "construction_reviewed": true,
+        "replicate_statistics_available": false,
+        "plan_hash_recomputed": false,
+        "bootstrap_repetitions_executed": 0
+      },
+      "disposition": "unavailable_evidence_limit_no_rerun"
+    },
+    {
+      "id": "F006",
+      "severity": "informational",
+      "title": "Scoring output files are not an atomic directory transaction",
+      "locations": [
+        {
+          "file": "src/credit_risk/scoring.py",
+          "line": 52
+        },
+        {
+          "file": "src/credit_risk/artifacts.py",
+          "line": 42
+        },
+        {
+          "file": "docs/batch_scoring.md",
+          "line": 91
+        }
+      ],
+      "trigger": "Inject OSError while writing quarantined.csv after scored.csv has been written.",
+      "expected_behavior": "Callers need an unambiguous completion signal and must not treat partial output as a completed run.",
+      "actual_behavior": "A failed new directory can contain scored.csv without receipt.json; the error propagates and the existing destination prevents an overwrite/retry.",
+      "impact": "Consumers ignoring the receipt can use incomplete output; retries require a new destination.",
+      "correction": "Document receipt.json as the completion marker, possible partial output, and a new destination on retry. Preserve collision guards; no speculative transaction refactor.",
+      "verification": {
+        "synthetic_write_failure_propagated": true,
+        "partial_directory_preserved": true,
+        "completion_receipt_absent": true,
+        "same_destination_retry_rejected": true
+      },
+      "disposition": "confirmed_behavior_documented_locally"
+    }
+  ],
+  "environment": {
+    "host_python": "3.14.4",
+    "execution_python": "3.12.11",
+    "numerical_threads": 1,
+    "dependency_pins": 72,
+    "lock_sha256": "c1a5bad0f66c43644ed3f63fa083e5b992d219fff57b4b9374784f337e02c2c3",
+    "docker_client_and_server": "29.8.0",
+    "public_image_sha256": "d5a4d0e40263291fdbbf6f8b7dfd262cec5a34e87d6d65ece9347ddd2e477f89",
+    "corrected_image_sha256": "be4de5beb4c0bda7d62d2daeaedeb8352fce90d8aba309edfe2c8efcc616c7a8",
+    "public_full_context_image_sha256": "3cd65170217c0e252aecee4d0d7b38a8c4ce3d212dba4ce9f86203463e85db6b",
+    "corrected_full_context_image_sha256": "21b744b4b04a3e642dbf25db674fae3f11a79da9749b0b1f4cf7a964214f467b",
+    "dependency_layers_cached": true,
+    "dependency_downloads_repeated": false,
+    "public_execution_private_file_copies": 0,
+    "scoring_container_network": "none",
+    "scoring_container_host_bind_mounts": 0,
+    "scoring_container_root_filesystem": "read-only",
+    "scoring_container_temp_filesystem": "/tmp tmpfs; rw,exec only where the installed wheel console entrypoint required it"
+  },
+  "checks": [
+    {
+      "id": "C01",
+      "scope": "public_remote",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "git ls-remote https://github.com/DAhmedGH/Credit-Risk-Decision-Science.git HEAD refs/heads/main",
+      "result": "pass",
+      "notes": "Initial sandbox DNS attempt blocked; approved network execution succeeded; later revision recheck matched."
+    },
+    {
+      "id": "C02",
+      "scope": "public_clone",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "git clone https://github.com/DAhmedGH/Credit-Risk-Decision-Science.git \"$AUDIT_TMP/public\"",
+      "result": "pass",
+      "tracked_files": 341,
+      "initial_public_local_byte_differences": 0,
+      "final_clone_clean": true
+    },
+    {
+      "id": "C03",
+      "scope": "public_docker_build",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "working_directory": "$AUDIT_TMP/public",
+      "command": "docker build --progress=plain -t credit-risk-final-audit:13d9f86 .",
+      "result": "pass",
+      "dependency_layers_cached": true,
+      "source_layers_cached": true,
+      "dependencies_downloaded_again": false
+    },
+    {
+      "id": "C04",
+      "scope": "documented_public_docker_fixture_route",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm --network none credit-risk-final-audit:13d9f86",
+      "result": "pass",
+      "passed": 270,
+      "failed": 0,
+      "skipped": 1,
+      "duration_seconds": 57.7,
+      "skip": "Optional live SQL test, exercised separately."
+    },
+    {
+      "id": "C05",
+      "scope": "public_scoring",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm --network none --read-only --tmpfs /tmp credit-risk-final-audit:13d9f86 python scripts/verify_public_scoring.py",
+      "result": "pass",
+      "host_bind_mounts": 0,
+      "private_inputs": 0,
+      "example_counts": {
+        "input": 12,
+        "scored": 12,
+        "quarantined": 0
+      },
+      "quarantine_fixture_counts": {
+        "input": 12,
+        "scored": 10,
+        "quarantined": 2
+      },
+      "empty_counts": {
+        "input": 0,
+        "scored": 0,
+        "quarantined": 0
+      },
+      "policies_checked": 88,
+      "expected_utilities_checked": true,
+      "byte_exact_example": true,
+      "fit_database_network_tracking_guards": true,
+      "model_mutation_detected": false
+    },
+    {
+      "id": "C06",
+      "scope": "actual_ci_commands_in_isolation",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm --network none --read-only --tmpfs /tmp credit-risk-final-audit-public:13d9f86 bash -ec 'cp -a /public /tmp/public; cd /tmp/public; unset PYTHONPATH; python -m venv --system-site-packages .venv; . .venv/bin/activate; python -m pip install -r requirements.lock; python -m pip install --no-deps --no-build-isolation -e .; python -m pip check; python scripts/environment_smoke.py; python scripts/phase2_smoke.py; python scripts/phase4_smoke.py; ruff check .; pytest -q'",
+      "result": "pass",
+      "passed": 270,
+      "failed": 0,
+      "skipped": 1,
+      "duration_seconds": 53.18,
+      "smoke_scripts_passed": [
+        "scripts/environment_smoke.py",
+        "scripts/phase2_smoke.py",
+        "scripts/phase4_smoke.py"
+      ],
+      "ruff": "pass",
+      "pip_check": "pass",
+      "all_72_lock_pins_already_satisfied": true,
+      "editable_install": "pass",
+      "pythonpath_removed": true
+    },
+    {
+      "id": "C07",
+      "scope": "public_sql_fixtures",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "CREDIT_RISK_SQL_TEST=1 POSTGRES_HOST_PORT=5432 pytest -q tests/test_database.py",
+      "result": "pass",
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.26,
+      "database": "Audit-created PostgreSQL 16-bookworm, tmpfs data/socket, no host ports, isolated network namespace; actual CI lifecycle/project marker statements applied.",
+      "records": {
+        "source": 120,
+        "curated": 119,
+        "quarantined": 1
+      },
+      "idempotency_and_transaction_checks": true,
+      "database_cleanup": "Fixture DDL rolled back; audit-created container removed."
+    },
+    {
+      "id": "C08",
+      "scope": "corrected_docker_build",
+      "base_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+      "working_directory": "$AUDIT_TMP/repaired",
+      "command": "docker build --progress=plain -t credit-risk-final-audit:repaired .",
+      "result": "pass",
+      "base_and_dependency_layers_cached": true,
+      "changed_source_and_test_copy_layers_rebuilt": true
+    },
+    {
+      "id": "C09",
+      "scope": "corrected_full_suite_with_sql",
+      "base_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+      "command": "docker run --rm --network container:credit-risk-final-audit-db --read-only --tmpfs /tmp -e CREDIT_RISK_SQL_TEST=1 -e POSTGRES_PASSWORD=fixture_only_not_a_real_secret -e POSTGRES_HOST_PORT=5432 -e MPLCONFIGDIR=/tmp/matplotlib credit-risk-final-audit-public:repaired bash -ec 'cp -a /public /tmp/public; cd /tmp/public; unset PYTHONPATH; python -m venv --system-site-packages .venv; . .venv/bin/activate; python -m pip install --no-deps --no-build-isolation -e .; python -m pip check; ruff check . --no-cache; pytest -q'",
+      "result": "pass",
+      "passed": 274,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 47.68,
+      "new_regression_cases": 3,
+      "ruff": "pass",
+      "pip_check": "pass",
+      "pythonpath_removed": true
+    },
+    {
+      "id": "C10",
+      "scope": "corrected_optimized_public_scoring",
+      "base_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+      "command": "docker run --rm --network none --read-only --tmpfs /tmp credit-risk-final-audit:repaired python -O scripts/verify_public_scoring.py",
+      "result": "pass",
+      "example_byte_identical": true,
+      "policies_checked": 88
+    },
+    {
+      "id": "C11",
+      "scope": "ordinary_installed_wheel",
+      "base_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+      "command": "docker run --rm -i --network none --read-only --tmpfs /tmp:rw,exec credit-risk-final-audit-public:repaired python - < \"$AUDIT_TMP/wheel-check.py\"",
+      "result": "pass",
+      "wheel": "credit_risk_decision_science-0.1.0-py3-none-any.whl",
+      "wheel_build": "python -m pip wheel --no-deps --no-build-isolation --wheel-dir /tmp/wheels .",
+      "install": "python -m pip install --no-deps <generated-wheel>",
+      "imports_from_installed_wheel": true,
+      "outside_source_working_directory": true,
+      "pythonpath_removed": true,
+      "pip_check": "pass",
+      "console_help": "pass",
+      "restore_verify_score": "pass",
+      "byte_exact_example": true,
+      "optimized_tamper_rejected_before_deserialization": true,
+      "initial_noexec_harness_attempt": "Scoring passed, console entrypoint PermissionError; retry with executable tmpfs passed."
+    },
+    {
+      "id": "C12",
+      "scope": "independent_public_runtime_probes",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm -i --network none --read-only --tmpfs /tmp credit-risk-final-audit:13d9f86 python - < \"$AUDIT_TMP/runtime-probe.py\"",
+      "result": "pass",
+      "policy_boundary_cases": 264,
+      "quoted_multiline_leading_zero_identity": "pass",
+      "extreme_finite_input_probe": "pass",
+      "single_and_batch_equivalence": "pass"
+    },
+    {
+      "id": "C13",
+      "scope": "independent_receipt_race_probe",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm -i --network none --read-only --tmpfs /tmp credit-risk-final-audit:13d9f86 python - < \"$AUDIT_TMP/input-race-probe.py\"",
+      "result": "confirmed_defect_F001",
+      "scientific_predictions_changed": false
+    },
+    {
+      "id": "C14",
+      "scope": "independent_partial_output_probe",
+      "base_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+      "command": "docker run --rm -i --network none --read-only --tmpfs /tmp credit-risk-final-audit:repaired python - < \"$AUDIT_TMP/partial-write-probe.py\"",
+      "result": "confirmed_documented_behavior_F006"
+    },
+    {
+      "id": "C15",
+      "scope": "official_uci_byte_comparison",
+      "command": "curl --fail --silent --show-error --location --dump-header \"$AUDIT_TMP/uci350-current.headers\" --output \"$AUDIT_TMP/uci350-current.zip\" https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+      "result": "pass",
+      "http_status": 200,
+      "tls_verify_result": 0,
+      "evidence": {
+        "verification_utc": "2026-10-11T06:04:38.041349+00:00",
+        "archive_bytes": 5539494,
+        "archive_sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+        "members": [
+          "default of credit card clients.xls"
+        ],
+        "workbook_bytes": 5539328,
+        "workbook_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+        "byte_equal_original": true,
+        "workbook_cells_decoded": false,
+        "original_acquisition_reconstructed": false
+      }
+    },
+    {
+      "id": "C16",
+      "scope": "saved_scientific_evidence_arithmetic",
+      "publication_revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "original_observed_revision": "3a051cb6dc56578f4adcb69876005695c3c0f0c3",
+      "command": "env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 <ORIGINAL_EVIDENCE_PYTHON> \"$AUDIT_TMP/scientific-reconcile.py\"; same environment for scientific-additional.py",
+      "result": "pass_after_audit_harness_corrections",
+      "private_paths_redacted": true,
+      "new_model_predictions": 0,
+      "scientific_replays": 0
+    },
+    {
+      "id": "C17",
+      "scope": "stricter_unsupported_read_only_full_suite",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "command": "docker run --rm --network none --read-only --tmpfs /tmp credit-risk-final-audit:13d9f86",
+      "result": "failed_extra_mode",
+      "passed": 263,
+      "failed": 7,
+      "skipped": 1,
+      "duration_seconds": 46.82,
+      "reason": "Seven monitoring fixtures require project runtime receipt writes; documented full-suite mode is writable, documented read-only mode is the scorer."
+    },
+    {
+      "id": "C18",
+      "scope": "public_remote_ci_observation",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "result": "success",
+      "run_id": 38114444370,
+      "url": "https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38114444370",
+      "updated_at": "2026-10-11T05:22:05Z",
+      "new_run_triggered": false,
+      "observed_steps": [
+        "locked_install",
+        "editable_install",
+        "environment_smoke",
+        "phase2_smoke",
+        "phase4_smoke",
+        "ruff",
+        "pytest",
+        "isolated_SQL"
+      ]
+    },
+    {
+      "id": "C19",
+      "scope": "static_and_final_review",
+      "revision": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+      "result": "pass",
+      "tracked_python_AST_parses": 81,
+      "initial_local_markdown_links_and_anchors": 336,
+      "initial_broken_local_links": 0,
+      "history_commits": 5,
+      "history_blobs_scanned": 386,
+      "selected_secret_pattern_matches_excluding_paths": 0,
+      "git_diff_check": "pass",
+      "complete_diff_reviewed": true,
+      "final_report_validation": {
+        "utc": "2026-10-11T06:35:34.738706+00:00",
+        "local_markdown_targets_and_anchors_checked": 337,
+        "broken_local_links": 0,
+        "json_parsed": true,
+        "new_reports_personal_path_or_selected_secret_matches": 0,
+        "new_reports_whitespace": "pass",
+        "runtime_files_match_tested_code": 71,
+        "staged_files": 0
+      }
+    }
+  ],
+  "scientific_independent_reconciliation": {
+    "access": {
+      "utc": "2026-10-11T06:06:00.233307+00:00",
+      "purpose": "Independent saved-evidence audit; original project and its referenced Phase 3 backup read-only",
+      "partitions": "saved development OOF, policy-validation predictions/labels, final predictions/decisions, frozen assignments; all financial export rows label-free",
+      "source_workbook_decoded": false,
+      "raw_final_outcomes_converted": false,
+      "bootstrap_executed": false,
+      "scientific_execution": false
+    },
+    "partitions": {
+      "rows": {
+        "calibration": 4500,
+        "development": 18000,
+        "final_test": 4500,
+        "policy_validation": 3000
+      },
+      "groups": {
+        "calibration": 4378,
+        "development": 17508,
+        "final_test": 4378,
+        "policy_validation": 2919
+      },
+      "development_fold_rows": {
+        "0": 3600,
+        "1": 3600,
+        "2": 3600,
+        "3": 3600,
+        "4": 3600
+      },
+      "group_total": 29183
+    },
+    "financial_fingerprints_checked": 30000,
+    "freeze": {
+      "content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+      "members_checked": 106,
+      "independent_review_binding": true
+    },
+    "calibration_fit_scope_receipt_checked": true,
+    "accepted_model_metadata_checked": {
+      "dummy_prior": "cf92e3a562ba1ecd4f591b44e85ddbeec678f29f00b4e368576a8799a98b185d",
+      "logistic_00_engineered_none": "0f0e88ef743f82a48d7198b6c35b9f45cab54887a584b760ce00d2776c817e0e",
+      "random_forest_02_engineered_none": "fcc1f8123934f005a1caf4ab553db63df52111f5a5aa1a030b090d497ad7158e",
+      "xgboost_04_engineered_none": "4d0bbdfc3968d932d19fac801757ef23ed59407dbdf9b1560773888b563f2198",
+      "xgboost_05_engineered_none": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c"
+    },
+    "oof": {
+      "files": 62,
+      "phase2_files": 9,
+      "search_candidate_files": 48,
+      "preserved_reference_files": 5,
+      "coverage_per_file": 18000,
+      "metrics_compared": 1784
+    },
+    "selection_eligibility": {
+      "candidate_count": 48,
+      "ap_eligible": 17,
+      "small_loss_candidates": {
+        "xgboost_04_engineered_none": 200,
+        "xgboost_05_engineered_none": 100
+      },
+      "selected_cv_fold_mean_ap": 0.5612527444711741,
+      "selected_pooled_oof_ap": 0.5589734398765549
+    },
+    "calibration_metrics": {
+      "raw": {
+        "average_precision": 0.5485792515601552,
+        "roc_auc": 0.7762329282884964,
+        "log_loss": 0.43298871400379296,
+        "brier_score": 0.1361703025268774
+      },
+      "sigmoid": {
+        "average_precision": 0.5485792515601552,
+        "roc_auc": 0.7762329282884964,
+        "log_loss": 0.43622831898160774,
+        "brier_score": 0.1370796970434507
+      },
+      "isotonic": {
+        "average_precision": 0.5287544251769297,
+        "roc_auc": 0.7754766927298232,
+        "log_loss": 0.4559940960180188,
+        "brier_score": 0.13670954265546248
+      }
+    },
+    "final_model_metrics": {
+      "dummy_prior": {
+        "average_precision": 0.22133333333333333,
+        "roc_auc": 0.5,
+        "log_loss": 0.528590424695265,
+        "brier_score": 0.17234491666666668
+      },
+      "logistic_00_engineered_none": {
+        "average_precision": 0.541548908747653,
+        "roc_auc": 0.7808383935284516,
+        "log_loss": 0.4352016368851895,
+        "brier_score": 0.13472334912416697
+      },
+      "random_forest_02_engineered_none": {
+        "average_precision": 0.5663601841455993,
+        "roc_auc": 0.7950070831270286,
+        "log_loss": 0.42301349563375373,
+        "brier_score": 0.13287604753649546
+      },
+      "selected_bundle": {
+        "average_precision": 0.5642176410184566,
+        "roc_auc": 0.7939820067943004,
+        "log_loss": 0.42331365771732493,
+        "brier_score": 0.13319703405584427
+      },
+      "xgboost_04_engineered_none": {
+        "average_precision": 0.5649607625764669,
+        "roc_auc": 0.7953493483064679,
+        "log_loss": 0.42244586687823776,
+        "brier_score": 0.13285673401155423
+      },
+      "xgboost_05_engineered_none": {
+        "average_precision": 0.5642176410184566,
+        "roc_auc": 0.7939820067943004,
+        "log_loss": 0.42331365771732493,
+        "brier_score": 0.13319703405584427
+      }
+    },
+    "policies": {
+      "definitions": 88,
+      "decisions_checked": 396000,
+      "final_metric_fields_compared": 1760,
+      "base_empirical": {
+        "abstained_count": 3472,
+        "acceptance_rate": 0.22844444444444445,
+        "accepted_count": 1028,
+        "accepted_default_count": 55,
+        "accepted_default_rate": 0.053501945525291826,
+        "accepted_nondefault_count": 973,
+        "benchmark_utility_per_customer": 4.7,
+        "benchmark_utility_total": 21150.0,
+        "cutoff": 0.085,
+        "detection_f1": 0.42121754700089525,
+        "detection_false_negative": 55,
+        "detection_false_positive": 2531,
+        "detection_false_positive_rate": 0.7223173515981736,
+        "detection_precision": 0.27102534562211983,
+        "detection_recall": 0.9447791164658634,
+        "detection_true_negative": 973,
+        "detection_true_positive": 941,
+        "policy_id": "empirical",
+        "policy_kind": "cutoff",
+        "predicted_expected_utility_per_accepted": 16.01317158333073,
+        "predicted_expected_utility_per_customer": 3.6581200861475534,
+        "predicted_expected_utility_total": 16461.54038766399,
+        "rows": 4500,
+        "scenario_id": "base",
+        "target_fraction": null
+      }
+    },
+    "bootstrap": {
+      "interval_entries_compared": 341,
+      "construction_reviewed": "paired replacement draws of sorted fingerprint groups, preserving every member, variable row counts, seed42/1000; percentile limits; no resampling executed",
+      "per_repetition_statistics_available": false,
+      "plan_hash_recomputed": false
+    },
+    "shap": {
+      "rows": 1000,
+      "features": 89,
+      "background_rows": 100,
+      "development_rows": 996,
+      "policy_validation_cases": 4,
+      "maximum_absolute_additivity_residual": 1.431484473179978e-06,
+      "sample_selection_verified": true,
+      "importance_entries_checked": 89,
+      "new_shap_computation": false
+    },
+    "demographic_suppression": {
+      "rows": 15,
+      "suppressed_rows": 4
+    },
+    "monitoring": {
+      "scenarios": 6,
+      "distribution_entries_checked": 198,
+      "edited_history_performance_suppressed": true,
+      "demonstration_reexecuted": false
+    },
+    "scientific_operations": {
+      "model_fits": 0,
+      "searches": 0,
+      "calibration_fits": 0,
+      "new_model_or_policy_selections": 0,
+      "new_final_predictions": 0,
+      "final_evaluation_commands": 0,
+      "bootstrap_repetitions": 0,
+      "original_writes": 0
+    }
+  },
+  "scientific_supplemental_reconciliation": {
+    "engineered_values_checked": 390000,
+    "feature_max_absolute_difference": 1.8189894035458565e-12,
+    "feature_tolerance": {
+      "absolute": 1e-10,
+      "relative": 1e-12
+    },
+    "fit_scope_and_class_weight_receipts_checked": 70,
+    "controlled_comparisons": {
+      "combined_feature_improvements": 24,
+      "weighting_worsened_loss_and_brier": 24
+    },
+    "monitoring": {
+      "feature_bins_and_reference_counts": 32,
+      "draw_order_entries_checked": 6000,
+      "corruption_positions_checked": 300,
+      "labeled_mix_metrics_recomputed_from_saved_probabilities": 8,
+      "new_model_predictions": 0
+    },
+    "public_scientific_projection": {
+      "policy_definitions_unchanged": true,
+      "schema_byte_identical": true,
+      "pipeline_byte_identical": true,
+      "customer_records_in_archive": false
+    }
+  },
+  "scientific_evidence_access": {
+    "principal_successful_access_utc": "2026-10-11T06:06:00.233307+00:00",
+    "subsequent_supplemental_arithmetic_access": "During this same 2026-10-11 audit after the principal record; repeated read-only saved-vector/receipt access, including earlier unsuccessful harness checks.",
+    "source_workbook_cells_decoded": false,
+    "raw_final_outcome_conversion": false,
+    "saved_final_labels_and_predictions_read": true,
+    "original_logs_edited": false,
+    "scope": [
+      "label-free saved financial exports",
+      "frozen assignments",
+      "saved development OOF",
+      "fit-scope/calibration receipts",
+      "saved policy-validation predictions/outcomes",
+      "existing final prediction/decision vectors",
+      "SHAP arrays",
+      "descriptive summaries",
+      "monitoring receipts"
+    ],
+    "audit_is_blind_to_final_outcomes": false,
+    "supplemental_access_completed_before_utc": "2026-10-11T06:28:16Z"
+  },
+  "preservation": {
+    "utc": "2026-10-11T06:26:08.935986+00:00",
+    "publication-baseline": {
+      "files_checked": 341,
+      "changed_files": [
+        "README.md",
+        "docs/batch_scoring.md",
+        "docs/publication-package.md",
+        "src/credit_risk/inference.py",
+        "src/credit_risk/scoring.py",
+        "tests/test_audit_inference.py",
+        "tests/test_public_scoring.py"
+      ]
+    },
+    "original-protected-baseline": {
+      "files_checked": 601,
+      "changed_files": []
+    },
+    "phase3-backup-baseline": {
+      "files_checked": 2693,
+      "changed_files": []
+    },
+    "tested_runtime": {
+      "files_checked": 71,
+      "changed_files": []
+    },
+    "protected_publication_changes": []
+  },
+  "public_delivery_identities": {
+    "archive_bytes": 29213,
+    "archive_sha256": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349",
+    "delivery_content_sha256": "a2a9b2883f5543a1d4da2d8026f79e4ef60be79b97343357e946f3c7a906d40c",
+    "pipeline_sha256": "265db2cbe02e88ca7c75c29f39b5c0230a29ba40e4735ea808aea08df4a5e83c",
+    "accepted_probability_bundle_sha256": "45d24e21b67e27c5a522863457d7774536b6af3608bb5e9bf6e6b06c030bdbcd",
+    "freeze_content_sha256": "89bcf0263890353b2c72f7b6490bd8ec374f8935af2f621793c867dd03a8aa8b",
+    "saved_final_predictions_sha256": "144e6861e40c65ed7871844a0dbf80a8ec707bdab38dcc863cdeea2fec8cf23c",
+    "synthetic_example_scored_sha256": "54e26de021aadcbc22e9028129b5501f0c6e658124cd086dc0fc942c25fc1244",
+    "archive_members": [
+      "manifest.json",
+      "pipeline.joblib",
+      "feature_schema.json",
+      "policy.json",
+      "NOTICE.md"
+    ],
+    "sidecars_match_public_bytes": true
+  },
+  "limitations_and_skips": [
+    "Original acquisition download chain, retrieval date and archive checksum remain unknown; later official byte equality does not reconstruct them.",
+    "Public clone supports frozen scoring, not complete historical scientific replay; private raw inputs, model stores, backup and full accepted source are required.",
+    "No accepted scientific training/search/calibration/model-policy selection, historical preflight/reproduction, final evaluation, bootstrap or SHAP execution was rerun.",
+    "No individual bootstrap replicate statistics retained; recorded plan hash and percentile endpoints not regenerated.",
+    "Pattern-based history scan and source/tests cannot prove absence of every secret, bug or historical leakage.",
+    "Historical Taiwan existing-account snapshot; no temporal/external/contemporary Canadian/new-applicant validation, causal lending profit or established fairness.",
+    "Synthetic payoffs and monitoring PSI bands do not establish actual lending economics or validated operational alarms.",
+    "Native host Python 3.12 installation/download and other operating systems were not tested; pinned Docker supplied public execution environment.",
+    "All dependency pins were already available from cached layers; current package-index download availability was not independently exercised.",
+    "Public historical paths and small real UCI case metadata remain disclosed; minimal scoring archive excludes them.",
+    "Historical restorer inspected only; trusted recorded payload route does not have all public-restorer duplicate/decompression bounds.",
+    "Some synthetic test fixtures fit estimators; zero accepted scientific fits does not mean zero fitting operations anywhere in the fixture suite.",
+    "Every external URL and filesystem-write-failure timing was not exhaustively tested."
+  ],
+  "audit_harness_corrections": [
+    "Utility totals: audit tolerance changed from absolute 1e-12 to 1e-9 after approximately 1.8e-12 reduction-order difference; per-customer metric tolerance remained 1e-12.",
+    "Monitoring development bins: reconstruct deterministic inference features from raw values rather than comparing SQL-export floating-point arithmetic at discrete bin edges.",
+    "Monitoring receipts: bind to report customer_receipts directory instead of first small synthetic fixture receipt directory; align saved probabilities by record ID.",
+    "Wheel console: default Docker tmpfs noexec caused PermissionError after installed scoring passed; appropriate rw,exec tmpfs made console help pass."
+  ],
+  "tested_runtime_file_hashes": {
+    "scripts/dev_db.py": "5caa6e3db559e4740382ac357baaaef7cb6eee526cfa664aa7b4a72319b286ba",
+    "scripts/environment_smoke.py": "9f2f9ccdd2ceeaf8594bb89f8a001b299523fd98a9d3f4b3fd70a30f495e6811",
+    "scripts/inspect_supplied_workbook.py": "10d6fdf7153e3df5bae6dce2e332271f1b90b80ebd6183ddf6563ad3f789a77e",
+    "scripts/inspection_phase1.py": "3daf539e1b2d222071fe072cc263a3f6bacf73d7df5492459c5544c2cd1dc4b0",
+    "scripts/log_phase5.py": "e44ee70927455b45da7436ac7517eb9260822fbd9f51a37ff8e0acd738ba250e",
+    "scripts/pack_phase5.py": "3f4f481ddde763a3120d8e76981bf69598d0a033ff7a7783288dbea8970d9c7e",
+    "scripts/package_scoring.py": "bcba7b1549dc235f259401e4b667a405ab5c2607c169542ab36e47ff687e2a1c",
+    "scripts/phase2_smoke.py": "bc748681c40dc2c5f0e67999ba2de33fbf05e3f2926fa53ad79915c7f960d046",
+    "scripts/phase3_smoke.py": "6c21979b831d36d74646f5d258c272ea6c85ee8a2c8e3c60195750002c616b74",
+    "scripts/phase4_smoke.py": "10b748fdeb344af83586f2765377deacedb1b764ddd82b28f8b4d57578c4c637",
+    "scripts/plot_phase5_policy.py": "1cfb79709c66db23aee64b7a44ce7ec2aad7ba6cccd1862c15dc866f269756d7",
+    "scripts/reproduce_inspection.py": "4e5c440e6403b29dcbe3502b74be408df8be2949069fca3229cc11fff4cda159",
+    "scripts/reproduce_phase5.py": "ed1f61182470926ec75983232f885ebc3c6e7d7e22d7c5f423f929b2ecc2adc8",
+    "scripts/restore_phase5.py": "54d6b390054754a7cb244ce8898a2a95b99f728a63390078b62c2fe63a75eccb",
+    "scripts/verify_public_scoring.py": "07677e02a013e250754c6e87af694a47522a14e7c44ab37a43effa96f7e45f0f",
+    "src/credit_risk/__init__.py": "0da8cb351254f547dccd9775087b29979c1b1f6e29004161b30259c7ba34f4ac",
+    "src/credit_risk/__main__.py": "d5c21ac39b013b1076539b79bbf2b0650ba9d1054d6c0e59b3f86895e3d58d07",
+    "src/credit_risk/artifacts.py": "7d58b6b33d4762007dd907e64ad98afea4ce7bdbc15d891659808c7c27043448",
+    "src/credit_risk/config.py": "08accc1d953f1b4f1d23f4ad87ab3f582a04ee42fd5357caaea19e3c6bd25c8a",
+    "src/credit_risk/data/__init__.py": "136d03403e26e8e1667b437e5797aa301ac0d4b148fef0a3ac9bd46326a30045",
+    "src/credit_risk/data/database.py": "7a6c13cd3e1503f5c4ea52851e11ed785d61d1c1414b4a7245bb4257bfc5e1b0",
+    "src/credit_risk/data/schema.py": "dfec652be690f83cce99cd98a82088a7f32ce95cc0c1aba90c0d20bcdeda4036",
+    "src/credit_risk/data/workbook.py": "4ad34736acc0ac11ff7a534455bbde746d50e34ba8c387035d810e308ea956a9",
+    "src/credit_risk/decisioning/__init__.py": "399485c6b8add46491d9683fc15d76884d3a473573ba50f73930f1d81907bc16",
+    "src/credit_risk/decisioning/policy.py": "cd6978dabf0eb78a9b77aee514f00b07b2f2a1e742874aaf60f215cbd202cd6a",
+    "src/credit_risk/explanations.py": "0ce9d135d20c50d57327a5b8466338cbedc0b1c7ee7dbc17a1e67e084d35fc87",
+    "src/credit_risk/features/__init__.py": "ee5c13848908bfdaa6ce6a5fd8c3aec181391381a0701fca4ef58910822e35e9",
+    "src/credit_risk/inference.py": "4b259586013172b923582ecae9c0147d67e4246b8efff1272f93209013922824",
+    "src/credit_risk/models/__init__.py": "e372ba592afd06fd63eb373026723d8552a8f3095622dac95bf2f18102c8b9c6",
+    "src/credit_risk/models/bundle.py": "e7e316b3d8865125992c8d657a686e69584b1243ee0d168d696aff82efd4b995",
+    "src/credit_risk/models/calibration.py": "1b9cbcd8f91922dd88fbded0bafae7e4a858813b8eeb673bacee3abaf06d97a7",
+    "src/credit_risk/models/evaluation.py": "48808135eb2ed9f7c06b15ff3edf2728849e844c3884b9895f76de1b0fa09236",
+    "src/credit_risk/models/inputs.py": "f50927c901fff8ac04fa3335ea36778ba7007a8cd39525ea5036b52b20d089a8",
+    "src/credit_risk/models/phase4_inputs.py": "5e176cb595e2cd36ef75f412520e0a27c471eebae946423d26c452fa02a4d68c",
+    "src/credit_risk/models/pipelines.py": "ba67364606589b78b18c00f5a0aee544c567ec66c23d6eb74fd9c40ca6e1fe45",
+    "src/credit_risk/models/search.py": "a47389232a61d23d0dd4cad69d4539cc8d2e726652d916e247210987c3d17e61",
+    "src/credit_risk/monitoring.py": "2ed1bb6a042e44c28aa1c03f3174b4d6ffaaa51441b6305142018695a83024ec",
+    "src/credit_risk/phase1.py": "a6a89936682f0036c3482d8feacd37dde6e0d12b776ebfc7c740f6f3d7cc0d4b",
+    "src/credit_risk/phase2.py": "e0dc78d45d3fc33d1e62b1905f2d396cc03bef5e2bdd4ba3640b63f3528d7b30",
+    "src/credit_risk/phase3.py": "244a22b60c458ce65bca0af184c0d7afa9c27a6179b8091b5e6615f2c0745e1d",
+    "src/credit_risk/phase4.py": "17a98a7844b7c1d2892f4b87fecd1dbab6a919970abb50b42c4f0870fa8d8a0d",
+    "src/credit_risk/phase5.py": "c998312562ec84f7de909bfec2b9631cda2239d91b5744ad46e67f20fdf9c3f3",
+    "src/credit_risk/scoring.py": "623e0517bda1211b5c49f7e6ab080189bfed79be748f803f8369fdc3ae1db35a",
+    "src/credit_risk/scoring_package.py": "c55ecb7635a3eeb2a079e4c484d4e75d87313a24bb66499b62070ca2abb3eb15",
+    "src/credit_risk/splits/__init__.py": "ad317ddddba94aec6b2d322624df75d6e647cb8cd7885f72e9a04c48a8970bb3",
+    "src/credit_risk/splits/allocation.py": "dbd45102c54ca408dd7ea3ad0266e8cd92c06efe73b512652cba5730cbdfe11a",
+    "tests/fixtures/__init__.py": "db6163258a355833e6f10f1f4b74a37432a9a2b453153cb880130ff32e007b82",
+    "tests/fixtures/records.py": "dae50ff5a327f255703a884c162ba2a3c2ab5249de8cf66eeacd083c58590bb5",
+    "tests/test_audit_commands.py": "32a3eb3aedc5c400233f90d12d4dc576b43dcb80db461b24baea0c636ac10add",
+    "tests/test_audit_inference.py": "c96899442401f591d01cae6c09832f6e2e169a20184443703cc1e60e5bf9d531",
+    "tests/test_audit_monitoring.py": "74e12552366e63e0612c18a77a954894f4b1b821a86db85c2572f2ecb7f82622",
+    "tests/test_audit_partition_inputs.py": "a10d873b82ac44703e4916859086de8b55017fec446cac809095a9dabb593270",
+    "tests/test_baseline_evaluation.py": "2a287b7ae72905d0a8ee256d4c43a0a50f9e32290581e1c19b69e4bc8c8ecf22",
+    "tests/test_baseline_tracking.py": "58844434f58463e8f9ca8900d4f4afc5c0e283e54babd30f1680d145af8db094",
+    "tests/test_data.py": "7f0b742a964206683dcac152c4a14cc413f3caaf572cd6502f3fa4879ba67c15",
+    "tests/test_database.py": "449c970bf792912b42966576515171c87f309c57333765a706d7f463a65c56fa",
+    "tests/test_features.py": "4ed4bc1d5f9a312e19306f1bf5c21f725bb74c33f686ca06a2ebb63f20951c0e",
+    "tests/test_model_inputs.py": "44bb698acd00d14cd1181f11cc1e20d6fd4a33c484cb24dc840aa276a0819134",
+    "tests/test_model_pipelines.py": "e8df8155f91bbef27b4734cd478b46f5e6f3fc516af966a3882cb882c4096df6",
+    "tests/test_model_search.py": "97133363361e8837ecc1ae37943665dcc73881c29d114d1fa4ef4f64e297a7e8",
+    "tests/test_phase1.py": "717f07890618fe32e872a7202c85e6a03bdc71a06c1b7aa72cff7c724c1dc386",
+    "tests/test_phase3.py": "ed8689fe50948a929969b2b98c8c6e659f16c9bd2f83268c4893ed45b852342a",
+    "tests/test_phase3_reuse.py": "d078ca8f28700dbe78c2d0ef3a138b8cb88a78e997b5ed648c79a99113cc077e",
+    "tests/test_phase4_calibration.py": "5d5a9eaa081a3d1dca0ff58cfb3c2fe8e505414f29a0285d2c4da3a53a4cfaa5",
+    "tests/test_phase4_explanations.py": "487589f1e5f03c705df2b6d3cd37ca58ae5d725fbe842e702e58dc2e9889dbfa",
+    "tests/test_phase4_policy.py": "8bbb27230613b3492c19983e58a64996e9ab1fe94609239e85159f7ca2fa0868",
+    "tests/test_phase5.py": "79eeb736e8b49294d145de7f670e9b64205b094d3e551ea473961d35cf9a293d",
+    "tests/test_phase5_monitoring.py": "ade9a6cdc7454f5ebfd6c52d9dc8ffa0d0d0613018f2b9670a151c9959c652f8",
+    "tests/test_public_ci_smoke.py": "7cf6a6ef71ec301eeeebb8baa8a6f30bc7d285565fe1550d84f5d34fbf912ffc",
+    "tests/test_public_scoring.py": "a9b6af049abd7cef17cfb1aa879c68535a2481d3bfc932f5146a8489ce202b1e",
+    "tests/test_splits.py": "4e7aa0b170feaec25e99d249e0fd5426163517666db2d1bb2ba5fd6399f4c09f"
+  },
+  "temporary_probe_script_sha256": {
+    "scientific-reconcile.py": "a046df1a3ebe395b12ee5c006191e8cf86f51173444e99f4a64ce038d4adb084",
+    "scientific-additional.py": "81bad2c445dbdb27d5f3f7e72e463df72bcb7ce8eb89eb33594565b37a6cd08f",
+    "runtime-probe.py": "baf780f0c9a20b2427684e6b6d4c6829d8f7dfcbafd8febc49f71732e7e88d9d",
+    "input-race-probe.py": "0b1be730a38366fa93f0f25971ed2c7ae1bcf7a099dc648de2b1479e06da8f14",
+    "wheel-check.py": "eee3bf248cb76e75b11f5133e310c49be909b168f290b75b611a41e9515d7506",
+    "partial-write-probe.py": "49da9f9042dff157ec636376134f17fbda0b548378a4f5395e55f6a0e0e50fe1"
+  },
+  "final_working_tree": {
+    "branch": "main",
+    "head": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+    "tracked_modified_files": [
+      "README.md",
+      "docs/batch_scoring.md",
+      "docs/publication-package.md",
+      "src/credit_risk/inference.py",
+      "src/credit_risk/scoring.py",
+      "tests/test_audit_inference.py",
+      "tests/test_public_scoring.py"
+    ],
+    "new_untracked_files": [
+      "reports/final-independent-audit.md",
+      "reports/final-independent-audit-findings.json"
+    ],
+    "staged_files": [],
+    "commits_created": 0,
+    "public_remote_modified": false
+  },
+  "necessary_next_action": "Owner review of the uncommitted verified receipt correction and disclosures before later publication. No audit push/commit/publication performed. Code license is a separate owner decision.",
+  "finalized_utc": "2026-10-11T06:36:23.981992+00:00",
+  "delivery_review": {
+    "reviewed_utc": "2026-10-11T06:47:28.322241+00:00",
+    "disposition": "PASS WITH LIMITATIONS",
+    "audit_git_states_and_check_results_are_pre_delivery_snapshots": true,
+    "reviewed_base_head": "13d9f8670df42024b3a8a7f9a34ced91a6371996",
+    "implementation_and_tests_changed_since_recorded_verification": false,
+    "tested_runtime_file_hashes_match": 71,
+    "tested_runtime_map_sha256": "0a8e6411675e28e8a80e770cb10e9f16ced587f2898bb9e9c37b30ac2fa8aaf9",
+    "verification_reused": [
+      "C09 corrected full suite: 274 passed, zero skips; Ruff and pip check",
+      "C10 optimized public scoring",
+      "C11 installed-wheel scoring and optimized tamper rejection",
+      "Dated original/backup preservation checks"
+    ],
+    "test_suites_rerun": false,
+    "new_scientific_execution": false,
+    "report_correction": "The former CSV validator and pandas parser used separate passes over the same open file, rather than reopening the path.",
+    "reports_privacy_review": "No real credentials, private customer values or personal execution-path values found. The recorded PostgreSQL password is explicitly a synthetic disposable fixture.",
+    "tracked_scientific_artifact_and_historical_evidence_diff": [],
+    "authorized_delivery": "Stage only the nine reviewed files and create a local commit; no push/publication.",
+    "commit_identity_location": "Delivery handoff; the audit Git snapshot above predates that commit.",
+    "new_remote_ci_result_claimed": false,
+    "remaining_findings_changed": false
+  }
+}

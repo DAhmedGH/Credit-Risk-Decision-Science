@@ -88,6 +88,12 @@ file SHA. The new archive, manifest and receipt identities are distribution
 metadata, not original acceptance receipts. No scientific output identity field
 or expected saved output was changed.
 
+The input hash and parsed records use the same captured file bytes. Replacing
+the input path during scoring does not change which batch the receipt identifies.
+Capturing this snapshot requires memory for the input bytes as well as the parsed
+batch. A failed output write can leave a partial new output directory; use
+`receipt.json` as the completion marker and choose a new directory for a retry.
+
 ## Recorded example and limits
 
 The [example input](../examples/scoring_batch.csv) is synthetic and unlabeled;

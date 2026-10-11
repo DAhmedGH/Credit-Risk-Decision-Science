@@ -197,6 +197,32 @@ def test_receipt_binds_verified_manifest_snapshot(installed, tmp_path, monkeypat
     assert (tmp_path / 'snapshot/scored.csv').read_bytes() == (ROOT / 'examples/scoring_output.csv').read_bytes()
 
 
+@pytest.mark.parametrize('input_format', ['csv', 'parquet'])
+def test_receipt_binds_scored_input_snapshot(installed, tmp_path, monkeypatch, input_format):
+    import credit_risk.inference as inference
+
+    input_path = tmp_path / f'input.{input_format}'
+    frame = inference.read_batch(ROOT / 'examples/scoring_batch.csv')
+    if input_format == 'csv':
+        shutil.copyfile(ROOT / 'examples/scoring_batch.csv', input_path)
+    else:
+        frame.to_parquet(input_path, index=False)
+    snapshot_hash = package.digest(input_path.read_bytes())
+    original_score = inference.score_frame
+
+    def score_then_replace(*args, **kwargs):
+        result = original_score(*args, **kwargs)
+        input_path.write_bytes(b'replacement batch')
+        return result
+
+    monkeypatch.setattr(inference, 'score_frame', score_then_replace)
+    output = tmp_path / 'scored-snapshot'
+    receipt = score_public_file(installed, input_path, output, trust_artifacts=True)
+    assert receipt['input_sha256'] == snapshot_hash
+    assert receipt['input_sha256'] != package.digest(input_path.read_bytes())
+    assert (output / 'scored.csv').read_bytes() == (ROOT / 'examples/scoring_output.csv').read_bytes()
+
+
 def test_all_quarantined_never_predicts(installed):
     from credit_risk.inference import read_batch, score_frame
     bundle, _ = load_public_bundle(installed, trust_artifacts=True)

@@ -41,17 +41,18 @@ def load_public_bundle(artifacts, *, trust_artifacts=False):
 def score_public_file(artifacts, input_path, output_dir, *, trust_artifacts=False,
                       scenario_id='base', policy_id='empirical'):
     bundle, manifest = load_public_bundle(artifacts, trust_artifacts=trust_artifacts)
-    from credit_risk.artifacts import file_sha256, write_json
-    from credit_risk.inference import read_batch, score_frame
+    from credit_risk.artifacts import write_json
+    from credit_risk.inference import read_batch_snapshot, score_frame
 
+    frame, input_sha256 = read_batch_snapshot(input_path)
     scored, rejected, receipt = score_frame(
-        bundle, read_batch(input_path), scenario_id=scenario_id, policy_id=policy_id,
+        bundle, frame, scenario_id=scenario_id, policy_id=policy_id,
         model_version=ORIGIN['probability_bundle_sha256'])
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=False)
     scored.to_csv(output / 'scored.csv', index=False)
     rejected.to_csv(output / 'quarantined.csv', index=False)
-    receipt.update({'input_sha256': file_sha256(input_path),
+    receipt.update({'input_sha256': input_sha256,
                     'bundle_sha256': ORIGIN['probability_bundle_sha256'],
                     'fitted_pipeline_sha256': ORIGIN['pipeline_sha256'],
                     'original_freeze_sha256': ORIGIN['freeze_content_sha256'],

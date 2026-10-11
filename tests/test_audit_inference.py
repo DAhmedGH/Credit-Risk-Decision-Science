@@ -8,7 +8,7 @@ import pytest
 
 from credit_risk.data.schema import RAW_PREDICTORS
 from credit_risk.decisioning.policy import FrozenPolicy
-from credit_risk.inference import read_batch, score_frame, validate_batch
+from credit_risk.inference import read_batch, read_batch_snapshot, score_frame, validate_batch
 
 
 @pytest.mark.parametrize('extra_fields', [-1, 1])
@@ -53,6 +53,26 @@ def test_csv_accepts_header_only_empty_batch(tmp_path):
     frame = read_batch(path)
     features, positions, rejected = validate_batch(frame)
     assert frame.empty and features.empty and positions == [] and rejected == []
+
+
+def test_csv_validation_and_parsing_use_one_snapshot(tmp_path, monkeypatch):
+    import hashlib
+    import credit_risk.inference as inference
+
+    path = tmp_path / 'batch.csv'
+    content = (','.join(['record_id', *RAW_PREDICTORS]) + '\n'
+               + ','.join(['original-id', *['1'] * len(RAW_PREDICTORS)]) + '\n').encode()
+    path.write_bytes(content)
+    original_parse = inference._parse_batch
+
+    def replace_then_parse(input_path, snapshot):
+        input_path.write_bytes(b'replacement is not a valid batch')
+        return original_parse(input_path, snapshot)
+
+    monkeypatch.setattr(inference, '_parse_batch', replace_then_parse)
+    frame, input_hash = read_batch_snapshot(path)
+    assert frame.record_id.tolist() == ['original-id']
+    assert input_hash == hashlib.sha256(content).hexdigest()
 
 
 @pytest.mark.parametrize('field', ['record_id', 'limit_bal'])

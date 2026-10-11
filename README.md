@@ -89,7 +89,7 @@ SHAP explains raw default log odds on a fixed development sample. It is not caus
 | `docs/` | Architecture, contracts, methodology, setup, scoring and monitoring runbooks |
 | `requirements*.lock`, `Dockerfile`, `compose.yaml` | Pinned dependency checkpoints, fixture container and development database |
 
-Customer-level financial records, labels and audit exports, historical model stores, tracking stores, credentials and environments remain outside Git. The small fitted scoring package is included in the public repository. The compact split manifest includes customer IDs and frozen group/partition assignments.
+Full customer-level financial, label and audit exports, historical model stores, tracking stores, credentials and environments remain outside Git. The small fitted scoring package is included in the public repository. The compact split manifest includes customer IDs and frozen group/partition assignments. Preserved explanation metadata includes sample IDs and four policy-validation case IDs, labels and model probabilities from the public UCI benchmark. The scoring examples are synthetic.
 
 ## Getting started
 

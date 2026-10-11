@@ -10,9 +10,15 @@ delivery metadata/notices. It is included in the
 Historical scientific artifacts retain their original hashes; presentation copies
 of prose do not replace their accepted bytes.
 
-Local setup notes and historical execution attachments are excluded. Original evidence remains in the private working repository
-and accepted-source archive. Public validation summaries retain useful findings,
-actual checks, measured results and limitations without replacing original receipts.
+Full local setup attachments and replay inputs are excluded. Original evidence
+remains in the private working repository and accepted-source archive. Selected
+public historical reports, receipts and checkpoint configuration still contain
+original execution paths; their presence does not make those paths available to
+a public clone. Preserved explanation metadata also includes sample IDs and four
+policy-validation case IDs, labels and probabilities from the public UCI dataset.
+These are distinct from the synthetic scoring examples. Public summaries retain
+measured results and limitations without replacing original receipts. The minimal
+scoring archive contains neither these case records nor original execution paths.
 
 The trusted private 174-file payload contains the frozen bundle, its required
 review evidence, original inputs, saved predictions and evaluation snapshots.
