@@ -107,7 +107,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
 
 These checks need no workbook, private payload or training database. They verify the included scoring package on synthetic inputs; some other fixtures fit small synthetic models without reproducing real-data measurements. Docker is an alternative. [Setup](docs/setup.md) separates repository checks, public scoring-package restoration and historical replay.
 
-The small [frozen scoring package](bundles/README.md) is prepared for inclusion in this repository, with its archive, checksum and manifest. Public hosting is still pending. [Setup](docs/setup.md#artifact-restoration) restores it into a chosen directory; [batch scoring](docs/batch_scoring.md) uses the accepted fitted model without private files, labels, fitting, PostgreSQL or MLflow. Full historical reproduction remains a separate workflow requiring original inputs and source/evidence attachments.
+The [frozen scoring package](bundles/README.md) is included in this repository, together with its archive, SHA-256 checksum and delivery manifest. [Setup](docs/setup.md#artifact-restoration) restores it into a chosen directory; [batch scoring](docs/batch_scoring.md) uses the accepted fitted model without private files, labels, fitting, PostgreSQL or MLflow. Full historical reproduction remains a separate workflow requiring original inputs and source/evidence attachments.
 
 ```bash
 .venv/bin/python -m credit_risk.scoring score --trust-artifacts \
