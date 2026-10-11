@@ -12,7 +12,7 @@ from credit_risk.models.pipelines import build_pipeline, positive_probability
 from credit_risk.monitoring import (
     distribution_bins, distribution_counts, monitoring_report, population_stability_index,
 )
-from tests.fixtures.records import make_record
+from fixtures.records import make_record
 
 
 @pytest.fixture

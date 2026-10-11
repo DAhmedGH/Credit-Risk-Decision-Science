@@ -1,0 +1,204 @@
+{
+  "receipt_version": "public-ci-smoke-fix-v1",
+  "scope": "Local public fixture CI verification; separate from historical scientific acceptance and remote Actions",
+  "recorded_at_utc": "2026-10-11T04:42:57Z",
+  "status": "PASS (local)",
+  "remote_actions": {
+    "reported_status": "Failed",
+    "evidence": "User-supplied traceback; no remote run URL or identifier supplied",
+    "step": "python scripts/phase4_smoke.py",
+    "exception": "FileNotFoundError: reports/phase3_acceptance.json",
+    "fix_confirmation": "Pending remote rerun; this fix has not been pushed"
+  },
+  "root_cause": "Synthetic Phase 4 smoke called accepted_integrity before fitting its fixture; that historical guard requires excluded receipts, accepted models and original inputs.",
+  "changes": {
+    "scripts/phase4_smoke.py": "Removed historical integrity imports/call; retained pinned versions, synthetic disjoint calibration, genuine TreeSHAP additivity, plot and exact probability save/load checks.",
+    "tests/test_public_ci_smoke.py": "Runs the actual smoke in a fixture-only directory with no reports/data/artifacts and unusable database/MLflow settings; separately confirms historical integrity rejects missing receipts.",
+    "tests/test_phase5_monitoring.py": "Uses fixtures.records consistently with other tests; fixes collection under the workflow's bare pytest entry point.",
+    "documentation": "CI boundary, local/remote status and separate new evidence updated; original scientific/delivery receipts preserved."
+  },
+  "local_failure_found": {
+    "command": "pytest -q",
+    "observed_at_utc": "2026-10-11T04:37:21.232982+00:00",
+    "returncode": 2,
+    "error": "ModuleNotFoundError: No module named 'tests' during test_phase5_monitoring.py collection",
+    "explanation": "tests is not a package; earlier python -m pytest checks supplied a different import path.",
+    "corrected": true
+  },
+  "isolation": {
+    "source_export": "git archive of staged public files only",
+    "base_commit": "692c01e0f2a5eb7d25faa198baf9c9e47c571fa1",
+    "tested_candidate_tree_sha1": "736265c07e8816713abdebb8cf4095b198646277",
+    "tree_scope": "Runtime/test candidate before new repair evidence and final documentation updates; checked code/workflow/lock hashes match the committed fix.",
+    "python": "3.12.11",
+    "platform": "Debian bookworm container; no claim of a remote Ubuntu-runner pass",
+    "rebuilt_image_sha256": "b348b6e3ae54045e1d15ed3554074094fce2f3360b2ed3477c8189f1ed13dd38",
+    "host_mounts": false,
+    "original_repository_accessible": false,
+    "private_payload_accessible": false,
+    "absent_inputs": [
+      "reports/phase3_acceptance.json",
+      "artifacts/models/",
+      "data/raw/",
+      ".env"
+    ],
+    "checkout_installation": "Actual workflow editable install; PYTHONPATH removed for command execution",
+    "network": "Test container shares only the new PostgreSQL container's network namespace; PostgreSQL network none; no external networking",
+    "dependencies": "Exact workflow lock installed in the rebuilt base image; workflow pip install -r repeated with already installed dependencies inside isolation"
+  },
+  "ci_sequence": {
+    "locked_dependencies": {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.lock"
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:38.758158+00:00",
+      "finished_at_utc": "2026-10-11T04:39:40.309495+00:00",
+      "seconds": 1.551337
+    },
+    "editable_install": {
+      "command": [
+        "python",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-build-isolation",
+        "-e",
+        "."
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:40.309827+00:00",
+      "finished_at_utc": "2026-10-11T04:39:43.526376+00:00",
+      "seconds": 3.216549
+    },
+    "environment_smoke": {
+      "command": [
+        "python",
+        "scripts/environment_smoke.py"
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:43.526671+00:00",
+      "finished_at_utc": "2026-10-11T04:39:44.102244+00:00",
+      "seconds": 0.575573,
+      "output": "{\n  \"python\": \"3.12.11\",\n  \"xlrd\": \"2.0.2\",\n  \"psycopg\": \"3.2.3\",\n  \"feature_round_trip\": \"passed\",\n  \"predictive_fit\": \"not run: outside Phase 1\"\n}"
+    },
+    "phase2_smoke": {
+      "command": [
+        "python",
+        "scripts/phase2_smoke.py"
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:44.102591+00:00",
+      "finished_at_utc": "2026-10-11T04:39:46.475464+00:00",
+      "seconds": 2.372873,
+      "output": "{\"scope\": \"synthetic fixture only\", \"models\": 3, \"import_fit_save_load\": \"passed\", \"local_mlflow\": \"passed\"}"
+    },
+    "phase4_smoke": {
+      "command": [
+        "python",
+        "scripts/phase4_smoke.py"
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:46.475740+00:00",
+      "finished_at_utc": "2026-10-11T04:39:49.117283+00:00",
+      "seconds": 2.641543,
+      "output": "Synthetic calibration/TreeSHAP/plot/save-load smoke passed; no real-data fitting or test exposure."
+    },
+    "ruff": {
+      "command": [
+        "ruff",
+        "check",
+        "."
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:49.117601+00:00",
+      "finished_at_utc": "2026-10-11T04:39:49.141808+00:00",
+      "seconds": 0.024207,
+      "output": "All checks passed!"
+    },
+    "pytest": {
+      "command": [
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0,
+      "started_at_utc": "2026-10-11T04:39:49.142054+00:00",
+      "finished_at_utc": "2026-10-11T04:40:41.775761+00:00",
+      "seconds": 52.633707,
+      "output": "......................................................s................. [ 26%]\n........................................................................ [ 53%]\n........................................................................ [ 79%]\n.......................................................                  [100%]\n270 passed, 1 skipped in 51.50s"
+    },
+    "archive_sha256": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349"
+  },
+  "tests": {
+    "new_regressions": 2,
+    "full_suite": {
+      "command": "pytest -q",
+      "passed": 270,
+      "skipped": 1,
+      "seconds_reported_by_pytest": 51.5,
+      "skip_reason": "Separate live SQL fixture step not enabled in preliminary suite"
+    },
+    "sql_fixture": {
+      "command": "CREDIT_RISK_SQL_TEST=1 POSTGRES_PASSWORD=fixture_only_not_a_real_secret POSTGRES_HOST_PORT=55432 pytest -q tests/test_database.py",
+      "passed": 4,
+      "skipped": 0,
+      "seconds_reported_by_pytest": 0.24,
+      "database": "New PostgreSQL 16-bookworm container; fresh tmpfs data; no host port/volume; no original project database",
+      "identity": "credit_risk_dev / credit_risk_app; credit-risk-decision-science / disposable-development",
+      "settings_statements": [
+        "ALTER DATABASE credit_risk_dev SET credit_risk.project = 'credit-risk-decision-science';",
+        "ALTER DATABASE credit_risk_dev SET credit_risk.lifecycle = 'disposable-development';"
+      ],
+      "transaction_scope": "Synthetic records under outer rollback transaction",
+      "post_check": "to_regclass('raw.ingestions') is null; no fixture schema left"
+    }
+  },
+  "preservation": {
+    "file_sha256": {
+      "scripts/phase4_smoke.py": "10b748fdeb344af83586f2765377deacedb1b764ddd82b28f8b4d57578c4c637",
+      "tests/test_public_ci_smoke.py": "7cf6a6ef71ec301eeeebb8baa8a6f30bc7d285565fe1550d84f5d34fbf912ffc",
+      "tests/test_phase5_monitoring.py": "ade9a6cdc7454f5ebfd6c52d9dc8ffa0d0d0613018f2b9670a151c9959c652f8",
+      "src/credit_risk/models/phase4_inputs.py": "5e176cb595e2cd36ef75f412520e0a27c471eebae946423d26c452fa02a4d68c",
+      ".github/workflows/ci.yml": "210f687fb5dd4607e619e7f2207a27355e060d84139220392ffec38b545e8c2c",
+      "requirements.lock": "c1a5bad0f66c43644ed3f63fa083e5b992d219fff57b4b9374784f337e02c2c3",
+      "bundles/credit-risk-scoring-v1.tar.gz": "d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349",
+      "bundles/credit-risk-scoring-v1.sha256": "5be18e5ba8d095cc836c68e5579d1f06b1d60d5c68a9c90110dbd39262ab7bdd",
+      "bundles/credit-risk-scoring-v1.manifest.json": "a7811d602d2eeda9123ab77b09888f54b64d5ad989a9c2a9b034e1d9ca83aa02"
+    },
+    "original_project_files_preserved": 342,
+    "accepted_artifact_files_preserved": 116,
+    "original_index_and_status_preserved": true
+  },
+  "preserved_contracts": [
+    "accepted_integrity function unchanged; missing receipt still raises",
+    "Historical Phase 4 integrity/run/resume/finalize guards unchanged",
+    "Historical bootstrap integrity step unchanged",
+    "Workflow commands, locks and financial/runtime scoring code unchanged",
+    "Distribution archive, checksum and manifest sidecars unchanged",
+    "UCI provenance and earlier scientific/delivery receipts unchanged"
+  ],
+  "scientific_scope": {
+    "fixture_fitting": "Small generated-data estimators and calibrators only",
+    "accepted_model_fitting": false,
+    "real_data_calibration": false,
+    "searches": false,
+    "accepted_final_test_evaluation": false
+  },
+  "review": "Smoke call boundary, remaining CI commands, complete fix diff, fixture imports and preservation hashes reviewed locally.",
+  "closeout_checks": {
+    "local_documentation_links_and_anchors": 323,
+    "link_failures": 0,
+    "git_whitespace": "PASS",
+    "new_and_changed_text_whitespace_and_private_path_scan": "PASS",
+    "fixture_containers_and_tmpfs_database": "Removed after verification; no persistent database volume created",
+    "remaining_implementation_changes_after_tests": false
+  },
+  "blocked_steps": [],
+  "next_step": "User-authorized push followed by remote Actions rerun; no push performed in this task."
+}

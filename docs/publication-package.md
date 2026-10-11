@@ -23,6 +23,7 @@ supports fixture checks and frozen scoring. See [restoration and scoring](setup.
 
 The source distribution has a new local Git history. Historical source commits in
 scientific manifests identify the original private evidence, rather than revisions
-in this distribution. No remote is configured and no publication has occurred.
+in this distribution. The local checkout now has an `origin` remote; this CI
+repair remains local and is not pushed as part of its verification.
 Dataset attribution and required notices are preserved in the source manifest,
 data README, design, model card and results.

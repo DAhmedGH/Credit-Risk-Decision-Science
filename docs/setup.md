@@ -46,8 +46,10 @@ The Dockerfile pins the public ECR Python mirror digest
 `sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7`.
 Its build context excludes raw data, historical model stores, environments,
 credentials and caches; the small public scoring package is included.
-CI uses the exact lock, fixtures and an isolated PostgreSQL service. No remote
-GitHub Actions result has been observed.
+CI uses the exact lock, fixtures and an isolated PostgreSQL service. A reported
+Actions run failed at an excluded historical receipt; the
+[public smoke repair](ci_cd.md#public-smoke-repair) is locally verified, with remote
+confirmation pending after the fix is pushed.
 
 ```bash
 docker build -t credit-risk-public-scoring:local .
@@ -219,7 +221,7 @@ records remain in private historical attachments and the
 
 The historical population, unknown original acquisition chain, absent temporal
 and external validation, synthetic utility/monitoring, conditional intervals and
-unobserved remote CI limit interpretation. No profit, causal lending impact,
+unconfirmed successful remote CI limit interpretation. No profit, causal lending impact,
 new-applicant validation, fairness certification or production deployment is claimed.
 
 ## Historical checkpoint guides

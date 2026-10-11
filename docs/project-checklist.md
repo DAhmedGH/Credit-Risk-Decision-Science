@@ -1,6 +1,6 @@
 # Project acceptance checklist
 
-The checklist applies to the accepted frozen historical benchmark. The supplied workbook was subsequently verified byte-for-byte against the official UCI archive retrieved at `2026-10-10T18:00:23.006402Z`. Unknown original acquisition date/download chain, absent temporal/external validation and unobserved remote CI remain disclosed limitations. Local CI-equivalent and fresh-container execution provide the observed delivery checks.
+The checklist applies to the accepted frozen historical benchmark. The supplied workbook was subsequently verified byte-for-byte against the official UCI archive retrieved at `2026-10-10T18:00:23.006402Z`. Unknown original acquisition date/download chain, absent temporal/external validation and unconfirmed successful remote CI remain disclosed limitations. Local CI-equivalent and fresh-container execution provide the observed delivery checks.
 
 | Design requirement | Evidence | Gate |
 | --- | --- | --- |
@@ -20,23 +20,23 @@ The checklist applies to the accepted frozen historical benchmark. The supplied 
 | Hypothetical utility and sensitivity | all 88 policies; abstain-all retained; reports/results.md | PASS |
 | Synthetic monitoring with no temporal claim | docs/monitoring.md;6 scenarios;198 distributions | PASS |
 | Unlabeled saved bundle without fit/DB | batch_receipt.json;12/12; network-disabled container; quarantine tests | PASS |
-| Behavioral tests, CI and fresh container |207 local SQL checks;206 container fixtures+SQL skip; configured Actions; fresh core exact evidence; remote CI unobserved | PASS (local evidence) |
+| Behavioral tests, CI and fresh container |207 historical local SQL checks;206 historical container fixtures+SQL skip; fresh core exact evidence; later public CI checks recorded separately | PASS (local evidence) |
 | Portfolio/docs complete | README; results/model card/leakage/monitoring/walkthrough/reproduction | PASS |
 | Durable payload restoration | artifact_delivery.json; archive exact hash; restoration_check | PASS (private payload) |
 | Planned official ZIP acquisition and retrieval metadata | source_manifest.json; original ZIP absent, route/time unverified; D002 | UNVERIFIED |
 | Subsequent official-source workbook comparison | [New receipt](../reports/provenance/uci350-official-comparison-20261010T180023Z.json); accepted/local/official hashes and full bytes agree | VERIFIED (2026-10-10) |
 | Public-package frozen scoring | [Distribution](../bundles/README.md); explicit-location loader; [local verification](../reports/public-scoring-delivery.json) | LOCAL VERIFICATION; PUBLICATION PENDING |
 | Full historical scientific replay | setup.md; original payload, inputs and accepted-source/evidence dependencies | REQUIRES ADDITIONAL ORIGINAL INPUTS |
-| Remote GitHub Actions execution | configured workflow; no observed remote run | UNOBSERVED |
+| Remote GitHub Actions execution | Reported Phase 4 smoke receipt failure; [local repair evidence](../reports/public-ci-smoke-fix.json); remote rerun pending | REPORTED FAILURE; REPAIR NOT REMOTELY CONFIRMED |
 
 The accepted core implementation and local delivery checks passed within the
 recorded scope. This does not establish every planned acquisition or public
 reproduction property: the original acquisition record remains unavailable,
-remote CI is configured but unobserved, and full historical replay needs additional
+remote CI success remains unconfirmed, and full historical replay needs additional
 original inputs. The public package supplies portable frozen scoring; hosting is
 pending. The proposed notebook layout and optional interfaces were not delivered.
 The later official-source comparison establishes workbook byte identity at its
 recorded retrieval time; it does not reconstruct the original download chain.
 These qualifications do not change historical acceptance receipts.
 
-Independent scientific/code/report review is PASS; all 174 restored payload hashes and byte-exact standalone scoring were verified. Original acceptance/provenance is preserved in historical receipts; the public reports summarize their findings. Remote CI remains unobserved, with local fixture/SQL/container execution reported explicitly. No minimum AUC, XGBoost-win or profit criterion is used.
+Independent scientific/code/report review is PASS; all 174 restored payload hashes and byte-exact standalone scoring were verified. Original acceptance/provenance is preserved in historical receipts; the public reports summarize their findings. Local fixture/SQL/container evidence is distinct from the reported remote failure and pending repair confirmation. No minimum AUC, XGBoost-win or profit criterion is used.

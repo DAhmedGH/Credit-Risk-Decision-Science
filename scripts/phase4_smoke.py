@@ -12,12 +12,9 @@ import shap
 from xgboost import XGBClassifier
 
 from credit_risk.models.calibration import fit_mappings
-from credit_risk.models.phase4_inputs import accepted_integrity
-from credit_risk.config import PROJECT_ROOT
 from credit_risk.models.pipelines import positive_probability
 
-# Verify every already accepted dependency/model identity before the fixture fit.
-accepted_integrity(PROJECT_ROOT)
+# Fixture compatibility only; historical Phase 4 commands enforce accepted_integrity.
 assert shap.__version__ == '0.48.0' and matplotlib.__version__ == '3.10.6'
 rng = np.random.default_rng(42)
 X = pd.DataFrame(rng.normal(size=(120, 3)), columns=['a', 'b', 'c'])

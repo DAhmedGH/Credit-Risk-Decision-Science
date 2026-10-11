@@ -214,3 +214,26 @@ The [delivery evidence](../reports/public-scoring-delivery.json) and
 [focused review](../reports/public-scoring-review.md) record offline verification,
 regression checks and preserved limitations. No training, refitting, calibration,
 selection or accepted final-test evaluation ran.
+
+## Public CI fixture boundary — D031
+
+A reported Actions run failed because `scripts/phase4_smoke.py` called
+`accepted_integrity` before its synthetic fit. That historical guard requires
+excluded original receipts, inputs, source attachments and accepted artifacts.
+The fixture smoke now omits that unrelated call while retaining version checks,
+disjoint synthetic calibration, raw-margin TreeSHAP additivity, plotting and exact
+save/load probability agreement. Historical integrity functions, Phase 4 commands
+and the bootstrap's explicit integrity step remain unchanged and fail for missing
+evidence. Regression tests exercise both boundaries without private inputs.
+
+The exact public CI sequence also exposed `tests.fixtures.records` under bare
+`pytest`, because `tests` is not a package. The monitoring fixture now imports
+`fixtures.records` consistently with other tests. Workflow commands, dependency
+locks, financial transformations and scoring-package bytes remain unchanged.
+
+[Local repair evidence](../reports/public-ci-smoke-fix.json) records all three
+CI smokes, Ruff, 270 passes/one expected SQL skip and the separate four-test SQL
+check in a rebuilt isolated container containing tracked public files only.
+The reported remote failure and pending remote confirmation are distinct from
+these locally executed checks. No accepted-model fitting, real-data calibration,
+search or final-test evaluation ran; earlier scientific receipts are preserved.

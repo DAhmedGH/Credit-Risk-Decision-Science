@@ -2,7 +2,7 @@
 
 All five phases reached their recorded local acceptance checkpoints. Completion
 is qualified by unknown original acquisition records, historical replay
-dependencies and unobserved remote CI; the [checklist](project-checklist.md)
+dependencies and unconfirmed successful remote CI; the [checklist](project-checklist.md)
 distinguishes these from passed local checks. The study uses
 30,000 historical customer snapshots, four frozen fingerprint-group partitions
 (18,000/4,500/3,000/4,500 rows), and five development folds. Source attribution,
@@ -43,7 +43,18 @@ The subsequent software checks recorded 231 SQL-enabled passes in 82.04 seconds
 and a separately reported rebuilt-container result of 230 passes, one SQL skip
 in 48.75 seconds. The reported container execution had no supplied raw terminal
 log. These are distinct executions, not a combined suite or new presentation checks.
-Remote GitHub Actions has not been observed.
+A subsequent remote Actions failure was reported in the public Phase 4 smoke:
+it tried to read an excluded historical acceptance receipt. The fixture smoke
+now retains calibration/TreeSHAP/plot/save-load coverage without historical inputs;
+the original acceptance guards remain unchanged. See
+[CI repair evidence](../reports/public-ci-smoke-fix.json). Remote confirmation of
+the repair remains pending; historical test counts above are unchanged.
+The repair's rebuilt-container checks ran all three actual CI smokes and Ruff;
+`pytest -q` passed 270 tests with one expected SQL skip in 51.50 seconds.
+The separate SQL step passed four tests in 0.24 seconds against a new marked
+disposable database. Two new regressions verify receipt-free fixture smoke and
+continued rejection by the historical guard. A bare-pytest fixture import was
+also corrected; no accepted scientific workflow was run.
 
 The publication source includes software corrections for malformed batches,
 missing-value routing, monitoring output preservation, and command validation.

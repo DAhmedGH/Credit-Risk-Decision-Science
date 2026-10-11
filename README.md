@@ -119,7 +119,7 @@ After digest-checked restoration, the included synthetic example produces 12 sco
 
 ## Testing and CI
 
-The [CI workflow](.github/workflows/ci.yml) installs the lock on Ubuntu/Python 3.12, runs synthetic smoke checks, Ruff and pytest, then runs SQL fixtures against its isolated PostgreSQL service. It does not download the dataset, search real-data models or deploy a service. Remote GitHub Actions execution remains unobserved.
+The [CI workflow](.github/workflows/ci.yml) installs the lock on Ubuntu/Python 3.12, runs synthetic smoke checks, Ruff and pytest, then runs SQL fixtures against its isolated PostgreSQL service. It does not download the dataset, search real-data models or deploy a service. A reported Actions run failed because the Phase 4 fixture smoke requested an excluded historical receipt. The smoke now uses synthetic fixtures only; [local verification](docs/ci_cd.md#public-smoke-repair) is separate from a remote rerun, which remains pending.
 
 Recorded scientific delivery checks, subsequent software checks and publication packaging checks are distinct evidence. Their counts and scopes are in [testing and CI](docs/ci_cd.md); historical passes are not newly executed documentation checks.
 

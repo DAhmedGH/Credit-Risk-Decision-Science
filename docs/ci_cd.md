@@ -25,8 +25,9 @@ The SQL step sets `credit_risk.project='credit-risk-decision-science'` and
 Default local pytest skips live SQL unless explicitly enabled. CI's preliminary
 pytest and separate SQL file are distinct invocations; their counts are not one
 combined run. No external credentials, routine dataset acquisition or scientific
-training are required. Remote Actions execution has not been observed, so local
-evidence does not establish a remote CI pass.
+training are required. A remote Actions failure was reported at the Phase 4
+smoke's historical receipt read. Local repair checks do not establish a remote
+CI pass; confirmation after pushing the fix remains pending.
 
 ## Local source-only checks
 
@@ -73,6 +74,7 @@ neither this service nor its credentials.
 | Publication packaging | 17 focused parser/command passes, 14.10s; Ruff, syntax and links; 174 payload hashes; byte-exact synthetic scoring | Separate source-distribution/restoration checks, with zero fits/evaluation |
 | Earlier documentation-only update | Links, anchors, figure paths, command interfaces, evidence transcription and Git diff | No scientific or mutating reproduction commands executed in that task |
 | Public frozen-scoring delivery | 55 focused passes, 5.60s; rebuilt container 268 passes, one expected SQL skip, 50.45s; Ruff passed | Offline restoration/scoring, exact synthetic example, all 88 policies; full fixture suite may fit synthetic estimators, with no accepted-model fitting or scientific evaluation |
+| Public CI smoke repair | All three CI smokes and Ruff passed; exact `pytest -q`: 270 passes, one expected SQL skip, 51.50s; separate SQL file: four passes, 0.24s | Tracked public files only; isolated container and new disposable database; remote confirmation pending |
 
 Historical results are not newly executed checks. Full commands, tolerances and
 recorded failures remain in [delivery results](../reports/phase5.md),
@@ -93,4 +95,46 @@ unknown categories, monitoring output preservation and CLI failures before acces
 
 Passing fixture tests does not establish complete platform coverage, source
 authentication, temporal/external validation, fairness or real lending impact.
-No automatic retraining, production deployment or observed remote CI is claimed.
+No automatic retraining, production deployment or successful remote CI is claimed.
+
+## Public smoke repair
+
+The reported fresh-checkout failure was `FileNotFoundError` for
+`reports/phase3_acceptance.json`. The Phase 4 synthetic smoke incorrectly called
+`accepted_integrity(PROJECT_ROOT)` before creating its fixture. That guard requires
+the original Phase 3 acceptance receipt, preservation inventory, source attachments,
+customer exports and accepted model store; those are historical reproduction inputs.
+
+The smoke now tests only compatibility on 120 generated rows: a five-tree
+fixture model fits 60 rows; raw/sigmoid/isotonic mappings use 40 separate rows;
+TreeSHAP checks raw-margin additivity on the remaining 20. Plotting and exact
+joblib save/load probability agreement remain active. The existing version checks
+remain. No missing receipt is ignored or fabricated. `accepted_integrity`, real
+Phase 4 commands and the historical bootstrap's integrity step are unchanged.
+
+The environment smoke checks imports/schema serialization; the Phase 2 smoke
+fits tiny synthetic references and uses a temporary explicit local MLflow store.
+Neither requires historical files. SQL tests use synthetic records and verify
+the database's project/lifecycle identity before DDL, inside rollback transactions.
+The workflow commands and dependency lock remain unchanged.
+
+Running the actual bare `pytest -q` command also exposed a fixture import in
+`test_phase5_monitoring.py`: `tests.fixtures` required a `tests` package that this
+checkout does not define. It now imports `fixtures.records`, matching the other
+tests. Earlier `python -m pytest` container checks supplied a different import
+path and did not expose this collection failure. The repair verification uses
+the workflow's exact `pytest` entry point rather than substituting that invocation.
+
+Regression tests run the actual Phase 4 script with only public runtime code,
+no reports/data/artifact directories and unusable database/tracking settings.
+A separate test confirms the historical guard still rejects a missing receipt.
+The [new repair evidence](../reports/public-ci-smoke-fix.json) records isolated
+local checks; previous delivery receipts retain their earlier execution scope.
+The pinned Python 3.12.11 container was rebuilt from a tracked-files-only export.
+The full public export was copied into a new container without host mounts;
+all workflow install/smoke/Ruff/pytest commands used its editable installation
+with `PYTHONPATH` removed. The test container shared only the network namespace
+of a new PostgreSQL 16 container whose network was disabled. SQL identity settings
+were applied to that disposable service, and the enabled SQL file passed separately.
+The original project and private payload were inaccessible. The distribution
+archive, checksum and manifest sidecars retain their accepted delivery hashes.
