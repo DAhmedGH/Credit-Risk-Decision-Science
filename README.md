@@ -89,7 +89,7 @@ SHAP explains raw default log odds on a fixed development sample. It is not caus
 | `docs/` | Architecture, contracts, methodology, setup, scoring and monitoring runbooks |
 | `requirements*.lock`, `Dockerfile`, `compose.yaml` | Pinned dependency checkpoints, fixture container and development database |
 
-Customer-level financial records, labels and audit exports, historical model stores, tracking stores, credentials and environments remain outside Git. The small fitted scoring package is prepared for repository inclusion. The compact split manifest includes customer IDs and frozen group/partition assignments.
+Customer-level financial records, labels and audit exports, historical model stores, tracking stores, credentials and environments remain outside Git. The small fitted scoring package is included in the public repository. The compact split manifest includes customer IDs and frozen group/partition assignments.
 
 ## Getting started
 
@@ -119,7 +119,7 @@ After digest-checked restoration, the included synthetic example produces 12 sco
 
 ## Testing and CI
 
-The [CI workflow](.github/workflows/ci.yml) installs the lock on Ubuntu/Python 3.12, runs synthetic smoke checks, Ruff and pytest, then runs SQL fixtures against its isolated PostgreSQL service. It does not download the dataset, search real-data models or deploy a service. A reported Actions run failed because the Phase 4 fixture smoke requested an excluded historical receipt. The smoke now uses synthetic fixtures only; [local verification](docs/ci_cd.md#public-smoke-repair) is separate from a remote rerun, which remains pending.
+The [CI workflow](.github/workflows/ci.yml) installs the lock on Ubuntu/Python 3.12, runs synthetic smoke checks, Ruff and pytest, then runs SQL fixtures against its isolated PostgreSQL service. It does not download the dataset, search real-data models or deploy a service. The pushed CI repair `412dd68` passed [Actions run 38112715548](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38112715548). The subsequent README revision `b037c81` also passed [run 38113711472](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38113711472). [Observed GitHub status](docs/ci_cd.md#observed-github-status) records the check time and keeps remote results separate from local verification.
 
 Recorded scientific delivery checks, subsequent software checks and publication packaging checks are distinct evidence. Their counts and scopes are in [testing and CI](docs/ci_cd.md); historical passes are not newly executed documentation checks.
 

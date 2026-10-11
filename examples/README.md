@@ -12,6 +12,6 @@ preservation. It is a software example, not a source of real-data measurements.
 Follow [artifact restoration](../docs/setup.md#artifact-restoration) and
 [batch scoring](../docs/batch_scoring.md) before running the CLI. The included
 [public scoring package](../bundles/README.md) replaces the private-payload
-dependency for maintained scoring. Publication is pending; the package is
-prepared locally. The unchanged saved output retains historical evidence and
+dependency for maintained scoring and is available from the public repository.
+The unchanged saved output retains historical evidence and
 is the comparison target for [public delivery checks](../reports/public-scoring-delivery.json).

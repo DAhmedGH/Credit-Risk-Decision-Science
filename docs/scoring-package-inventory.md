@@ -34,6 +34,10 @@ loaded only with explicit trust, after manifest, artifact and compatibility chec
 Exclude workbooks, labels, customer records, SHAP samples, reference models,
 MLflow stores, environments, caches, configurations, source archives and private
 review narratives. Distribution metadata contains no original filesystem paths.
-The archive is intended for repository distribution if its measured size remains
-small. It has not been published; full historical replay remains a separate
-workflow with additional original inputs and source/evidence attachments.
+At this pre-implementation inventory checkpoint, repository distribution was
+planned if the measured archive remained small; publication had not occurred.
+The resulting 29,213-byte archive and its sidecars are now available in the
+[public repository](../bundles/README.md), with
+[remote availability verified](ci_cd.md#observed-github-status).
+Full historical replay remains a separate workflow with additional original
+inputs and source/evidence attachments.

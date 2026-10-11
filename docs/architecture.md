@@ -77,7 +77,7 @@ publication history is separate from original scientific source identities.
 | `artifacts/` tracked files | Source/feature contracts, split assignments and compact provenance | Included |
 | `reports/` | Aggregate comparisons, intervals, policy tables, figures and selected receipts | Included |
 | `examples/` | Synthetic unlabeled input and previously verified output | Included |
-| `bundles/` | Minimal fitted scoring package, checksum and separate delivery manifest | Prepared for repository inclusion; hosting pending |
+| `bundles/` | Minimal fitted scoring package, checksum and separate delivery manifest | Included in the public repository |
 | `data/raw/`, `data/processed/` | Workbook and customer-level exports | Separately preserved inputs |
 | `artifacts/models/`, `artifacts/runtime/` | Frozen fitted bundle, required original evidence and saved evaluation | Separately supplied private payload |
 | `mlruns/`, `.env`, `.venv/` | Local tracking, credentials and environment | Excluded |

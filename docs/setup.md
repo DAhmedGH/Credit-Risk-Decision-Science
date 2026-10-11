@@ -1,9 +1,8 @@
 # Setup and reproduction
 
-The maintained source, synthetic fixtures and a small frozen scoring package
-are prepared locally for repository distribution. Publication remains pending;
-no repository or download URL has been published. Once this checkout is
-published, its `bundles/` directory supplies everything needed for maintained
+The maintained source, synthetic fixtures and frozen scoring package are available
+in the [public repository](https://github.com/DAhmedGH/Credit-Risk-Decision-Science).
+A clone includes the `bundles/` archive, checksum and manifest needed for maintained
 scoring. Raw data and full historical replay attachments remain separate.
 For repository checks, install the pinned environment and run Ruff/fixture pytest.
 
@@ -46,10 +45,10 @@ The Dockerfile pins the public ECR Python mirror digest
 `sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7`.
 Its build context excludes raw data, historical model stores, environments,
 credentials and caches; the small public scoring package is included.
-CI uses the exact lock, fixtures and an isolated PostgreSQL service. A reported
-Actions run failed at an excluded historical receipt; the
-[public smoke repair](ci_cd.md#public-smoke-repair) is locally verified, with remote
-confirmation pending after the fix is pushed.
+CI uses the exact lock, fixtures and an isolated PostgreSQL service. The
+[public smoke repair](ci_cd.md#public-smoke-repair) is pushed and has a successful
+Actions run; [observed GitHub status](ci_cd.md#observed-github-status) records the
+specific revisions and run links separately from local container evidence.
 
 ```bash
 docker build -t credit-risk-public-scoring:local .
@@ -60,15 +59,15 @@ docker run --rm --network none --read-only --tmpfs /tmp \
 
 ## Artifact restoration
 
-The proposed repository distribution includes
+The public repository includes
 [credit-risk-scoring-v1.tar.gz](../bundles/credit-risk-scoring-v1.tar.gz),
 [checksum](../bundles/credit-risk-scoring-v1.sha256) and
 [manifest](../bundles/credit-risk-scoring-v1.manifest.json).
 Version: `public-scoring-v1`; archive size: 29,213 bytes.
-No private payload or original repository is needed for this route. Availability
-is currently local preparation only; do not interpret these files as a live
-release download. The [distribution guide](../bundles/README.md) records contents,
-identities and remaining publication steps.
+No private payload or original repository is needed for this route. The package
+is distributed through the repository's `bundles/` directory rather than a separate
+release asset. The [distribution guide](../bundles/README.md) records contents,
+identities and public availability.
 
 From the publication checkout after installing the pinned environment:
 
@@ -221,7 +220,7 @@ records remain in private historical attachments and the
 
 The historical population, unknown original acquisition chain, absent temporal
 and external validation, synthetic utility/monitoring, conditional intervals and
-unconfirmed successful remote CI limit interpretation. No profit, causal lending impact,
+the scope of fixture-based CI limit interpretation. No profit, causal lending impact,
 new-applicant validation, fairness certification or production deployment is claimed.
 
 ## Historical checkpoint guides

@@ -1,10 +1,11 @@
 # Frozen scoring distribution
 
-`public-scoring-v1` is prepared locally for inclusion in the publication repository.
-No remote repository, release or public download URL has been published. At
-29,213 bytes, the archive is small enough for ordinary Git distribution; no
-separate release asset or large-file service is needed. Once the reviewed local
-commit is pushed to a public repository, a clone supplies the package.
+`public-scoring-v1` is available in the
+[public repository](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/tree/main/bundles).
+At 29,213 bytes, the archive is small enough for ordinary Git distribution; no
+separate release asset or large-file service is needed. A repository clone supplies
+the archive, checksum and manifest sidecars. The remotely retrieved files match
+the preserved local delivery bytes; see [observed status](../docs/ci_cd.md#observed-github-status).
 
 | File | Purpose |
 | --- | --- |
@@ -86,11 +87,10 @@ accepted artifacts; end-user restoration and scoring do not.
   --output /path/to/new/scoring-distribution
 ```
 
-The concrete publication steps remaining after local review and commit are:
-
-1. Choose/create the GitHub repository and public visibility; set its actual remote URL.
-2. Push the reviewed `main` branch and confirm GitHub Actions; no remote result is yet observed.
-3. Verify the archive checksum and documented route from a fresh public clone.
-
+The repository and bundle are published, and the pushed CI repair has a successful
+[Actions run](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38112715548).
+Remote archive and sidecar byte equality was checked separately from the earlier
+isolated restoration/scoring execution. This documentation status check did not
+repeat installation or scoring from a fresh GitHub clone. Follow the checksum,
+restoration and example-scoring commands in [setup](../docs/setup.md) for that route.
 No tag or release is required for this small repository-distributed package.
-Do not invent a repository URL or report these publication steps as complete.

@@ -237,3 +237,30 @@ check in a rebuilt isolated container containing tracked public files only.
 The reported remote failure and pending remote confirmation are distinct from
 these locally executed checks. No accepted-model fitting, real-data calibration,
 search or final-test evaluation ran; earlier scientific receipts are preserved.
+
+## Public availability and observed remote CI — D032
+
+The public repository and scoring package are now hosted on
+[GitHub](https://github.com/DAhmedGH/Credit-Risk-Decision-Science). A separate
+documentation status check observed GitHub's public API on
+`2026-10-11T05:08:56Z`: the pushed CI repair
+`412dd680c842061663fdfc5223ccd28fd5433221` has a completed, successful
+[fixture run](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38112715548).
+The subsequent README-only revision
+`b037c814dc5d70057d20c612b42815f91179fdf5`, then remote `main`, also has a
+[successful run](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38113711472).
+The repair's smoke, Ruff, pytest and separate SQL steps were observed as successful.
+
+The published archive, checksum and manifest sidecars were retrieved over
+certificate-verified HTTPS at that README revision and match the preserved local
+files byte-for-byte. Archive SHA-256 remains
+`d2fb60ca57f3b8b39fc271b62a2f0386db35842a8389d3444a4e6d6af6ce1349`.
+See [observed status](ci_cd.md#observed-github-status). Maintained frozen scoring
+uses this public package without the private payload; historical replay still
+requires additional original inputs and source/evidence attachments.
+
+These current-status observations supersede the earlier pending availability and
+remote-confirmation wording for the maintained route. D028–D031 and historical
+receipts retain their original checkpoint descriptions. No installation, scoring,
+tests, training or scientific evaluation were rerun during this documentation
+check; no historical evidence or artifact hashes were changed.

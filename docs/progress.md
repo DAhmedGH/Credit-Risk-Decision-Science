@@ -2,8 +2,9 @@
 
 All five phases reached their recorded local acceptance checkpoints. Completion
 is qualified by unknown original acquisition records, historical replay
-dependencies and unconfirmed successful remote CI; the [checklist](project-checklist.md)
-distinguishes these from passed local checks. The study uses
+dependencies; the [checklist](project-checklist.md) distinguishes these from
+passed local checks and [observed remote fixture CI](ci_cd.md#observed-github-status).
+The study uses
 30,000 historical customer snapshots, four frozen fingerprint-group partitions
 (18,000/4,500/3,000/4,500 rows), and five development folds. Source attribution,
 unknown original acquisition details, prediction-time assumptions and limitations
@@ -47,8 +48,12 @@ A subsequent remote Actions failure was reported in the public Phase 4 smoke:
 it tried to read an excluded historical acceptance receipt. The fixture smoke
 now retains calibration/TreeSHAP/plot/save-load coverage without historical inputs;
 the original acceptance guards remain unchanged. See
-[CI repair evidence](../reports/public-ci-smoke-fix.json). Remote confirmation of
-the repair remains pending; historical test counts above are unchanged.
+[CI repair evidence](../reports/public-ci-smoke-fix.json). The repair was subsequently
+pushed as `412dd68`, and its
+[remote run succeeded](https://github.com/DAhmedGH/Credit-Risk-Decision-Science/actions/runs/38112715548).
+The following README revision also passed; see
+[observed GitHub status](ci_cd.md#observed-github-status). Historical test counts
+above and the earlier local receipt remain unchanged.
 The repair's rebuilt-container checks ran all three actual CI smokes and Ruff;
 `pytest -q` passed 270 tests with one expected SQL skip in 51.50 seconds.
 The separate SQL step passed four tests in 0.24 seconds against a new marked
@@ -63,7 +68,7 @@ are preserved. This documentation is a presentation summary; exact historical
 receipt/source attachments are retained privately.
 
 Maintained scoring now uses the separately versioned
-[public package](../bundles/README.md), prepared for repository inclusion. It
+[public package](../bundles/README.md), available in the public repository. It
 contains the unchanged selected fitted pipeline and frozen definitions, with
 no private-payload dependency. Historical replay still requires additional
 original inputs and source/evidence attachments. Follow [reproduction and scoring](setup.md).
@@ -77,6 +82,7 @@ Installed-package scoring also passed from a different directory with
 `PYTHONPATH` removed. See the [delivery evidence](../reports/public-scoring-delivery.json)
 and [focused review](../reports/public-scoring-review.md). No accepted model was
 fitted and no scientific evaluation was rerun.
-No further modeling phase is pending. No push, public artifact hosting or deployment
-has occurred. Historical Taiwan data, absent temporal/external validation,
+No further modeling phase is pending. The repository and scoring package are
+published on GitHub, with successful fixture CI observed for the revisions above.
+No production deployment is claimed. Historical Taiwan data, absent temporal/external validation,
 synthetic utility and conditional uncertainty remain material limitations.

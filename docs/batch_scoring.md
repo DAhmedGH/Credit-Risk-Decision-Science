@@ -4,8 +4,8 @@ The scorer loads the accepted fitted pipeline from the separately versioned
 public package and produces default probabilities and hypothetical actions for
 unlabeled CSV/Parquet records. It never fits, reads labels or uses PostgreSQL,
 MLflow, the original repository or a private payload. The
-[distribution](../bundles/README.md) is prepared locally for repository inclusion;
-public availability remains pending publication. [Setup](setup.md#artifact-restoration)
+[distribution](../bundles/README.md) is included in the public repository;
+a clone supplies the scoring package. [Setup](setup.md#artifact-restoration)
 provides installation and digest-checked restoration.
 
 ## Prerequisites and command
