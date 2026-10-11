@@ -1,4 +1,4 @@
-# Reproduce Phase 2
+# Baseline evaluation — historical reproduction
 
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts

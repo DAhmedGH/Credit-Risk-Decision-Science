@@ -1,4 +1,4 @@
-# Reproduce Phase 1
+# Data ingestion and validation — historical reproduction
 
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
@@ -15,7 +15,8 @@ This guide records the Phase 1 workflow. Phase 2 is now accepted; its current
 58-pin `requirements.lock` supersedes the original 11-pin lock, preserved as
 `requirements-phase1.lock`. Statements below about unchanged lock bytes and
 future modeling dependencies describe the Phase 1 checkpoint. Use
-[Phase 2 reproduction](reproduction-phase2.md) for the current baseline environment.
+[Baseline evaluation recipe](reproduction-phase2.md) for that checkpoint's
+baseline environment.
 
 Do not replay the historical `reproduce` command merely for Phase 2 acceptance.
 With the expanded lock, Phase 1 evidence has a changed lock identity and the

@@ -1,5 +1,13 @@
 # Credit Risk: Five-Week Phase Plan
 
+**Historical context.** This document records the original implementation plan,
+including planned requirements, phase ordering and file locations. Delivered
+behavior and documented deviations are described in the maintained
+[setup](../setup.md), [modeling](../modeling.md),
+[calibration and policies](../calibration_policies.md) and
+[batch scoring](../batch_scoring.md) guides. See the
+[original design](../original_design.md) for the specification behind this plan.
+
 **Project:** Credit Risk & Lending Decision Science Platform  
 **Plan version:** 1.0, October 6, 2026  
 **Specification:** `Credit-Risk-Design.md`  

@@ -1,4 +1,4 @@
-# Phase 4 reproduction and durable loading
+# Calibration and policies — historical reproduction and loading
 
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts
@@ -91,7 +91,7 @@ PY
 
 All original reference binaries also loaded successfully in acceptance.
 Their paths are `accepted_models/<candidate>/development_pipeline.joblib`.
-[Phase 3 exact loading](reproduction-phase3.md#load-the-exact-accepted-base-and-references)
+[Exact selected/reference model loading](reproduction-phase3.md#load-the-exact-accepted-base-and-references)
 remains available. Bundle and standalone model metadata have complementary
 schemas: shared integrity/positive-class fields agree; the bundle records
 candidate/reference identities, while the standalone file records mapping

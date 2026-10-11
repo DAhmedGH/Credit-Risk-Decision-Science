@@ -1,5 +1,14 @@
 # Credit Risk & Lending Decision Science Platform
 
+**Historical context.** This document records the original project design.
+Planned requirements and the original repository layout are retained below.
+For delivered behavior and documented deviations, use the [README](../README.md)
+and maintained [architecture](architecture.md), [modeling](modeling.md),
+[calibration and policies](calibration_policies.md) and
+[batch scoring](batch_scoring.md) guides. The
+[original implementation plan](archive/original_phase_plan.md) records the
+historical delivery sequence.
+
 ## Project design document
 
 **Version:** 1.0  

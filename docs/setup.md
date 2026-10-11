@@ -156,7 +156,8 @@ Preflight writes `reports/phase5_preflight.json`; it is not read-only.
 
 Historical source attachments may contain local execution notes and must remain
 private. Earlier phase recipes require their original locks, receipts and private
-Phase 3 backup; see [the historical checkpoint recipes](#historical-checkpoint-guides). Do not recreate a receipt or copy
+Phase 3 backup; see [the historical workflow recipes](#historical-workflow-recipes).
+Do not recreate a receipt or copy
 presentation text over a required historical file to make a hash check pass.
 
 ### Saved-evidence reporting and monitoring
@@ -223,14 +224,14 @@ and external validation, synthetic utility/monitoring, conditional intervals and
 the scope of fixture-based CI limit interpretation. No profit, causal lending impact,
 new-applicant validation, fairness certification or production deployment is claimed.
 
-## Historical checkpoint guides
+## Historical workflow recipes
 
 These are checkpoint recipes, not fresh-clone onboarding steps. Keep their own
 source, locks, inputs and required original receipts together in a private copy.
 
 | Recorded checkpoint | Preserved recipe |
 | --- | --- |
-| Data validation, ingestion and features | [Data workflow](reproduction.md) |
-| Baseline models and pipelines | [Baseline workflow](reproduction-phase2.md) |
-| Bounded search and selection | [Model search](reproduction-phase3.md) · [checkpoint history](reproduction-phase3-history.md) |
-| Calibration, explanations and freeze | [Bundle freeze](reproduction-phase4.md) |
+| Data ingestion and validation | [Data workflow](reproduction.md) |
+| Baseline evaluation | [Baseline workflow](reproduction-phase2.md) |
+| Model selection | [Accepted models and loading](reproduction-phase3.md) · [search history](reproduction-phase3-history.md) |
+| Calibration and policies | [Bundle freeze](reproduction-phase4.md) |

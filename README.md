@@ -131,11 +131,18 @@ The historical Taiwan existing-account sample has no temporal or external valida
 
 ## Documentation
 
+Start with the walkthrough, then use the maintained topic guides for methods,
+commands and execution boundaries.
+
 | Start here | Detail |
 | --- | --- |
+| [Project walkthrough](docs/walkthrough.md) | A guided route from the prediction task through model evidence, policies and optional scoring |
 | [Architecture](docs/architecture.md) · [Data contracts](docs/data_contracts.md) | Components, storage, grains, validation and financial features |
 | [Setup](docs/setup.md) · [Batch scoring](docs/batch_scoring.md) | Repository checks, public package restoration, input/output contracts and separate historical replay |
 | [Modeling](docs/modeling.md) · [Leakage controls](docs/leakage_audit.md) | Partition isolation, preprocessing, search budgets and selection |
 | [Calibration and policies](docs/calibration_policies.md) · [Evaluation](reports/results.md) | Probability assessment, hypothetical decisions, frozen metrics and uncertainty |
 | [Explanations](docs/explanations.md) · [Monitoring](docs/monitoring.md) | Raw-log-odds SHAP, descriptive slices and synthetic diagnostics |
 | [Testing and CI](docs/ci_cd.md) · [Model card](docs/model_card.md) | Verification provenance, workflow boundaries, intended use and limitations |
+
+For historical context, the [original project design](docs/original_design.md)
+records the starting specification and links to the archived implementation plan.

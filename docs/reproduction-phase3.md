@@ -1,4 +1,4 @@
-# Accepted Phase 3 artifacts and reproduction
+# Model selection — accepted artifacts and historical reproduction
 
 These are historical phase commands, retained for reproducibility. Run them only
 in a separate private historical source/payload copy with its original receipts

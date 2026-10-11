@@ -1,8 +1,9 @@
 # Project walkthrough
 
 This sequence connects the prediction task, model evidence and simulated policy
-interpretation. Scoring is optional and requires the separately supplied frozen
-payload; all linked public figures and aggregates can be inspected from a clone.
+interpretation. Scoring is optional and uses the included
+[public scoring package](../bundles/README.md). The linked figures, aggregates
+and frozen scoring workflow are available from a public clone.
 
 | Step | What to inspect | Interpretation |
 | --- | --- | --- |
@@ -13,7 +14,7 @@ payload; all linked public figures and aggregates can be inspected from a clone.
 | Final evaluation | [Results and intervals](../reports/results.md) | AP 0.5642 improves on the prior baseline; the forest's numerical lead does not replace the preselected model |
 | Hypothetical decisions | [Policies](calibration_policies.md) | Cutoff 0.085 accepts 1,028 records and yields 4.70 synthetic units/customer; analytic 5.0667 is also reported |
 | Diagnostics | [Explanations](explanations.md) · [monitoring](monitoring.md) | Raw-log-odds associations, suppressed descriptive slices and synthetic shifts do not establish causation or fairness |
-| Optional scoring | [Batch runbook](batch_scoring.md) · [setup](setup.md) | Inspect synthetic output/receipt reconciliation; public source alone cannot load the frozen model |
+| Optional scoring | [Batch runbook](batch_scoring.md) · [setup](setup.md#artifact-restoration) | Restore the included package and inspect synthetic output/receipt reconciliation; no private payload or fitting is required |
 
 The gain-25/loss-750 scenario retains abstain-all, and an empty accepted set has
 default rate N/A. Conditional group-bootstrap intervals omit model-development

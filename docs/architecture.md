@@ -38,7 +38,8 @@ contracts without renaming the implementation.
 
 ## Delivered interfaces
 
-The design's YAML command sketch and directory tree were proposed interfaces.
+The [original design](original_design.md) proposed a YAML command sketch and
+directory tree.
 The delivered configuration is TOML, with stage-specific entry points and
 `inference.py`, `monitoring.py` and `explanations.py` as modules.
 
@@ -52,7 +53,7 @@ The delivered configuration is TOML, with stage-specific entry points and
 
 The main module's `reproduce` covers the data workflow, not all five modeling
 stages. The planned unified `train`/`calibrate`/`policy` commands are not aliases
-for the delivered entry points. [Setup](setup.md) and [historical recipes](setup.md#historical-checkpoint-guides)
+for the delivered entry points. [Setup](setup.md) and [historical recipes](setup.md#historical-workflow-recipes)
 provide actual commands and dependencies.
 
 No notebooks were delivered from the proposed layout; reusable Python modules,
